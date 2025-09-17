@@ -124,15 +124,5 @@
   }
   body {
     @apply bg-background text-foreground;
-    overscroll-behavior: none;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    scroll-snap-type: y mandatory;
-    scroll-snap-stop: always;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    };
   }
 }

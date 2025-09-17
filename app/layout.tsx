@@ -27,9 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn(fonts, 'snap-y snap-mandatory')}>
+    <html lang="en" className={cn(fonts)}>
       <body
-        className="relative min-h-screen scroll-snap-y-mandatory"
+        className="relative min-h-screen"
       >
         <Header />
         <main>
