@@ -38,7 +38,7 @@ export function Header() {
       >
         <Icons.logo className="size-5" />
       </Link>
-      <nav className="space-x-2">
+      <nav className="hidden space-x-2 md:block">
         {navLinks.map((link) => (
           <Link
             className={cn(

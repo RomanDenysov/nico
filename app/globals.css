@@ -46,8 +46,8 @@
 }
 
 :root {
-  --brand: #3B3283;
-  --brand-foreground: #F5B2B6;
+  --brand: #3b3283;
+  --brand-foreground: #f5b2b6;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -83,8 +83,8 @@
 }
 
 .dark {
-  --brand: #3B3283;
-  --brand-foreground: #F5B2B6;
+  --brand: #3b3283;
+  --brand-foreground: #f5b2b6;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
