@@ -1,47 +1,33 @@
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card"
+import Image from "next/image";
+import { Button } from "./ui/button";
 
-export interface CTAProps {
-  title: string
-  description?: string
-  buttonLabel: string
-  href?: string
-  onClick?: () => void
-}
-
-export function CTA({ title, description, buttonLabel, href, onClick }: CTAProps) {
+export function CTA() {
   return (
     <section
+      aria-describedby="cta-description"
       aria-label="Call to action"
       aria-labelledby="cta-title"
-      aria-describedby="cta-description"
+      className="h-screen w-full px-4 py-20"
       id="cta"
-      className="h-screen w-full snap-center px-4 pt-26 pb-20"
     >
-      <Card className="relative overflow-hidden h-full min-h-[320px] flex items-center justify-center">
-        <CardContent className="flex flex-col items-center text-center gap-4">
-          <CardTitle id="cta-title" className="text-4xl md:text-5xl">
-            {title}
-          </CardTitle>
-          {description ? (
-            <CardDescription id="cta-description" className="max-w-prose">
-              {description}
-            </CardDescription>
-          ) : null}
-          {href ? (
-            <Button asChild size="lg" className="mt-2">
-              <Link href={href}>{buttonLabel}</Link>
-            </Button>
-          ) : (
-            <Button size="lg" className="mt-2" onClick={onClick}>
-              {buttonLabel}
-            </Button>
-          )}
-        </CardContent>
-      </Card>
+      <div className="relative h-full overflow-hidden rounded-4xl bg-brand">
+        <Image
+          alt={"Call to action image"}
+          className="object-cover object-center"
+          fill
+          priority
+          src={"/images/cta.jpg"}
+        />
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 flex flex-col items-start justify-between gap-4 p-6">
+          <h2 className="text-4xl text-white md:text-5xl">Rezervovat</h2>
+          <p className="text-lg text-white md:text-xl">
+            Some information about this year in 3 raw Some information about
+            this year in 3 raw
+          </p>
+          <Button size="lg">Rezervovat</Button>
+        </div>
+      </div>
     </section>
-  )
+  );
 }
-
-
