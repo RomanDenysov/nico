@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CONFIG } from "@/app/config";
 import { cn } from "@/lib/utils";
+import heroImage from "@/public/images/hero.jpg";
 import { Separator } from "./ui/separator";
 
 const OpenHoursCard = () => (
@@ -49,10 +50,9 @@ export function Hero() {
       <div className="relative h-full overflow-hidden rounded-4xl bg-brand">
         <Image
           alt={`${CONFIG.hero.title} hero image`}
-          className="object-cover object-center"
-          fill
+          className="size-full object-cover object-center"
           priority
-          src={CONFIG.hero.image}
+          src={heroImage}
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex flex-col items-start justify-between gap-4 p-6">
