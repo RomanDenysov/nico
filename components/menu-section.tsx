@@ -28,7 +28,7 @@ export function MenuSection() {
       className="h-screen w-full snap-center px-4 py-20"
       id="menu"
     >
-      <div className="relative overflow-hidden rounded-[40px] border-2 border-brand p-6">
+      <div className="relative overflow-hidden rounded-[40px] border-2 border-brand p-6 shadow-2xl drop-shadow-2xl">
         <h2 className="mb-6 font-semibold text-3xl md:text-4xl">Menu</h2>
         <div className="space-y-4">
           {categories.map((category) => (

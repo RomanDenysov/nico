@@ -5,7 +5,7 @@ import heroImage from "@/public/images/hero.jpg";
 import { Separator } from "./ui/separator";
 
 const OpenHoursCard = () => (
-  <div className="hidden shrink-0 rounded-4xl bg-brand-foreground p-6 md:block">
+  <div className="hidden shrink-0 rounded-4xl bg-brand-foreground p-6 shadow-2xl drop-shadow-2xl md:block">
     <div className="mx-auto max-w-[560px]">
       <h3 className="mb-4 font-bold text-lg text-white tracking-tight">
         {CONFIG.openingHours.title}
@@ -47,7 +47,7 @@ export function Hero() {
       className="h-screen w-full px-4 py-20"
       id="hero"
     >
-      <div className="relative h-full overflow-hidden rounded-4xl bg-brand">
+      <div className="relative h-full overflow-hidden rounded-4xl bg-brand shadow-2xl drop-shadow-2xl">
         <Image
           alt={`${CONFIG.hero.title} hero image`}
           className="size-full object-cover object-center"

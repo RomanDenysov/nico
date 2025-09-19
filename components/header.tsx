@@ -28,7 +28,7 @@ export function Header() {
 
   return (
     <header
-      className="fixed inset-x-4 top-4 z-40 flex flex-wrap items-center gap-2 rounded-full bg-brand-foreground p-2"
+      className="fixed inset-x-4 top-4 z-40 flex flex-wrap items-center gap-2 rounded-full bg-brand-foreground p-2 shadow-2xl drop-shadow-2xl"
       ref={headerRef}
     >
       {/* <NavMenuButton open={open} setOpen={setOpen} /> */}

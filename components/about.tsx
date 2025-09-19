@@ -72,7 +72,7 @@ export function About() {
       id="about"
     >
       <Carousel opts={{ align: "start" }} setApi={setApi}>
-        <div className="relative overflow-hidden rounded-4xl bg-brand pb-1">
+        <div className="relative overflow-hidden rounded-4xl bg-brand pb-1 shadow-2xl drop-shadow-2xl">
           <div className="relative mb-6 flex items-center justify-between px-6 pt-6">
             <h2 className="font-semibold text-3xl text-white md:text-4xl">
               O nás

@@ -1,52 +1,141 @@
-import Link from "next/link"
+import { type LucideIcon, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Icons } from "./icons";
+import { buttonVariants } from "./ui/button";
 
-export interface SiteFooterProps {
-  email?: string
-  phone?: string
-  address?: string
-  socials?: { label: string; href: string }[]
+export type SiteFooterProps = {
+  email?: string;
+  phone?: string;
+  address?: string;
+  socials?: Social[];
+};
+
+type Social = {
+  icon: LucideIcon;
+  href: string;
+};
+
+function FooterSocials({ socials }: { socials: Social[] }) {
+  return (
+    <ul className="flex gap-3">
+      {socials.map((s, i) => (
+        <li key={`${s.href}-${i}`}>
+          <Link
+            className={cn(
+              buttonVariants({ size: "icon" }),
+              "size-10 rounded-full bg-brand-foreground text-brand hover:bg-brand-foreground/80"
+            )}
+            href={s.href}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <s.icon className="size-6" />
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
-export function SiteFooter({ email, phone, address, socials = [] }: SiteFooterProps) {
+export function SiteFooter({
+  email,
+  phone,
+  address,
+  socials = [],
+}: SiteFooterProps) {
   return (
-    <footer aria-label="Footer" className="h-screen w-full snap-center px-4 pt-26 pb-20 mt-0 border-t">
-      <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Kontakt</h3>
-          {address ? <p className="text-sm text-muted-foreground">{address}</p> : null}
-          {email ? (
-            <p className="text-sm"><Link href={`mailto:${email}`} className="hover:underline">{email}</Link></p>
-          ) : null}
-          {phone ? (
-            <p className="text-sm"><Link href={`tel:${phone.replace(/\s+/g, "")}`} className="hover:underline">{phone}</Link></p>
-          ) : null}
-        </div>
+    <footer className="w-full px-4 pt-20">
+      <div className="flex flex-col items-center justify-between rounded-4xl border bg-brand px-6 shadow-2xl drop-shadow-2xl">
+        <center className="mt-6 mb-8 flex items-center justify-center">
+          <Link
+            className="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-brand-foreground bg-brand p-1.5 text-brand-foreground transition-colors duration-200 hover:bg-brand/40"
+            href="/"
+          >
+            <Icons.logo className="size-10" />
+          </Link>
+        </center>
+        <div className="flex w-full max-w-7xl flex-row flex-wrap items-start justify-between gap-8 pb-6">
+          <div className="flex flex-col gap-2">
+            <h3 className="font-semibold text-lg text-white">Kontakt</h3>
+            {email ? (
+              <Link
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                  "rounded-4xl border-brand-foreground bg-transparent text-brand-foreground hover:bg-brand-foreground/60"
+                )}
+                href={`mailto:${email}`}
+              >
+                <MailIcon className="size-4" />
+                {email}
+              </Link>
+            ) : null}
+            {phone ? (
+              <Link
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                  "rounded-4xl border-brand-foreground bg-transparent text-brand-foreground hover:bg-brand-foreground/60"
+                )}
+                href={`tel:${phone.replace(/\s+/g, "")}`}
+              >
+                <PhoneIcon className="size-4" />
+                {phone}
+              </Link>
+            ) : null}
+            {address ? (
+              <Link
+                className={cn(
+                  buttonVariants({ size: "sm" }),
+                  "w-fit rounded-4xl bg-brand-foreground text-brand hover:bg-brand-foreground/60"
+                )}
+                href={`tel:${address.replace(/\s+/g, "")}`}
+              >
+                <MapPinIcon className="size-4" />
+                {address}
+              </Link>
+            ) : null}
+          </div>
 
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Odkazy</h3>
-          <ul className="text-sm space-y-1 text-muted-foreground">
-            <li><Link href="#hero" className="hover:underline">Úvod</Link></li>
-            <li><Link href="#menu" className="hover:underline">Menu</Link></li>
-            <li><Link href="#cta" className="hover:underline">Rezervace</Link></li>
-          </ul>
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Sledujte nás</h3>
-          <ul className="flex items-center gap-3 text-sm">
-            {socials.map((s) => (
-              <li key={s.href}>
-                <Link href={s.href} className="hover:underline">{s.label}</Link>
+          <div className="space-y-2">
+            <h3 className="font-semibold text-lg text-white">Odkazy</h3>
+            <ul className="flex flex-col gap-1 font-medium text-base text-brand-foreground">
+              <li>
+                <Link
+                  className="transition-all duration-200 hover:underline hover:underline-offset-4"
+                  href="#hero"
+                >
+                  O nás
+                </Link>
               </li>
-            ))}
-          </ul>
+              <li>
+                <Link
+                  className="transition-all duration-200 hover:underline hover:underline-offset-4"
+                  href="#menu"
+                >
+                  Menu
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="transition-all duration-200 hover:underline hover:underline-offset-4"
+                  href="#cta"
+                >
+                  Kontakt
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="col-span-2 space-y-2 md:col-span-1">
+            <h3 className="font-semibold text-lg text-white">Sledujte nás</h3>
+            <FooterSocials socials={socials} />
+          </div>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl mt-10 text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Nico. Všechna práva vyhrazena.
+
+      <div className="mx-auto my-4 w-full text-center text-muted-foreground text-xs">
+        {`© ${new Date().getFullYear()} Nico. Všechna práva vyhrazena.`}
       </div>
     </footer>
-  )
+  );
 }
-
-

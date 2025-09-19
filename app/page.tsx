@@ -1,3 +1,4 @@
+import { Facebook, Instagram } from "lucide-react";
 import { About } from "@/components/about";
 import { CTA } from "@/components/cta";
 import { Hero } from "@/components/hero";
@@ -12,12 +13,12 @@ export default function Home() {
       <CTA />
       <MenuSection />
       <SiteFooter
-        address="123 Bistro Street, Praha"
+        address="Prešov"
         email="hello@nico.example"
         phone="+420 123 456 789"
         socials={[
-          { label: "Instagram", href: "#" },
-          { label: "Facebook", href: "#" },
+          { icon: Instagram, href: "#" },
+          { icon: Facebook, href: "#" },
         ]}
       />
     </>
