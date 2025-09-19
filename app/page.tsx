@@ -10,28 +10,7 @@ export default function Home() {
       <Hero />
       <About />
       <CTA />
-      <MenuSection
-        categories={[
-          {
-            id: "drinky",
-            title: "Drinky",
-            items: [
-              { name: "Kava", price: "2,50" },
-              { name: "Pivo", price: "2,50" },
-              { name: "Kveijo", price: "2,50" },
-              { name: "Bombalajto", price: "2,50" },
-            ],
-          },
-          {
-            id: "jidlo",
-            title: "Jídlo",
-            items: [
-              { name: "Polévka dne", price: "3,50" },
-              { name: "Snídaně bowl", price: "4,90" },
-            ],
-          },
-        ]}
-      />
+      <MenuSection />
       <SiteFooter
         address="123 Bistro Street, Praha"
         email="hello@nico.example"
