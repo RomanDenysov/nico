@@ -68,7 +68,7 @@ export function About() {
       aria-describedby="about-description"
       aria-label="About section"
       aria-labelledby="about-title"
-      className="w-full snap-center px-4 py-10"
+      className="w-full px-4 py-10"
       id="about"
     >
       <Carousel opts={{ align: "start" }} setApi={setApi}>

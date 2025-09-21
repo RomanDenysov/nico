@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { cn } from "@/lib/utils";
+import ctaImage from "@/public/images/cta.jpg";
 import { Button } from "./ui/button";
 
 export function CTA() {
@@ -13,15 +15,25 @@ export function CTA() {
       <div className="relative h-full overflow-hidden rounded-4xl bg-brand">
         <Image
           alt={"Call to action image"}
-          className="object-cover object-center"
-          fill
+          className="size-full object-cover object-center"
           priority
-          src={"/images/cta.jpg"}
+          src={ctaImage}
         />
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex flex-col items-start justify-between gap-4 p-6">
-          <h2 className="text-4xl text-white md:text-5xl">Rezervovat</h2>
-          <p className="text-lg text-white md:text-xl">
+          <h2
+            className={cn(
+              "font-black text-6xl text-white leading-none md:text-8xl xl:text-[100px"
+            )}
+            style={{
+              WebkitTextFillColor: "transparent",
+              WebkitTextStroke: "4px currentColor",
+              paintOrder: "stroke fill",
+            }}
+          >
+            Rezervovat
+          </h2>
+          <p className="text-left text-lg text-white leading-none sm:max-w-[90%] sm:text-2xl md:max-w-[80%] md:text-xl lg:max-w-[70%] lg:text-2xl xl:max-w-[60%] xl:text-3xl">
             Some information about this year in 3 raw Some information about
             this year in 3 raw
           </p>

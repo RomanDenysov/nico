@@ -25,7 +25,7 @@ export function MenuSection() {
   return (
     <section
       aria-label="Menu"
-      className="h-screen w-full snap-center px-4 py-20"
+      className="w-full snap-center px-4 py-20"
       id="menu"
     >
       <div className="relative overflow-hidden rounded-[40px] border-2 border-brand p-6 shadow-2xl drop-shadow-2xl">

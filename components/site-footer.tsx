@@ -55,7 +55,7 @@ export function SiteFooter({
             <Icons.logo className="size-10" />
           </Link>
         </center>
-        <div className="flex w-full max-w-7xl flex-row flex-wrap items-start justify-between gap-8 pb-6">
+        <div className="flex w-full max-w-7xl flex-row flex-wrap items-start justify-between gap-8 pb-12">
           <div className="flex flex-col gap-2">
             <h3 className="font-semibold text-lg text-white">Kontakt</h3>
             {email ? (
@@ -96,9 +96,9 @@ export function SiteFooter({
             ) : null}
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-4">
             <h3 className="font-semibold text-lg text-white">Odkazy</h3>
-            <ul className="flex flex-col gap-1 font-medium text-base text-brand-foreground">
+            <ul className="flex flex-col gap-2 font-medium text-base text-brand-foreground">
               <li>
                 <Link
                   className="transition-all duration-200 hover:underline hover:underline-offset-4"
@@ -126,7 +126,7 @@ export function SiteFooter({
             </ul>
           </div>
 
-          <div className="col-span-2 space-y-2 md:col-span-1">
+          <div className="space-y-4">
             <h3 className="font-semibold text-lg text-white">Sledujte nás</h3>
             <FooterSocials socials={socials} />
           </div>
