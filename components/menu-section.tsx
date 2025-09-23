@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Card, CardHeader, CardTitle } from "./ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type Category = {
   id: string;
@@ -38,14 +38,20 @@ const categories = [
 export function MenuSection({ className }: { className?: string }) {
   return (
     <section aria-label="Menu" className={className} id="menu">
-      <h2 className="mb-6 px-6 font-semibold text-3xl md:text-4xl">Menu</h2>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
-        {categories.map((category) => (
-          <Link href={`/menu#${category.id}`} key={category.id}>
-            <CategoryCard category={category} />
-          </Link>
-        ))}
-      </div>
+      <Card className="border-brand-foreground bg-brand-foreground">
+        <CardHeader>
+          <CardTitle className="text-white">Menu</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+            {categories.map((category) => (
+              <Link href={`/menu#${category.id}`} key={category.id}>
+                <CategoryCard category={category} />
+              </Link>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </section>
   );
 }

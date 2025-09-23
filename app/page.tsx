@@ -1,5 +1,5 @@
 import { Facebook, Instagram } from "lucide-react";
-import { About } from "@/components/about";
+import { AboutSection } from "@/components/about-section";
 import { ContactCard } from "@/components/contact-card";
 import { Container } from "@/components/container";
 import { CtaSection } from "@/components/cta-section";
@@ -10,10 +10,10 @@ import { WorkingHoursCard } from "@/components/working-hours-card";
 
 export default function Home() {
   return (
-    <Container>
+    <Container className="space-y-10">
       <Hero />
-      <About className="py-10" />
-      <MenuSection className="py-20" />
+      <AboutSection />
+      <MenuSection />
       <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
         <CtaSection className="col-span-2 md:row-span-2" />
         <ContactCard />
