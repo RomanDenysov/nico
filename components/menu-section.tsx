@@ -1,61 +1,32 @@
 import { PlusIcon } from "lucide-react";
-
-const categories = [
-  {
-    id: "drinky",
-    title: "Drinky",
-    items: [
-      { name: "Kava", price: "2,50" },
-      { name: "Pivo", price: "2,50" },
-      { name: "Kveijo", price: "2,50" },
-      { name: "Bombalajto", price: "2,50" },
-    ],
-  },
-  {
-    id: "jidlo",
-    title: "Jídlo",
-    items: [
-      { name: "Polévka dne", price: "3,50" },
-      { name: "Snídaně bowl", price: "4,90" },
-    ],
-  },
-];
+import { type Category, categories } from "@/lib/menu";
+import { Container } from "./container";
 
 export function MenuSection() {
   return (
-    <section
-      aria-label="Menu"
-      className="w-full snap-center px-4 py-20"
-      id="menu"
-    >
-      <div className="relative overflow-hidden rounded-[40px] border-2 border-brand p-6 shadow-2xl drop-shadow-2xl">
-        <h2 className="mb-6 font-semibold text-3xl md:text-4xl">Menu</h2>
+    <section aria-label="Menu" className="py-20" id="menu">
+      <Container>
+        <h2 className="font-semibold text-3xl md:text-4xl">Menu</h2>
         <div className="space-y-4">
           {categories.map((category) => (
             <MenuCategory category={category} key={category.id} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
 
-const MenuItem = ({
-  item,
-}: {
-  item: (typeof categories)[number]["items"][number];
-}) => (
+const MenuItem = ({ item }: { item: Category["items"][number] }) => (
   <li className="flex items-center justify-between">
     <span className="font-medium text-base">{item.name}</span>
-    <span className="font-medium text-base">{item.price}</span>
+    {item.price ? (
+      <span className="font-medium text-base">{item.price}</span>
+    ) : null}
   </li>
 );
 
-const MenuCategory = ({
-  category,
-}: {
-  category: (typeof categories)[number];
-}) => (
+const MenuCategory = ({ category }: { category: Category }) => (
   <details className="group rounded-4xl border-2 border-brand p-4 transition-all duration-200">
     <summary className="flex items-center justify-between gap-2 font-medium text-lg">
       <h4 className="font-semibold text-lg uppercase">{category.title}</h4>

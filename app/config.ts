@@ -6,12 +6,6 @@ export const CONFIG = {
     { label: "Instagram", href: "#" },
     { label: "Facebook", href: "#" },
   ],
-  hero: {
-    title: "NICO",
-    description:
-      "Dlhý brunch, výberová káva, kváskový chlieb a menu, na ktorom ochutnáte zo všetkého trochu - tradičné jedlá v modernom šate, streetfood aj pan asiu. Byť svetoví aj v Prešove, to je heslo, ktorým sa snažíme neustále posúvať vpred.",
-    image: "/images/hero.jpg",
-  },
   addressInfo: {
     title: "KDE NÁS NÁJDETE?",
     description:

@@ -1,5 +1,7 @@
 import { Facebook, Instagram } from "lucide-react";
 import { About } from "@/components/about";
+import { ContactCard } from "@/components/contact-card";
+import { Container } from "@/components/container";
 import { CTA } from "@/components/cta";
 import { Hero } from "@/components/hero";
 import { MenuSection } from "@/components/menu-section";
@@ -12,6 +14,9 @@ export default function Home() {
       <About />
       <CTA />
       <MenuSection />
+      <Container>
+        <ContactCard />
+      </Container>
       <SiteFooter
         address="Prešov"
         email="hello@nico.example"

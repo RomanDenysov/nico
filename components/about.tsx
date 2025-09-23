@@ -3,6 +3,8 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { cn } from "@/lib/utils";
+import { Container } from "./container";
 import { Button } from "./ui/button";
 import {
   Carousel,
@@ -13,25 +15,26 @@ import {
 
 const items = [
   {
-    title: "O nás",
-    description: "O nás",
+    year: 2013,
+    title: "2013",
+    description:
+      "Bistro, kaviareň, dlhý brunch aj večerné vínko na terase. Naše “prudko návykové bistro” vzniklo v roku 2013. Začínali sme v jednej miestnosti s asi desiatimi stolmi a postupne rástli, ako rástol aj počet našich štamgastov.",
     image: "/images/about/1.jpg",
   },
   {
-    title: "O nás",
-    description: "O nás",
+    year: 2023,
+    title: "2023",
+    description:
+      "V roku 2023 sme naše priestory pretvorili do dnešnej podoby. Nico, to sú drevené stoličky, veľké presklenné okná a ružovo-fialové neóny.",
     image: "/images/about/2.jpg",
   },
 
   {
-    title: "O nás",
-    description: "O nás",
+    year: 2025,
+    title: "2025",
+    description:
+      "V roku 2025 nás Gault & Millau zaradili do svojho celosvetovo uznávaného sprievodcu najlepšími gastro spotmi: “NICO CAFFÉ je rušným miestom pre milovníkov života, ktorým pojmy ako smash, cold brew či exotická kuchyňa nie sú cudzie.”",
     image: "/images/about/3.jpg",
-  },
-  {
-    title: "O nás",
-    description: "O nás",
-    image: "/images/about/1.jpg",
   },
 ];
 
@@ -39,6 +42,7 @@ export function About() {
   const [api, setApi] = useState<CarouselApi>();
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (!api) {
@@ -47,6 +51,7 @@ export function About() {
     const onSelect = () => {
       setCanPrev(api.canScrollPrev());
       setCanNext(api.canScrollNext());
+      setCurrent(api.selectedScrollSnap());
     };
     onSelect();
     api.on("reInit", onSelect);
@@ -65,56 +70,75 @@ export function About() {
 
   return (
     <section
-      aria-describedby="about-description"
       aria-label="About section"
       aria-labelledby="about-title"
-      className="w-full px-4 py-10"
+      className="py-10"
       id="about"
     >
-      <Carousel opts={{ align: "start" }} setApi={setApi}>
-        <div className="relative overflow-hidden rounded-4xl bg-brand pb-1 shadow-2xl drop-shadow-2xl">
-          <div className="relative mb-6 flex items-center justify-between px-6 pt-6">
-            <h2 className="font-semibold text-3xl text-white md:text-4xl">
-              O nás
-            </h2>
-            <div className="flex items-center justify-end gap-2">
-              <Button
-                className="size-9 rounded-full hover:bg-brand-foreground/50"
-                disabled={!canPrev}
-                onClick={() => handleScroll("prev")}
-                size="icon"
-                type="button"
-                variant="ghost"
+      <Container>
+        <Carousel opts={{ align: "start" }} setApi={setApi}>
+          <div className="relative overflow-hidden rounded-4xl bg-brand pb-1 shadow-2xl drop-shadow-2xl">
+            <div className="relative mb-6 flex items-center justify-between px-6 pt-6">
+              <h2
+                className="font-semibold text-3xl text-white md:text-4xl"
+                id="about-title"
               >
-                <ChevronLeftIcon className="mr-0.5 size-6 text-white disabled:opacity-50" />
-              </Button>
-              <Button
-                className="size-9 rounded-full hover:bg-brand-foreground/50"
-                disabled={!canNext}
-                onClick={() => handleScroll("next")}
-                size="icon"
-                type="button"
-                variant="ghost"
-              >
-                <ChevronRightIcon className="ml-0.5 size-6 text-white" />
-              </Button>
+                O nás
+              </h2>
+              <div className="flex items-center justify-end gap-2">
+                <Button
+                  aria-label="Previous"
+                  className="size-9 rounded-full hover:bg-brand-foreground/50"
+                  disabled={!canPrev}
+                  onClick={() => handleScroll("prev")}
+                  size="icon"
+                  type="button"
+                  variant="ghost"
+                >
+                  <ChevronLeftIcon className="mr-0.5 size-6 text-white disabled:opacity-50" />
+                </Button>
+                {items.map((item, index) => (
+                  <Button
+                    aria-current={current === index ? "true" : undefined}
+                    className={cn(
+                      "rounded-4xl font-medium text-white hover:bg-brand-foreground/50 hover:text-white disabled:opacity-50",
+                      current === index && "bg-brand-foreground text-white"
+                    )}
+                    key={item.year}
+                    onClick={() => api?.scrollTo(index)}
+                    size="sm"
+                    type="button"
+                    variant={"ghost"}
+                  >
+                    {item.year}
+                  </Button>
+                ))}
+                <Button
+                  aria-label="Next"
+                  className="size-9 rounded-full hover:bg-brand-foreground/50"
+                  disabled={!canNext}
+                  onClick={() => handleScroll("next")}
+                  size="icon"
+                  type="button"
+                  variant="ghost"
+                >
+                  <ChevronRightIcon className="ml-0.5 size-6 text-white" />
+                </Button>
+              </div>
             </div>
-          </div>
 
-          <AboutContent />
-        </div>
-      </Carousel>
+            <AboutContent />
+          </div>
+        </Carousel>
+      </Container>
     </section>
   );
 }
 
 const AboutContent = () => (
   <CarouselContent className="-ml-2 md:-ml-4 w-full pl-1">
-    {items.map((item, index) => (
-      <CarouselItem
-        className="pl-2 md:basis-1/2 md:pl-4"
-        key={index.toString()}
-      >
+    {items.map((item, _index) => (
+      <CarouselItem className="pl-2 md:basis-1/2 md:pl-4" key={item.year}>
         <div className="relative w-full overflow-hidden rounded-4xl">
           <Image
             alt={item.title}
@@ -125,8 +149,10 @@ const AboutContent = () => (
           />
           <div className="absolute inset-0 bg-black/20" />
           <div className="absolute inset-0 flex flex-col items-start justify-between gap-4 p-6">
-            <h3 className="text-2xl text-white">{item.title}</h3>
-            <p className="text-lg text-white">{item.description}</p>
+            <h3 className="font-black text-5xl text-white">{item.title}</h3>
+            <p className="text-balance font-medium text-2xl text-white leading-none">
+              {item.description}
+            </p>
           </div>
         </div>
       </CarouselItem>

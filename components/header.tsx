@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { useClickOutside } from "@/hooks/use-click-outside";
 import { cn } from "@/lib/utils";
+import { containerVariants } from "./container";
 import { Icons } from "./icons";
 import { buttonVariants } from "./ui/button";
 
@@ -21,48 +22,53 @@ const navLinks: NavLink[] = [
 ];
 
 export function Header() {
-  const [_open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement | null>(null);
 
   useClickOutside({ ref: headerRef, callback: () => setOpen(false) });
 
   return (
     <header
-      className="fixed inset-x-4 top-4 z-40 flex flex-wrap items-center gap-2 rounded-full bg-brand-foreground p-2 shadow-2xl drop-shadow-2xl"
+      className={cn(
+        containerVariants({ variant: "default" }),
+        "sticky top-4 z-40 h-12 w-full"
+      )}
       ref={headerRef}
     >
-      {/* <NavMenuButton open={open} setOpen={setOpen} /> */}
-      <Link
-        className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-brand-foreground bg-brand p-1.5 text-brand-foreground transition-colors duration-200 hover:bg-brand/40"
-        href="/"
-      >
-        <Icons.logo className="size-5" />
-      </Link>
-      <nav className="hidden space-x-2 md:block">
-        {navLinks.map((link) => (
-          <Link
-            className={cn(
-              "px-3 font-medium text-lg transition-all duration-200 hover:underline hover:underline-offset-4"
-            )}
-            href={link.href}
-            key={link.href}
-          >
-            {link.label}
-          </Link>
-        ))}
-      </nav>
-      <Link
-        className="ml-auto flex items-center gap-1.5 rounded-full border border-brand px-3 py-0.5 font-medium text-brand text-lg transition-colors duration-200 hover:bg-brand/10"
-        href="tel:+421723456789"
-      >
-        <PhoneIcon className="size-4" />
-        Rezervovat
-      </Link>
+      <div className="flex items-center gap-2 rounded-full bg-brand-foreground p-2 shadow-2xl drop-shadow-2xl">
+        <NavMenuButton open={open} setOpen={setOpen} />
+        <Link
+          className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-brand-foreground bg-brand p-1.5 text-brand-foreground transition-colors duration-200 hover:bg-brand/40"
+          href="/"
+        >
+          <Icons.logo className="size-5" />
+        </Link>
+        <nav className="hidden space-x-2 md:block">
+          {navLinks.map((link) => (
+            <Link
+              className={cn(
+                "px-3 font-medium transition-all duration-200 hover:underline hover:underline-offset-4 sm:text-lg md:text-xl"
+              )}
+              href={link.href}
+              key={link.href}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <Link
+          className="ml-auto flex items-center gap-1.5 rounded-full border border-brand px-3 py-0.5 font-medium text-brand text-lg transition-colors duration-200 hover:bg-brand/10"
+          href="tel:+421723456789"
+        >
+          <PhoneIcon className="size-4" />
+          Rezervovat
+        </Link>
+      </div>
     </header>
   );
 }
 
-const _NavMenuButton = ({
+const NavMenuButton = ({
   open,
   setOpen,
 }: {
