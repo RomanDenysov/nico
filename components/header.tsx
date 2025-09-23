@@ -41,7 +41,7 @@ export function Header() {
           className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-brand-foreground bg-brand p-1.5 text-brand-foreground transition-colors duration-200 hover:bg-brand/40"
           href="/"
         >
-          <Icons.logo className="size-5" />
+          <Icons.logo pathLength={2} size={24} strokeWidth={1} />
         </Link>
         <nav className="hidden space-x-2 md:block">
           {navLinks.map((link) => (

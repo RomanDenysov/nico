@@ -4,7 +4,6 @@ import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Container } from "./container";
 import { Button } from "./ui/button";
 import {
   Carousel,
@@ -38,7 +37,7 @@ const items = [
   },
 ];
 
-export function About() {
+export function About({ className }: { className?: string }) {
   const [api, setApi] = useState<CarouselApi>();
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(false);
@@ -72,65 +71,63 @@ export function About() {
     <section
       aria-label="About section"
       aria-labelledby="about-title"
-      className="py-10"
+      className={className}
       id="about"
     >
-      <Container>
-        <Carousel opts={{ align: "start" }} setApi={setApi}>
-          <div className="relative overflow-hidden rounded-4xl bg-brand pb-1 shadow-2xl drop-shadow-2xl">
-            <div className="relative mb-6 flex items-center justify-between px-6 pt-6">
-              <h2
-                className="font-semibold text-3xl text-white md:text-4xl"
-                id="about-title"
+      <Carousel opts={{ align: "start" }} setApi={setApi}>
+        <div className="relative overflow-hidden rounded-4xl bg-brand pb-1 shadow-2xl drop-shadow-2xl">
+          <div className="relative mb-6 flex items-center justify-between px-6 pt-6">
+            <h2
+              className="font-semibold text-3xl text-white md:text-4xl"
+              id="about-title"
+            >
+              O nás
+            </h2>
+            <div className="flex items-center justify-end gap-2">
+              <Button
+                aria-label="Previous"
+                className="size-9 rounded-full hover:bg-brand-foreground/50"
+                disabled={!canPrev}
+                onClick={() => handleScroll("prev")}
+                size="icon"
+                type="button"
+                variant="ghost"
               >
-                O nás
-              </h2>
-              <div className="flex items-center justify-end gap-2">
+                <ChevronLeftIcon className="mr-0.5 size-6 text-white disabled:opacity-50" />
+              </Button>
+              {items.map((item, index) => (
                 <Button
-                  aria-label="Previous"
-                  className="size-9 rounded-full hover:bg-brand-foreground/50"
-                  disabled={!canPrev}
-                  onClick={() => handleScroll("prev")}
-                  size="icon"
+                  aria-current={current === index ? "true" : undefined}
+                  className={cn(
+                    "rounded-4xl font-medium text-white hover:bg-brand-foreground/50 hover:text-white disabled:opacity-50",
+                    current === index && "bg-brand-foreground text-white"
+                  )}
+                  key={item.year}
+                  onClick={() => api?.scrollTo(index)}
+                  size="sm"
                   type="button"
-                  variant="ghost"
+                  variant={"ghost"}
                 >
-                  <ChevronLeftIcon className="mr-0.5 size-6 text-white disabled:opacity-50" />
+                  {item.year}
                 </Button>
-                {items.map((item, index) => (
-                  <Button
-                    aria-current={current === index ? "true" : undefined}
-                    className={cn(
-                      "rounded-4xl font-medium text-white hover:bg-brand-foreground/50 hover:text-white disabled:opacity-50",
-                      current === index && "bg-brand-foreground text-white"
-                    )}
-                    key={item.year}
-                    onClick={() => api?.scrollTo(index)}
-                    size="sm"
-                    type="button"
-                    variant={"ghost"}
-                  >
-                    {item.year}
-                  </Button>
-                ))}
-                <Button
-                  aria-label="Next"
-                  className="size-9 rounded-full hover:bg-brand-foreground/50"
-                  disabled={!canNext}
-                  onClick={() => handleScroll("next")}
-                  size="icon"
-                  type="button"
-                  variant="ghost"
-                >
-                  <ChevronRightIcon className="ml-0.5 size-6 text-white" />
-                </Button>
-              </div>
+              ))}
+              <Button
+                aria-label="Next"
+                className="size-9 rounded-full hover:bg-brand-foreground/50"
+                disabled={!canNext}
+                onClick={() => handleScroll("next")}
+                size="icon"
+                type="button"
+                variant="ghost"
+              >
+                <ChevronRightIcon className="ml-0.5 size-6 text-white" />
+              </Button>
             </div>
-
-            <AboutContent />
           </div>
-        </Carousel>
-      </Container>
+
+          <AboutContent />
+        </div>
+      </Carousel>
     </section>
   );
 }

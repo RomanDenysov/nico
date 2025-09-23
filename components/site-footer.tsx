@@ -45,7 +45,7 @@ export function SiteFooter({
   socials = [],
 }: SiteFooterProps) {
   return (
-    <footer className="w-full px-4 pt-20">
+    <footer className="w-full pt-20">
       <div className="flex flex-col items-center justify-between rounded-4xl border bg-brand px-6 shadow-2xl drop-shadow-2xl">
         <center className="mt-6 mb-8 flex items-center justify-center">
           <Link
