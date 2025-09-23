@@ -3,7 +3,7 @@
 import Fade from "embla-carousel-fade";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import {
@@ -56,25 +56,6 @@ const aboutItems: AboutItem[] = [
 
 export function AboutSection({ className }: { className?: string }) {
   const [api, setApi] = useState<CarouselApi>();
-  const [_selected, setSelected] = useState(0);
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
-
-  const _onSelect = useCallback((embla: CarouselApi) => {
-    setSelected(embla?.selectedScrollSnap() ?? 0 + 1);
-  }, []);
 
   return (
     <section
@@ -96,7 +77,7 @@ export function AboutSection({ className }: { className?: string }) {
           <CardHeader>
             <CardTitle className="text-white">About</CardTitle>
             <CardAction>
-              <CarouselControllers api={api} count={count} current={current} />
+              <CarouselControllers api={api} />
             </CardAction>
           </CardHeader>
           <CardContent>
@@ -140,13 +121,9 @@ const AboutItem = ({ item }: { item: AboutItem }) => (
 const CarouselControllers = ({
   className,
   api,
-  current,
-  count,
 }: {
   className?: string;
   api?: CarouselApi;
-  current: number;
-  count: number;
 }) => (
   <div
     className={cn(

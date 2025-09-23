@@ -35,7 +35,7 @@ export function Header() {
       )}
       ref={headerRef}
     >
-      <div className="flex items-center gap-2 rounded-full bg-brand-foreground p-2 shadow-2xl drop-shadow-2xl">
+      <div className="flex items-center gap-2 rounded-full border-3 border-brand-foreground bg-background p-2 shadow-2xl drop-shadow-2xl">
         <NavMenuButton open={open} setOpen={setOpen} />
         <Link
           className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-brand-foreground bg-brand p-1.5 text-brand-foreground transition-colors duration-200 hover:bg-brand/40"
@@ -57,7 +57,7 @@ export function Header() {
           ))}
         </nav>
         <Link
-          className="ml-auto flex items-center gap-1.5 rounded-full border border-brand px-3 py-0.5 font-medium text-brand text-lg transition-colors duration-200 hover:bg-brand/10"
+          className={cn(buttonVariants({ variant: "brand" }), "ml-auto")}
           href="tel:+421723456789"
         >
           <PhoneIcon className="size-4" />
