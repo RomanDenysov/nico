@@ -31,7 +31,7 @@ export const WorkingHoursCard = ({ className }: { className?: string }) => (
         {workingHoursData.title}
       </CardTitle>
     </CardHeader>
-    <CardContent className="min-w-xs shrink-0 md:min-w-sm">
+    <CardContent className="h-full shrink-0 md:min-w-sm">
       <div className="grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 font-medium text-sm text-white/80 tracking-tight">
         <b className="text-white">{workingHoursData.week.title}</b>
         <b className="text-right text-white">{workingHoursData.week.hours}</b>

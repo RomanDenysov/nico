@@ -14,8 +14,8 @@ export default function Home() {
       <Hero />
       <About className="py-10" />
       <MenuSection className="py-20" />
-      <CtaSection className="py-20" />
-      <div className="grid grid-cols-[1fr_auto] gap-8">
+      <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
+        <CtaSection className="col-span-2 md:row-span-2" />
         <ContactCard />
         <WorkingHoursCard />
       </div>

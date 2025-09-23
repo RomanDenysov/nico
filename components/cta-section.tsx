@@ -22,9 +22,7 @@ export function CtaSection({ className }: { className?: string }) {
         <div className="absolute inset-0 bg-black/20" />
         <div className="absolute inset-0 flex flex-col items-start justify-between gap-4 p-6">
           <h2
-            className={cn(
-              "font-black text-6xl text-white leading-none md:text-8xl xl:text-[100px"
-            )}
+            className={cn("font-black text-8xl text-white leading-none")}
             style={{
               WebkitTextFillColor: "transparent",
               WebkitTextStroke: "4px currentColor",

@@ -1,7 +1,6 @@
 import { MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { GoogleMapComponent } from "./google-map-component";
 import { buttonVariants } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
@@ -25,9 +24,11 @@ const contactData = {
 
 export function ContactCard() {
   return (
-    <Card className="bg-brand">
-      <CardHeader className="text-white">
-        <CardTitle>Kontakt</CardTitle>
+    <Card className="max-w-sm bg-brand">
+      <CardHeader>
+        <CardTitle className="text-lg text-white md:text-lg lg:text-xl xl:text-2xl">
+          Kontakt
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex flex-wrap gap-4">
@@ -46,9 +47,9 @@ export function ContactCard() {
             </Link>
           ))}
         </div>
-        <div className="mt-6 hidden h-96 overflow-hidden rounded-4xl md:block">
+        {/* <div className="hidden h-96 overflow-hidden rounded-4xl md:block">
           <GoogleMapComponent />
-        </div>
+        </div> */}
       </CardContent>
     </Card>
   );
