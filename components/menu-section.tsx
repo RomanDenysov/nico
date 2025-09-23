@@ -1,8 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import type { Category } from "@/lib/menu";
 import { Card, CardHeader, CardTitle } from "./ui/card";
+
+type Category = {
+  id: string;
+  title: string;
+  image: string;
+};
 
 const categories = [
   {
