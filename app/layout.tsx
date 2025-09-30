@@ -1,25 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+
 import "./globals.css";
+import { Facebook, Instagram } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
 import { Header } from "@/components/header";
+import { SiteFooter } from "@/components/site-footer";
 import { cn } from "@/lib/utils";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const fonts = cn(
-  geistSans.variable,
-  geistMono.variable,
-  "font-sans antialiased"
-);
+import { fonts } from "./fonts";
 
 export const metadata: Metadata = {
   title: "NICO CAFFÉ | Prešov",
@@ -65,6 +52,15 @@ export default function RootLayout({
       >
         <Header />
         <main className="@container/main">{children}</main>
+        <SiteFooter
+          address="Prešov"
+          email="hello@nico.example"
+          phone="+420 123 456 789"
+          socials={[
+            { icon: Instagram, href: "#" },
+            { icon: Facebook, href: "#" },
+          ]}
+        />
         {modal}
       </body>
     </html>

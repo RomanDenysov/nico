@@ -1,6 +1,7 @@
 import { type LucideIcon, MailIcon, MapPinIcon, PhoneIcon } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { containerVariants } from "./container";
 import { Icons } from "./icons";
 import { buttonVariants } from "./ui/button";
 
@@ -45,8 +46,10 @@ export function SiteFooter({
   socials = [],
 }: SiteFooterProps) {
   return (
-    <footer className="w-full pt-20">
-      <div className="flex flex-col items-center justify-between rounded-4xl border bg-brand px-6 shadow-2xl drop-shadow-2xl">
+    <footer
+      className={cn(containerVariants({ variant: "default" }), "w-full pt-20")}
+    >
+      <div className="flex flex-col items-center justify-between rounded-4xl border border-brand px-6 shadow-2xl drop-shadow-2xl">
         <center className="mt-6 mb-8 flex items-center justify-center">
           <Link
             className="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-brand-foreground bg-brand p-1.5 text-brand-foreground transition-colors duration-200 hover:bg-brand/40"

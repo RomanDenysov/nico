@@ -4,39 +4,37 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
-const contactData = {
-  phone: {
+const contactData = [
+  {
     label: "Volat",
     icon: PhoneIcon,
     href: "tel:+421905830548",
   },
-  email: {
+  {
     label: "Poslat email",
     icon: MailIcon,
     href: "mailto:hello@nico.example",
   },
-  address: {
+  {
     label: "Navigovat",
     icon: MapPinIcon,
     href: "https://maps.app.goo.gl/1234567890",
   },
-};
+];
 
-export function ContactCard() {
+export function ContactCard({ className }: { className?: string }) {
   return (
-    <Card className="max-w-sm bg-brand">
+    <Card className={cn("relative max-w-sm", className)}>
       <CardHeader>
-        <CardTitle className="text-lg text-white md:text-lg lg:text-xl xl:text-2xl">
+        <CardTitle className="text-lg md:text-lg lg:text-xl xl:text-2xl">
           Kontakt
         </CardTitle>
       </CardHeader>
       <CardContent>
         <div className="flex flex-wrap gap-4">
-          {Object.values(contactData).map((contact) => (
+          {contactData.map((contact) => (
             <Link
-              className={cn(
-                buttonVariants({ variant: "brandOutline", size: "sm" })
-              )}
+              className={cn(buttonVariants({ variant: "brand", size: "sm" }))}
               href={contact.href}
               key={contact.href}
               rel="noopener noreferrer"

@@ -35,7 +35,7 @@ export function Header() {
       )}
       ref={headerRef}
     >
-      <div className="flex items-center gap-2 rounded-full border-3 border-brand-foreground bg-background p-2 shadow-2xl drop-shadow-2xl">
+      <div className="flex items-center gap-2 rounded-full border border-brand-foreground bg-background p-2 shadow-2xl drop-shadow-2xl">
         <NavMenuButton open={open} setOpen={setOpen} />
         <Link
           className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-brand-foreground bg-brand p-1.5 text-brand-foreground transition-colors duration-200 hover:bg-brand/40"

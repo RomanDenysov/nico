@@ -1,16 +1,50 @@
-import { Facebook, Instagram } from "lucide-react";
+import Link from "next/link";
 import { AboutSection } from "@/components/about-section";
 import { ContactCard } from "@/components/contact-card";
 import { Container } from "@/components/container";
 import { CtaSection } from "@/components/cta-section";
 import { Hero } from "@/components/hero";
 import { MenuSection } from "@/components/menu-section";
-import { SiteFooter } from "@/components/site-footer";
+import { TitleCard } from "@/components/title-card";
+import { buttonVariants } from "@/components/ui/button";
 import { WorkingHoursCard } from "@/components/working-hours-card";
-
+import { cn } from "@/lib/utils";
+import { contactData } from "./config";
 export default function Home() {
   return (
-    <Container className="space-y-10">
+    <Container className="flex flex-col gap-5 py-12">
+      <div className="grid grid-cols-3 grid-rows-[masonry] items-stretch gap-5">
+        <div className="col-span-2 flex flex-col gap-5">
+          <TitleCard className="size-full" title="NICO" />
+          <div className="flex flex-row flex-wrap items-center justify-between gap-5">
+            {contactData.map((contact) => (
+              <Link
+                className={cn(
+                  buttonVariants({ variant: "brand" }),
+                  "min-h-12 flex-1 text-xl"
+                )}
+                href={contact.href}
+                key={contact.href}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <contact.icon className="size-5" />
+                {contact.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <WorkingHoursCard className="h-full" />
+        <AboutSection className="col-span-2" />
+        <MenuSection className="col-span-3" />
+      </div>
+    </Container>
+  );
+}
+
+const _HomePageDemo = () => {
+  return (
+    <>
       <Hero />
       <AboutSection />
       <MenuSection />
@@ -19,15 +53,6 @@ export default function Home() {
         <ContactCard />
         <WorkingHoursCard />
       </div>
-      <SiteFooter
-        address="Prešov"
-        email="hello@nico.example"
-        phone="+420 123 456 789"
-        socials={[
-          { icon: Instagram, href: "#" },
-          { icon: Facebook, href: "#" },
-        ]}
-      />
-    </Container>
+    </>
   );
-}
+};
