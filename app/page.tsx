@@ -4,6 +4,7 @@ import { ContactCard } from "@/components/contact-card";
 import { Container } from "@/components/container";
 import { CtaSection } from "@/components/cta-section";
 import { Hero } from "@/components/hero";
+import { Icons } from "@/components/icons";
 import { MenuSection } from "@/components/menu-section";
 import { TitleCard } from "@/components/title-card";
 import { buttonVariants } from "@/components/ui/button";
@@ -15,6 +16,7 @@ export default function Home() {
     <Container className="flex flex-col gap-5 py-12">
       <div className="grid grid-cols-1 grid-rows-[masonry] items-stretch gap-5 md:grid-cols-3">
         <div className="flex flex-col gap-5 md:col-span-2">
+          <Icons.square className="text-brand" />
           <TitleCard className="size-full" title="NICO" />
           <div className="flex flex-row flex-wrap items-center justify-between gap-5">
             {contactData.map((contact) => (

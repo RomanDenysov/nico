@@ -3,17 +3,20 @@
 import { PhoneIcon, XIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { useClickOutside } from "@/hooks/use-click-outside";
+import { useState } from "react";
+import useScroll from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 import { containerVariants } from "./container";
 import { Icons } from "./icons";
-import { buttonVariants } from "./ui/button";
+import { AnimatedBackground } from "./ui/animated-background";
+import { Button, buttonVariants } from "./ui/button";
 
 type NavLink = {
   href: string;
   label: string;
 };
+
+const SCROLL_THRESHOLD = 15;
 
 const navLinks: NavLink[] = [
   { href: "#about", label: "O nás" },
@@ -23,9 +26,7 @@ const navLinks: NavLink[] = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const headerRef = useRef<HTMLElement | null>(null);
-
-  useClickOutside({ ref: headerRef, callback: () => setOpen(false) });
+  const scrolled = useScroll(SCROLL_THRESHOLD);
 
   return (
     <header
@@ -33,37 +34,80 @@ export function Header() {
         containerVariants({ variant: "default" }),
         "sticky top-4 z-40 h-12 w-full"
       )}
-      ref={headerRef}
     >
-      <div className="flex items-center gap-2 rounded-full border border-brand-foreground bg-background p-2 shadow-2xl drop-shadow-2xl">
-        <NavMenuButton open={open} setOpen={setOpen} />
-        <Link
-          className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full border border-brand-foreground bg-brand p-1.5 text-brand-foreground transition-colors duration-200 hover:bg-brand/40"
-          href="/"
-        >
-          <Icons.logo pathLength={2} size={24} strokeWidth={1} />
-        </Link>
-        <Icons.title className="text-brand-foreground" />
-        <nav className="hidden space-x-2 md:block">
-          {navLinks.map((link) => (
-            <Link
-              className={cn(
-                "px-3 font-medium transition-all duration-200 hover:underline hover:underline-offset-4 sm:text-lg md:text-xl"
-              )}
-              href={link.href}
-              key={link.href}
+      {open && (
+        <div className="pointer-events-none fixed top-0 right-0 left-0 z-0 size-full bg-black/25 backdrop-blur-[1px] transition-opacity duration-300 will-change-transform" />
+      )}
+      <div
+        className={cn(
+          "rounded-4xl border border-transparent bg-background transition duration-300",
+          scrolled || open
+            ? "bg-gradient-to-r from-brand-foreground/40 to-brand-foreground/20 shadow-2xl shadow-black/5 drop-shadow-2xl backdrop-blur-sm"
+            : ""
+        )}
+      >
+        <div className="flex items-center justify-between gap-2 rounded-4xl p-2 md:grid md:grid-cols-[1fr_auto_1fr]">
+          <nav className="hidden flex-row gap-2 md:flex">
+            <AnimatedBackground
+              className="rounded-xl bg-accent dark:bg-brand-foreground/80"
+              defaultValue={navLinks[0].href}
+              enableHover
+              transition={{
+                type: "keyframes",
+                bounce: 0.5,
+                duration: 0.25,
+              }}
             >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-        <Link
-          className={cn(buttonVariants({ variant: "brand" }), "ml-auto")}
-          href="tel:+421723456789"
+              {navLinks.map((link) => (
+                <Link
+                  className={cn("px-3 py-1 font-medium sm:text-lg md:text-xl")}
+                  data-id={link.href}
+                  href={link.href}
+                  key={link.href}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </AnimatedBackground>
+          </nav>
+          <Link href="/">
+            <Icons.title
+              className={cn(
+                "text-brand-foreground",
+                scrolled || open ? "text-white" : ""
+              )}
+            />
+          </Link>
+          <Link
+            className={cn(buttonVariants({ variant: "brand" }), "ml-auto")}
+            href="tel:+421723456789"
+          >
+            <PhoneIcon className="size-4" />
+            Rezervovat
+          </Link>
+          <NavMenuButton open={open} setOpen={setOpen} />
+        </div>
+        <nav
+          className={cn(
+            "mt-6 flex flex-col gap-6 px-2 pb-2 ease-in-out will-change-transform sm:hidden",
+            open ? "" : "hidden"
+          )}
         >
-          <PhoneIcon className="size-4" />
-          Rezervovat
-        </Link>
+          <ul className="space-y-4 font-medium text-lg">
+            <li>
+              <Link href="#about">O nás</Link>
+            </li>
+            <li>
+              <Link href="#menu">Menu</Link>
+            </li>
+            <li>
+              <Link href="#contact">Kontakt</Link>
+            </li>
+          </ul>
+          <Button className="text-lg" variant="secondary">
+            Rezervovat
+          </Button>
+        </nav>
       </div>
     </header>
   );
