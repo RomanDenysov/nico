@@ -25,7 +25,7 @@ const workingHoursData = {
 export const WorkingHoursCard = ({ className }: { className?: string }) => (
   <Card
     className={cn(
-      "w-fit border-brand-foreground bg-brand-foreground text-white",
+      "group bg-brand-foreground text-white shadow-none drop-shadow-none transition-all duration-200 hover:shadow-2xl hover:drop-shadow-2xl hover:backdrop-blur-sm",
       className
     )}
   >
@@ -34,7 +34,7 @@ export const WorkingHoursCard = ({ className }: { className?: string }) => (
         {workingHoursData.title}
       </CardTitle>
     </CardHeader>
-    <CardContent className="h-full shrink-0 md:min-w-sm">
+    <CardContent className="h-full shrink-0 transition-all duration-200 md:min-w-sm">
       <div className="grid grid-cols-[1fr_auto] items-center gap-x-6 gap-y-2 font-medium text-sm tracking-tight">
         <b className="">{workingHoursData.week.title}</b>
         <b className="text-right">{workingHoursData.week.hours}</b>

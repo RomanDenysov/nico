@@ -1,6 +1,9 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import heroImage from "@/public/images/hero.jpg";
+import { Icons } from "./icons";
+import { Button } from "./ui/button";
+import { FadeContainer, FadeDiv } from "./ui/fade";
 import { ProgressiveBlur } from "./ui/progressive-blur";
 import { WorkingHoursCard } from "./working-hours-card";
 
@@ -12,6 +15,45 @@ const heroData = {
 };
 
 export function Hero() {
+  return (
+    <section
+      aria-describedby="hero-description"
+      aria-label="Hero section"
+      aria-labelledby="hero-title"
+      id="hero"
+    >
+      <FadeContainer className="flex flex-row flex-wrap items-stretch gap-5">
+        <div className="flex flex-1 flex-col gap-5">
+          <FadeDiv className="w-full">
+            <Icons.line className="h-auto w-full text-brand" />
+          </FadeDiv>
+          <FadeDiv>
+            <HeroButtons />
+          </FadeDiv>
+        </div>
+        <FadeDiv>
+          <WorkingHoursCard className="h-full" />
+        </FadeDiv>
+      </FadeContainer>
+    </section>
+  );
+}
+
+const HeroButtons = () => (
+  <div className="flex w-full gap-5">
+    <Button className="w-full flex-1" variant="brand">
+      Test
+    </Button>
+    <Button className="w-full flex-1" variant="brand">
+      Test
+    </Button>
+    <Button className="w-full flex-1" variant="brand">
+      Test
+    </Button>
+  </div>
+);
+
+const _OldHero = () => {
   return (
     <section
       aria-describedby="hero-description"
@@ -58,4 +100,4 @@ export function Hero() {
       </div>
     </section>
   );
-}
+};

@@ -1,20 +1,16 @@
-import Link from "next/link";
 import { AboutSection } from "@/components/about-section";
 import { ContactCard } from "@/components/contact-card";
 import { Container } from "@/components/container";
 import { CtaSection } from "@/components/cta-section";
 import { Hero } from "@/components/hero";
-import { Icons } from "@/components/icons";
 import { MenuSection } from "@/components/menu-section";
-import { TitleCard } from "@/components/title-card";
-import { buttonVariants } from "@/components/ui/button";
 import { WorkingHoursCard } from "@/components/working-hours-card";
-import { cn } from "@/lib/utils";
-import { contactData } from "./config";
+
 export default function Home() {
   return (
     <Container className="flex flex-col gap-5 py-12">
-      <div className="grid grid-cols-1 grid-rows-[masonry] items-stretch gap-5 md:grid-cols-3">
+      <Hero />
+      {/* <div className="grid grid-cols-1 grid-rows-[masonry] items-stretch gap-5 md:grid-cols-3">
         <div className="flex flex-col gap-5 md:col-span-2">
           <Icons.square className="text-brand" />
           <TitleCard className="size-full" title="NICO" />
@@ -39,7 +35,7 @@ export default function Home() {
         <WorkingHoursCard className="size-full md:col-span-2" />
         <AboutSection className="md:col-span-2" />
         <MenuSection className="md:col-span-3" />
-      </div>
+      </div> */}
     </Container>
   );
 }
