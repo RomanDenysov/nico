@@ -32,11 +32,11 @@ export function useDotButton(
   );
 
   const onInit = useCallback((api: CarouselApi) => {
-    setScrollSnaps(api.scrollSnapList());
+    setScrollSnaps(api?.scrollSnapList() ?? []);
   }, []);
 
   const onSelect = useCallback((api: CarouselApi) => {
-    setSelectedIndex(api.selectedScrollSnap());
+    setSelectedIndex(api?.selectedScrollSnap() ?? 0);
   }, []);
 
   useEffect(() => {
@@ -94,11 +94,11 @@ export function DotYearButton({
     return (
       <Button
         aria-current="true"
-        className={cn("rounded-full px-3 py-1", className)}
+        className={cn("rounded-full px-2 py-1 font-semibold", className)}
         onClick={() => onClick(index)}
         size="sm"
         type="button"
-        variant="brand"
+        variant="secondary"
         {...yearButtonProps}
       >
         {String(year)}
@@ -111,7 +111,7 @@ export function DotYearButton({
       aria-current={isSelected ? "true" : undefined}
       aria-label={`Go to ${String(year)} slide`}
       className={cn(
-        "relative inline-flex size-3 rounded-full bg-brand transition-colors hover:bg-foreground/60 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50",
+        "relative inline-flex size-3 rounded-full bg-secondary transition-colors hover:bg-foreground/60 focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50",
         className
       )}
       onClick={() => onClick(index)}

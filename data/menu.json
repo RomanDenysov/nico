@@ -1,2189 +1,287 @@
 {
-  "metadata": {
-    "parsed_at": "2025-09-22T10:30:49+03:00",
-    "parser_version": "1.0",
-    "url": "https://pikmenu.com/sk/nico-caffe-presov/sk"
-  },
   "restaurant": {
-    "name": "NICO CAFFÉ Prešov",
-    "location": "",
-    "phone": "",
-    "website": "",
     "categories": [
       {
-        "name": "Меню",
+        "name": "Raňajky (07:00 - 11:00)",
         "items": [
           {
-            "name": "Batch Brew Limited",
-            "price": "3.70",
-            "description": "fermentovaná výberová káva podľa dennej ponuky",
-            "image": "https://pikmenu.com/images/1718898564_66744f842548e_batch-brew-limited.jpeg"
-          },
-          {
-            "name": "Batch Brew Limited",
-            "price": "3.70",
-            "description": "fermentovaná výberová káva podľa dennej ponuky",
-            "image": ""
-          },
-          {
-            "name": "Cold Brew",
-            "price": "3,70",
-            "description": "cold brew z výberovej kávy podľa dennej ponuky",
-            "image": "https://pikmenu.com/images/1718896438_66744736d0391_cold-brew.jpeg"
-          },
-          {
-            "name": "Cold Brew",
-            "price": "3,70",
-            "description": "cold brew z výberovej kávy podľa dennej ponuky",
-            "image": ""
-          },
-          {
-            "name": "Mango Espresso",
-            "price": "4.20",
-            "description": "Osviežujúci letný kávový nápoj - mangový džús so shotom espressa",
-            "image": "https://pikmenu.com/images/1718896440_66744738130e1_mango-espresso.jpeg"
-          },
-          {
-            "name": "Mango Espresso",
-            "price": "4.20",
-            "description": "Osviežujúci letný kávový nápoj - mangový džús so shotom espressa",
-            "image": ""
-          },
-          {
-            "name": "Espresso Tonic",
-            "price": "3.70",
-            "description": "Osviežujúci letný kávový nápoj - tonic bitter alebo pink so shotom espressa",
-            "image": "https://pikmenu.com/images/1718897813_66744c954a87b_espresso-tonic.jpeg"
-          },
-          {
-            "name": "Espresso Tonic",
-            "price": "3.70",
-            "description": "Osviežujúci letný kávový nápoj - tonic bitter alebo pink so shotom espressa",
-            "image": ""
-          },
-          {
-            "name": "Espresso Martini",
-            "price": "5.00",
-            "description": "Hit tohto leta - alkoholický kávový drink ! Espresso , kávový likér Mr. Black, vodka a dark sirup",
-            "image": "https://pikmenu.com/images/1718896442_6674473a179f5_espresso-martini.jpeg"
-          },
-          {
-            "name": "Espresso Martini",
-            "price": "5.00",
-            "description": "Hit tohto leta - alkoholický kávový drink ! Espresso , kávový likér Mr. Black, vodka a dark sirup",
-            "image": ""
-          },
-          {
-            "name": "Affogato",
-            "price": "4.20",
-            "description": "Vanilková zmrzlina so shotom espressa a chrumkavým crumblom navrchu",
-            "image": "https://pikmenu.com/images/1718896443_6674473bdf3ee_affogato.jpeg"
-          },
-          {
-            "name": "Affogato",
-            "price": "4.20",
-            "description": "Vanilková zmrzlina so shotom espressa a chrumkavým crumblom navrchu",
-            "image": ""
-          },
-          {
-            "name": "Iced Latté",
-            "price": "3.70",
-            "description": "Espresso, mlieko a ľad",
-            "image": "https://pikmenu.com/images/1718897039_6674498fe730f_iced-latte.jpeg"
-          },
-          {
-            "name": "Iced Latté",
-            "price": "3.70",
-            "description": "Espresso, mlieko a ľad",
-            "image": ""
-          },
-          {
-            "name": "Iced Matcha",
-            "price": "4.00",
-            "description": "Matcha - zelený čaj, mlieko a ľad",
-            "image": "https://pikmenu.com/images/1718897041_66744991cb9ec_iced-matcha.jpeg"
-          },
-          {
-            "name": "Iced Matcha",
-            "price": "4.00",
-            "description": "Matcha - zelený čaj, mlieko a ľad",
-            "image": ""
-          },
-          {
-            "name": "Iced Chai Latté",
-            "price": "4.00",
-            "description": "Chai Latté korenie, mlieko, ľad, simple sirup",
-            "image": "https://pikmenu.com/images/1718897043_667449939c915_iced-chai-latte.jpeg"
-          },
-          {
-            "name": "Iced Chai Latté",
-            "price": "4.00",
-            "description": "Chai Latté korenie, mlieko, ľad, simple sirup",
-            "image": ""
-          },
-          {
-            "name": "Iced Cappucino",
-            "price": "2.90",
-            "description": "Espresso, Mlieko a ľad",
-            "image": "https://pikmenu.com/images/1720787549_6691225de4105_iced-cappucino.jpeg"
-          },
-          {
-            "name": "Iced Cappucino",
-            "price": "2.90",
-            "description": "Espresso, Mlieko a ľad",
-            "image": ""
-          },
-          {
-            "name": "Frappé",
-            "price": "3.90",
-            "description": "Espresso, mlieko, ľad a vanilkový sirup",
-            "image": "https://pikmenu.com/images/1718897468_66744b3c2d349_frappe.jpeg"
-          },
-          {
-            "name": "Frappé",
-            "price": "3.90",
-            "description": "Espresso, mlieko, ľad a vanilkový sirup",
-            "image": ""
-          },
-          {
-            "name": "Matcha Tonic",
-            "price": "4.00",
-            "description": "Matcha a tonic, ľad, vanilkový sirup",
-            "image": "https://pikmenu.com/images/1718898205_66744e1d1b7aa_matcha-tonic.jpeg"
-          },
-          {
-            "name": "Matcha Tonic",
-            "price": "4.00",
-            "description": "Matcha a tonic, ľad, vanilkový sirup",
-            "image": ""
-          },
-          {
-            "name": "Strawberry Matcha",
-            "price": "4.30",
-            "description": "",
-            "image": "https://pikmenu.com/images/1752577166_6876348eebeba_strawberry-matcha.webp"
-          },
-          {
-            "name": "Strawberry Matcha",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Salted Caramel Matcha",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Salted Caramel Matcha",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Filter na Ľade",
-            "price": "3.30",
-            "description": "",
-            "image": "https://pikmenu.com/images/1752577181_6876349d553cd_filter-na-lade.webp"
-          },
-          {
-            "name": "Filter na Ľade",
-            "price": "3.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Dirty Espresso",
-            "price": "3.30",
-            "description": "",
-            "image": "https://pikmenu.com/images/1752577189_687634a5b750c_dirty-espresso.webp"
-          },
-          {
-            "name": "Dirty Espresso",
-            "price": "3.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Grep Espresso Tonic",
-            "price": "3.90",
-            "description": "",
-            "image": "https://pikmenu.com/images/1752577206_687634b60153d_grep-espresso-tonic.webp"
-          },
-          {
-            "name": "Grep Espresso Tonic",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Kiwi Citrón",
-            "price": "3.508.90",
-            "description": "Kiwi, citrónová šťava, simple sirup, ľad a voda",
-            "image": "https://pikmenu.com/images/1720787551_6691225f14102_kiwi-citron.jpeg"
-          },
-          {
-            "name": "Kiwi Citrón",
-            "price": "3.508.90",
-            "description": "Kiwi, citrónová šťava, simple sirup, ľad a voda",
-            "image": ""
-          },
-          {
-            "name": "Baza Grep",
-            "price": "3.508.90",
-            "description": "Bazový domáci sirup, grepový fresh , ľad, sóda",
-            "image": "https://pikmenu.com/images/1720787552_66912260688e4_baza-grep.jpeg"
-          },
-          {
-            "name": "Baza Grep",
-            "price": "3.508.90",
-            "description": "Bazový domáci sirup, grepový fresh , ľad, sóda",
-            "image": ""
-          },
-          {
-            "name": "Jahoda \u0026 Bazalka",
-            "price": "3.908.90",
-            "description": "jahodový sirup s bazalkou, citrónová šťava, simple sirup, ľad a sóda",
-            "image": "https://pikmenu.com/images/1720787553_66912261cc583_jahoda-jasmin.jpeg"
-          },
-          {
-            "name": "Jahoda \u0026 Bazalka",
-            "price": "3.908.90",
-            "description": "jahodový sirup s bazalkou, citrónová šťava, simple sirup, ľad a sóda",
-            "image": ""
-          },
-          {
-            "name": "Black Ice Tea",
-            "price": "3.908.90",
-            "description": "výluh z Ear Grey čaju, simple sirup, ľad",
-            "image": ""
-          },
-          {
-            "name": "Black Ice Tea",
-            "price": "3.908.90",
-            "description": "výluh z Ear Grey čaju, simple sirup, ľad",
-            "image": ""
-          },
-          {
-            "name": "Jasmine Green Ice Tea",
-            "price": "3.908.90",
-            "description": "výluh zo zeleného čaju s jasmínom, simple sirup,citrónová šťava, ľad",
-            "image": ""
-          },
-          {
-            "name": "Jasmine Green Ice Tea",
-            "price": "3.908.90",
-            "description": "výluh zo zeleného čaju s jasmínom, simple sirup,citrónová šťava, ľad",
-            "image": ""
-          },
-          {
-            "name": "Tepache",
-            "price": "3.30",
-            "description": "domáci fermentovaný ananásový nápoj s korením /badián, klinčeky, škorica/\nmôže obsahovať stopy alkoholu.",
-            "image": "https://pikmenu.com/images/1718897469_66744b3d56fd9_kombucha.jpeg"
-          },
-          {
-            "name": "Tepache",
-            "price": "3.30",
-            "description": "domáci fermentovaný ananásový nápoj s korením /badián, klinčeky, škorica/\nmôže obsahovať stopy alkoholu.",
-            "image": ""
-          },
-          {
-            "name": "Čučoriedka \u0026 Citrón",
-            "price": "3.908.90",
-            "description": "domáci čučoriedkový sirup, citrónová šťava, sóda, ľad",
-            "image": ""
-          },
-          {
-            "name": "Čučoriedka \u0026 Citrón",
-            "price": "3.908.90",
-            "description": "domáci čučoriedkový sirup, citrónová šťava, sóda, ľad",
-            "image": ""
-          },
-          {
-            "name": "Bernard 11°",
-            "price": "1.80",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Bernard 11°",
-            "price": "1.80",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Bernard 11°",
-            "price": "2.40",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Bernard 11°",
-            "price": "2.40",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Matcha Gin \u0026 Tonic",
-            "price": "7.00",
-            "description": "Beefeater gin, tonic, matcha, ľad, garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Matcha Gin \u0026 Tonic",
-            "price": "7.00",
-            "description": "Beefeater gin, tonic, matcha, ľad, garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Gin \u0026 Tonic",
-            "price": "6.00",
-            "description": "Beefeater gin, tonic, ľad, garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Gin \u0026 Tonic",
-            "price": "6.00",
-            "description": "Beefeater gin, tonic, ľad, garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Mimosa",
-            "price": "4.50",
-            "description": "Prosecco, pomarančový fresh, ľad, garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Mimosa",
-            "price": "4.50",
-            "description": "Prosecco, pomarančový fresh, ľad, garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Aperol Spritz",
-            "price": "6.00",
-            "description": "Aperol, Prosecco, sóda, ľad a garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": "https://pikmenu.com/images/1718896318_667446be82fcf_aperol-spritz.jpeg"
-          },
-          {
-            "name": "Aperol Spritz",
-            "price": "6.00",
-            "description": "Aperol, Prosecco, sóda, ľad a garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Hugo Elixír",
-            "price": "6.00",
-            "description": "Elixír Baza, bazový sirup, prosecco, sóda, ľad, mäta , limeta\n*pripravíme Ti ho aj v nealko verzii",
-            "image": "https://pikmenu.com/images/1718896321_667446c163550_hugo.jpeg"
-          },
-          {
-            "name": "Hugo Elixír",
-            "price": "6.00",
-            "description": "Elixír Baza, bazový sirup, prosecco, sóda, ľad, mäta , limeta\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Negroni Sbagliato",
-            "price": "5.00",
-            "description": "Martini Rosso, Campari, prosecco, ľad, garnish",
-            "image": "https://pikmenu.com/images/1718896323_667446c357213_negroni-sbagliato.jpeg"
-          },
-          {
-            "name": "Negroni Sbagliato",
-            "price": "5.00",
-            "description": "Martini Rosso, Campari, prosecco, ľad, garnish",
-            "image": ""
-          },
-          {
-            "name": "Slow Pop",
-            "price": "6.90",
-            "description": "vodka, jahodový sirup, sóda, garnish",
-            "image": ""
-          },
-          {
-            "name": "Slow Pop",
-            "price": "6.90",
-            "description": "vodka, jahodový sirup, sóda, garnish",
-            "image": ""
-          },
-          {
-            "name": "Ruby Fog (0%)",
-            "price": "6.50",
-            "description": "Nochino Ruby, jahodový sirup, tonic, garnish",
-            "image": ""
-          },
-          {
-            "name": "Ruby Fog (0%)",
-            "price": "6.50",
-            "description": "Nochino Ruby, jahodový sirup, tonic, garnish",
-            "image": ""
-          },
-          {
-            "name": "Gin \u0026 Tonic Season",
-            "price": "6.50",
-            "description": "Beefeater gin, tonic, ľad, sirup podľa tvojho výberu, garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Gin \u0026 Tonic Season",
-            "price": "6.50",
-            "description": "Beefeater gin, tonic, ľad, sirup podľa tvojho výberu, garnish\n*pripravíme Ti ho aj v nealko verzii",
-            "image": ""
-          },
-          {
-            "name": "Gin \u0026 Tonic 0%",
-            "price": "5.50",
-            "description": "nealko gin, tonic, ľad, garnish",
-            "image": ""
-          },
-          {
-            "name": "Gin \u0026 Tonic 0%",
-            "price": "5.50",
-            "description": "nealko gin, tonic, ľad, garnish",
-            "image": ""
-          },
-          {
-            "name": "Nochino Tonic",
-            "price": "5.50",
-            "description": "Nochino Ruby , tonic, ľad, garnish",
-            "image": ""
-          },
-          {
-            "name": "Nochino Tonic",
-            "price": "5.50",
-            "description": "Nochino Ruby , tonic, ľad, garnish",
-            "image": ""
-          },
-          {
-            "name": "Tangerine Love",
-            "price": "5.50",
-            "description": "Nochino Ruby, mandarínková sóda, citrónová šťava, ľad, garnish",
-            "image": "https://pikmenu.com/images/1718896325_667446c50dcea_tangerine-love.jpeg"
-          },
-          {
-            "name": "Tangerine Love",
-            "price": "5.50",
-            "description": "Nochino Ruby, mandarínková sóda, citrónová šťava, ľad, garnish",
-            "image": ""
-          },
-          {
-            "name": "Raňajky KONTINENTÁL",
-            "price": "7.90",
-            "description": "kváskový chlieb, vajíčko, gouda, šunka, džém, maslo, šalát, bylinky\n                                        1,3,4,7,",
-            "image": "https://pikmenu.com/images/1742834835_67e18c9381f25_ranajky-kontinental.webp"
-          },
-          {
-            "name": "Raňajky KONTINENTÁL",
-            "price": "7.90",
-            "description": "kváskový chlieb, vajíčko, gouda, šunka, džém, maslo, šalát, bylinky\n                                        1,3,4,7,",
-            "image": ""
-          },
-          {
-            "name": "Omeleta Gouda \u0026 Slanina",
-            "price": "6.90",
-            "description": "omeleta z troch vajec, bylinky, šľahané maslo, gouda, slanina, bylinky, rohlík z kromky\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1742836005_67e191256ebbf_omeleta-gouda-slanina.webp"
-          },
-          {
-            "name": "Omeleta Gouda \u0026 Slanina",
-            "price": "6.90",
-            "description": "omeleta z troch vajec, bylinky, šľahané maslo, gouda, slanina, bylinky, rohlík z kromky\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Croissant \u0026 Miešané Vajíčka",
-            "price": "7.50",
-            "description": "maslový croissant, krémová praženica s maslom, parmezán, slanina, pažítka\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1742836205_67e191ed7fde6_croissant-miesane-vajicka.webp"
-          },
-          {
-            "name": "Croissant \u0026 Miešané Vajíčka",
-            "price": "7.50",
-            "description": "maslový croissant, krémová praženica s maslom, parmezán, slanina, pažítka\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Croissant HAM \u0026 CHEESE",
-            "price": "7.9",
-            "description": "maslový croissant, volské oko, šunka, gouda, aioli, pažítka\n                                        1,3,7,",
-            "image": "https://pikmenu.com/images/1742836399_67e192afd83cd_croissant-ham-cheese.webp"
-          },
-          {
-            "name": "Croissant HAM \u0026 CHEESE",
-            "price": "7.9",
-            "description": "maslový croissant, volské oko, šunka, gouda, aioli, pažítka\n                                        1,3,7,",
-            "image": ""
-          },
-          {
-            "name": "SMOOTHIE Bowl",
-            "price": "8.90",
-            "description": "ovocné smoothie s ovseným mliekom a granolou, kokos, trebuľka, arašidové maslo\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1742836601_67e193795e8a8_smoothie-bowl.webp"
-          },
-          {
-            "name": "SMOOTHIE Bowl",
-            "price": "8.90",
-            "description": "ovocné smoothie s ovseným mliekom a granolou, kokos, trebuľka, arašidové maslo\n                                        1,3,7",
-            "image": ""
-          },
-          {
             "name": "Blackstone Toast",
-            "price": "7.90",
-            "description": "kváskový toast, slanina, volské oko, paradajka, papriková salsa, parmezán, bylinky\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1752576184_687630b8efb26_blackstone-toast.webp"
+            "price": "€7,90",
+            "description": "Kváskový toast, slanina, volské oko, paradajka, petržlenová pesto, parmezán, byľinky - 280g (1,3,7)"
           },
           {
-            "name": "Blackstone Toast",
-            "price": "7.90",
-            "description": "kváskový toast, slanina, volské oko, paradajka, papriková salsa, parmezán, bylinky\n                                        1,3,7",
-            "image": ""
+            "name": "Palacinky Jahody & Tvaroh",
+            "price": "€7,90",
+            "description": "Domáce palacinky, s jahodovým rozvarem, tvarohová pena, mrazený tvaroh, mandľový crumble - 340g (1,3,7,8)"
           },
           {
-            "name": "Palacinky Jahody \u0026 Tvaroh",
-            "price": "7.90",
-            "description": "domáce palacinky, jahodový rozvar, tvarohová pena, mrazený tvaroh, mandľový crumble\n                                        1,3,7,8",
-            "image": "https://pikmenu.com/images/1752576193_687630c1471a5_palacinky-jahody-tvaroh.webp"
+            "name": "Shokupan Egg & Pulled Pork",
+            "price": "€8,50",
+            "description": "Trhané bbq bravčové mäso, miešané vajíčka, karamelizovaná cibuľa, chipotle mayo, koriander, sezam, pickles - 360g (1,3,7,10,11)"
           },
           {
-            "name": "Palacinky Jahody \u0026 Tvaroh",
-            "price": "7.90",
-            "description": "domáce palacinky, jahodový rozvar, tvarohová pena, mrazený tvaroh, mandľový crumble\n                                        1,3,7,8",
-            "image": ""
+            "name": "French Toast & Choco Mousse, Banán a Ovocie",
+            "price": "€7,90",
+            "description": "Francúzsky toast, čokoládový mousse, banán & sezónne ovocie, mandľový crumble, maple sirup, olivový olej, soľ - 360g (1,7,8)"
           },
           {
-            "name": "Shokupan Egg \u0026 Pulled Pork",
-            "price": "8.50",
-            "description": "Trhané BBQ bravčové mäso, miešané vajíčka, karamelizovaná cibuľa, chipotle mayo, koriadner, sezamový olej, pickles\n                                        1,3,7,10,11",
-            "image": "https://pikmenu.com/images/1752576211_687630d3f2586_shokupan-egg-pulled-pork.webp"
+            "name": "Omeleta s Goudou a Slaninou",
+            "price": "€6,90",
+            "description": "Omeleta z troch vajíčok, šťavnaté maslo, gouda, slanina, byľinky, rohlík z krömky - 220g (1,3,7,10)"
           },
           {
-            "name": "Shokupan Egg \u0026 Pulled Pork",
-            "price": "8.50",
-            "description": "Trhané BBQ bravčové mäso, miešané vajíčka, karamelizovaná cibuľa, chipotle mayo, koriadner, sezamový olej, pickles\n                                        1,3,7,10,11",
-            "image": ""
+            "name": "Croissant & Miešané Vajíčka",
+            "price": "€7,50",
+            "description": "Maslový croissant, krémová praženica s maslom, parmezán, slanina, pažítka - 180g (1,3,7)"
           },
           {
-            "name": "French Toast \u0026 Chocco Mousse, Banán a Ovocie",
-            "price": "7.90",
-            "description": "Francúzsky toast, čokoládový mousse, banán a sezónne ovocie, mandľový crumble, maple sirup, olivový olej, soľ\n                                        1,7,8",
-            "image": "https://pikmenu.com/images/1752576235_687630eb72d13_french-toast-chocco-mousse-banan-a-ovocie.webp"
+            "name": "Praženica Maslo & Parmezán",
+            "price": "€6,20",
+            "description": "Miešané vajíčka (2ks), pažítka, šťahané maslo, kváskový chlieb - 190g (1,3,7)"
           },
           {
-            "name": "French Toast \u0026 Chocco Mousse, Banán a Ovocie",
-            "price": "7.90",
-            "description": "Francúzsky toast, čokoládový mousse, banán a sezónne ovocie, mandľový crumble, maple sirup, olivový olej, soľ\n                                        1,7,8",
-            "image": ""
+            "name": "Praženica Slanina & Cibuľa",
+            "price": "€6,20",
+            "description": "Miešané vajíčka (2ks), slanina, cibuľa, pažítka, šťahané maslo, kváskový chlieb, byľinky - 240g (1,3,7)"
           },
           {
-            "name": "Avotoasty Feta \u0026 Sušené Paradajky",
-            "price": "7.90",
-            "description": "Avokádo, spread zo sušených paradajok, kváskový chlieb,\nrukola, slaný syr, sezam, bylinky\n                                        1,3,7,11",
-            "image": "https://pikmenu.com/images/1712173604_660db22483da6_avotoasty-feta-susene-paradajky.jpeg"
+            "name": "Ham & Eggs",
+            "price": "€6,20",
+            "description": "Tri volské oká, šunka od kosti, šalátový dresing, šťahané maslo, byľinky, rohlík z krömky - 210g (1,3,7,10)"
           },
           {
-            "name": "Avotoasty Feta \u0026 Sušené Paradajky",
-            "price": "7.90",
-            "description": "Avokádo, spread zo sušených paradajok, kváskový chlieb,\nrukola, slaný syr, sezam, bylinky\n                                        1,3,7,11",
-            "image": ""
+            "name": "Raňajky \"Kombo\"",
+            "price": "€7,60",
+            "description": "Kváskový chlieb z krömky, maslo, praženica s pažítkou, chrumkavé horčica, párky z ferme (2ks) - 230g (1,3,7,10)"
           },
           {
-            "name": "BENNY EGGS",
-            "price": "8.90",
-            "description": "Maslová brioška ,,angličan,,,  vajíčko 63°,\ndomáca zaúdená krkovička, baby špenát,\ncheddarová pena, pažítka\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1737798721_6794b44104791_benny-eggs.jpeg"
+            "name": "Raňajky \"Losos & Avokádo\"",
+            "price": "€8,50",
+            "description": "Rázny kváskový chlieb, vajíčka na hrtláčko, avokádo, uhorkový šalát, údený losos, sýrová nádevka, byľinky - 260g (1,3,4,7)"
           },
           {
-            "name": "BENNY EGGS",
-            "price": "8.90",
-            "description": "Maslová brioška ,,angličan,,,  vajíčko 63°,\ndomáca zaúdená krkovička, baby špenát,\ncheddarová pena, pažítka\n                                        1,3,7",
-            "image": ""
+            "name": "Avotoasty Feta & Sušené Paradajky",
+            "price": "€7,90",
+            "description": "Avokádo, spread zo sušených paradajok, rukola, feta, sezam - 270g (1,3,7)"
           },
           {
-            "name": "LOSOS EGGS",
-            "price": "9.50",
-            "description": "Maslová brioška ,,angličan,, , vajíčko 63°,údený losos, baby špenát, chedarová pena,\npažítka\n                                        1,3,4,7,10",
-            "image": "https://pikmenu.com/images/1717186045_665a2dfda0661_eggs-royal-croissant.jpeg"
+            "name": "Avotoasty Praženica & Parmezán",
+            "price": "€7,90",
+            "description": "Avokádo, kváskový chlieb, maslo, praženica, rukola, cherry paradajky, sezam, byľinky - 280g (1,3,7)"
           },
           {
-            "name": "LOSOS EGGS",
-            "price": "9.50",
-            "description": "Maslová brioška ,,angličan,, , vajíčko 63°,údený losos, baby špenát, chedarová pena,\npažítka\n                                        1,3,4,7,10",
-            "image": ""
+            "name": "Pikantné Párky s Ohrenom",
+            "price": "€6,50",
+            "description": "3 párky z ferme, naša horčica, chren, kváskový chlieb - 160g (1,10)"
           },
           {
-            "name": "Praženica s Maslom a Parmezánom",
-            "price": "5.90",
-            "description": "Miešané vajíčka (3ks), pažítka, maslo, kváskový chlieb\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1712173794_660db2e2afa56_prazenica-s-maslom-a-parmezanom.jpeg"
-          },
-          {
-            "name": "Praženica s Maslom a Parmezánom",
-            "price": "5.90",
-            "description": "Miešané vajíčka (3ks), pažítka, maslo, kváskový chlieb\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Praženica s Cibuľou a Slaninou",
-            "price": "6.20",
-            "description": "Miešané vajíčka (3ks), slanina, cibuľa, pažítka,\nmaslo, kváskový chlieb, bylinky\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1712173729_660db2a1cf461_prazenica-s-cibulou-a-slaninou.jpeg"
-          },
-          {
-            "name": "Praženica s Cibuľou a Slaninou",
-            "price": "6.20",
-            "description": "Miešané vajíčka (3ks), slanina, cibuľa, pažítka,\nmaslo, kváskový chlieb, bylinky\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Ham \u0026 Eggs",
-            "price": "6.20",
-            "description": "Tri volské oká, zaúdená krkovička,šalotkový\ndresing, bylinky, rohlík z kromky\n                                        1,3,7,10",
-            "image": "https://pikmenu.com/images/1712171135_660da87f84515_ham-eggs-z-nasej-sunky.jpeg"
-          },
-          {
-            "name": "Ham \u0026 Eggs",
-            "price": "6.20",
-            "description": "Tri volské oká, zaúdená krkovička,šalotkový\ndresing, bylinky, rohlík z kromky\n                                        1,3,7,10",
-            "image": ""
-          },
-          {
-            "name": "Avotoasty s Praženicou \u0026 Parmezán",
-            "price": "7.90",
-            "description": "Avokádo, kváskový chlieb, maslo, praženica,rukola,\ncherry paradajky, sezam, bylinky\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1712173548_660db1ec3ad1f_avotoasty-s-prazenicou-parmezan.jpeg"
-          },
-          {
-            "name": "Avotoasty s Praženicou \u0026 Parmezán",
-            "price": "7.90",
-            "description": "Avokádo, kváskový chlieb, maslo, praženica,rukola,\ncherry paradajky, sezam, bylinky\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Raňajky „Losos \u0026 Avokádo“",
-            "price": "8.50",
-            "description": "Ražný kváskový chlieb, vajíčko na hniličko, avokádo,\nuhorkový šalát, zaúdený losos na čerešňovom dreve,\nsyrová nátierka\n                                        1,3,4,7",
-            "image": "https://pikmenu.com/images/1712160745_660d7fe99604a_ranajky-losos-avokado.jpeg"
-          },
-          {
-            "name": "Raňajky „Losos \u0026 Avokádo“",
-            "price": "8.50",
-            "description": "Ražný kváskový chlieb, vajíčko na hniličko, avokádo,\nuhorkový šalát, zaúdený losos na čerešňovom dreve,\nsyrová nátierka\n                                        1,3,4,7",
-            "image": ""
-          },
-          {
-            "name": "Raňajky „Kombo“",
-            "price": "7.50",
-            "description": "Kváskový chlieb z kromky, maslo\npraženica s pažítkou, chren, horčica\npárky z Terne (2ks)\n                                        1,3,7,10",
-            "image": "https://pikmenu.com/images/1712171193_660da8b9cf13b_ranajky-kombo.jpeg"
-          },
-          {
-            "name": "Raňajky „Kombo“",
-            "price": "7.50",
-            "description": "Kváskový chlieb z kromky, maslo\npraženica s pažítkou, chren, horčica\npárky z Terne (2ks)\n                                        1,3,7,10",
-            "image": ""
-          },
-          {
-            "name": "Pikantné Párky s chrenom",
-            "price": "6.50",
-            "description": "3 párky z Terne, naša horčica, chren, kváskový chlieb\n                                        1,10",
-            "image": "https://pikmenu.com/images/1742837195_67e195cb91565_pikantne-parky-s-chrenom.webp"
-          },
-          {
-            "name": "Pikantné Párky s chrenom",
-            "price": "6.50",
-            "description": "3 párky z Terne, naša horčica, chren, kváskový chlieb\n                                        1,10",
-            "image": ""
-          },
-          {
-            "name": "TOASTY Šunka \u0026 Syr",
-            "price": "6.90",
-            "description": "zapečené toasty v našom chlebe ,,angličan,, so šunkou a 2 druhmi syra, rukolový šalát, cherry paradajky, kečup\n                                        1,3,7,10,11",
-            "image": "https://pikmenu.com/images/1742838107_67e1995bd6232_toasty-sunka-syr.webp"
-          },
-          {
-            "name": "TOASTY Šunka \u0026 Syr",
-            "price": "6.90",
-            "description": "zapečené toasty v našom chlebe ,,angličan,, so šunkou a 2 druhmi syra, rukolový šalát, cherry paradajky, kečup\n                                        1,3,7,10,11",
-            "image": ""
+            "name": "Toasty Šunka & Syr",
+            "price": "€6,90",
+            "description": "Zapečené toasty v našom chlebe, \"anglicari\" so šunkou a 2 druhmi syra, rukolový šalát so cherry paradajky, kečup - 380g (1,3,7,10,11)"
           },
           {
             "name": "Ovsená Kaša s Ovocím",
-            "price": "6.90",
-            "description": "Sezónne ovocie, džem, orieškové maslo,\ncrumble\n                                        1,7,8",
-            "image": "https://pikmenu.com/images/1717186294_665a2ef68cb78_ovsena-kasa-s-ovocim.jpeg"
+            "price": "€6,90",
+            "description": "Sezónne ovocie, mix ovocia, orieškovémäslo, vymačkaný med, crumble, orechy - 280g (1,7,8)"
+          }
+        ]
+      },
+      {
+        "name": "Polievky",
+        "items": [
+          {
+            "name": "Kokosová Tom Kha",
+            "price": "€6,50 / €8,90",
+            "description": "Pikantná thajská polievka s voňavou citrónovou trávou a rýžovými rezancami (2,4,11). KURACIA alebo S UDENOM TOFU. malá 360ml / veľká 660ml. S KREVETAMI +2,00"
           },
           {
-            "name": "Ovsená Kaša s Ovocím",
-            "price": "6.90",
-            "description": "Sezónne ovocie, džem, orieškové maslo,\ncrumble\n                                        1,7,8",
-            "image": ""
-          },
+            "name": "Pho Bo (Hovädzie)",
+            "price": "€6,50 / €8,90",
+            "description": "Voňavý vývar so zeleninou, koriander, ryžové rezance, lime, uhorka, chilli - 360ml (3,4,6,11). S THASKÝM HOVÄDZÍM alebo S VAJÍČKOM. malá 360ml / veľká 660ml"
+          }
+        ]
+      },
+      {
+        "name": "Bowls & Salad",
+        "items": [
           {
-            "name": "Perníkové lievance s ovocím",
-            "price": "6.90",
-            "description": "Lievance 3ks, mix ovocia, smotanová pena, javorový sirup, crumble\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1737797023_6794ad9f9e3c9_pernikove-lievance-s-ovocim.jpeg"
-          },
-          {
-            "name": "Perníkové lievance s ovocím",
-            "price": "6.90",
-            "description": "Lievance 3ks, mix ovocia, smotanová pena, javorový sirup, crumble\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Pistáciový french toast s ovocím",
-            "price": "7.90",
-            "description": "Francúzsky toastm pistaciový krém, pistácie, mix ovocia, crumble, kávový maple sirup\n                                        1,7,8",
-            "image": "https://pikmenu.com/images/1737797025_6794ada15fd98_pistaciovy-french-toast-s-ovocim.jpeg"
-          },
-          {
-            "name": "Pistáciový french toast s ovocím",
-            "price": "7.90",
-            "description": "Francúzsky toastm pistaciový krém, pistácie, mix ovocia, crumble, kávový maple sirup\n                                        1,7,8",
-            "image": ""
-          },
-          {
-            "name": "French Toast S Kávovou Hruškou",
-            "price": "7.50",
-            "description": "Francúzsky toast, kávová hruška, oriešky, pistácie,\ncream cheese, kávový maple sirup\n                                        1,7,8",
-            "image": "https://pikmenu.com/images/1717186454_665a2f96a916d_french-toast-s-kavovou-hruskou.jpeg"
-          },
-          {
-            "name": "French Toast S Kávovou Hruškou",
-            "price": "7.50",
-            "description": "Francúzsky toast, kávová hruška, oriešky, pistácie,\ncream cheese, kávový maple sirup\n                                        1,7,8",
-            "image": ""
-          },
-          {
-            "name": "Lievance karamel \u0026 banán",
-            "price": "6.90",
-            "description": "Lievance 3ks, karamelový krém ,,dulche de leche,, javorový sirup, banán, ovocie, crumble\n                                        1,7,8,1",
-            "image": "https://pikmenu.com/images/1720791428_66913184236f6_lievance-karamel-banan.jpeg"
-          },
-          {
-            "name": "Lievance karamel \u0026 banán",
-            "price": "6.90",
-            "description": "Lievance 3ks, karamelový krém ,,dulche de leche,, javorový sirup, banán, ovocie, crumble\n                                        1,7,8,1",
-            "image": ""
-          },
-          {
-            "name": "Granola z Kromky \u0026 Jogurt",
-            "price": "6.50",
-            "description": "domáca granola s oričkami, jogurt, hruška, sezónne ovocie, tymiánový med\n                                        1,7,8",
-            "image": "https://pikmenu.com/images/1742838108_67e1995c6ba65_granola-z-kromky-jogurt.webp"
-          },
-          {
-            "name": "Granola z Kromky \u0026 Jogurt",
-            "price": "6.50",
-            "description": "domáca granola s oričkami, jogurt, hruška, sezónne ovocie, tymiánový med\n                                        1,7,8",
-            "image": ""
-          },
-          {
-            "name": "Pho s vajíčkom / s trhaným hovädzím",
-            "price": "6.508.90",
-            "description": "voňavý hovädzí vývar so zeleninou,\nkoriander, ryžové rezance, limetka\n                                        3,4,6,11,14",
-            "image": "https://www.pikmenu.com/images/1718877729_6673fe21196b9_pho-s-vajickom-s-trhanym-hovadzim-s-udenym-kuracim.jpeg"
-          },
-          {
-            "name": "Pho s vajíčkom / s trhaným hovädzím",
-            "price": "6.508.90",
-            "description": "voňavý hovädzí vývar so zeleninou,\nkoriander, ryžové rezance, limetka\n                                        3,4,6,11,14",
-            "image": ""
-          },
-          {
-            "name": "Kokosová tom kha",
-            "price": "6.508.90",
-            "description": "kuracia alebo s údeným tofu\n                                        2,4,11",
-            "image": "https://pikmenu.com/images/1720781296_669109f006a01_kokosova-tom-kha.jpeg"
-          },
-          {
-            "name": "Kokosová tom kha",
-            "price": "6.508.90",
-            "description": "kuracia alebo s údeným tofu\n                                        2,4,11",
-            "image": ""
-          },
-          {
-            "name": "Kokosová tom kha",
-            "price": "8.5010.90",
-            "description": "s krevetami\n                                        2,4,11,14",
-            "image": "https://pikmenu.com/images/1720781297_669109f14613d_kokosova-tom-kha.jpeg"
-          },
-          {
-            "name": "Kokosová tom kha",
-            "price": "8.5010.90",
-            "description": "s krevetami\n                                        2,4,11,14",
-            "image": ""
-          },
-          {
-            "name": "Bowl Avo Salmon / Tofu / Krevety",
-            "price": "10.9010.9012.90",
-            "description": "Ryža, mrkva, uhorka, avokádo, edamame, červená kapusta\nnakladaný zázvor, sójová omáčka, redkvičky, wasabi mayo,\nchrumkavá cibuľa, koriander\n                                        1,3,4,7,6,11",
-            "image": "https://www.pikmenu.com/images/1718877903_6673fecf27599_bowl-losos-avokado-teriyaki-kura-tofu-krevety.jpeg"
-          },
-          {
-            "name": "Bowl Avo Salmon / Tofu / Krevety",
-            "price": "10.9010.9012.90",
-            "description": "Ryža, mrkva, uhorka, avokádo, edamame, červená kapusta\nnakladaný zázvor, sójová omáčka, redkvičky, wasabi mayo,\nchrumkavá cibuľa, koriander\n                                        1,3,4,7,6,11",
-            "image": ""
+            "name": "Teriyaki Sticky Pork",
+            "price": "€10,90",
+            "description": "Bowl s kúskami pečeného bôčika v teriyaki omáčke, sushi ryža, redkovka, avokádo, wakame, jarná cibuľka, wasabi, papriková mayo, uhorky, kimči - 360g (1,3,6,11)"
           },
           {
             "name": "Umami Chicken",
-            "price": "10.90",
-            "description": "Bowl s kúskami glazovaného kuraťa, sushi ryža, redkvičky, edamame, jarná cibuľka, wakame, papriková mayo, uhorky, kimči\n                                        1,3,7,6,11",
-            "image": "https://www.pikmenu.com/images/1718877904_6673fed07fe32_smoked-chicken-bowl-tofu-hovadzie.jpeg"
+            "price": "€10,90",
+            "description": "Bowl s kúskami glazovaného kuraťa, sushi ryža, redkovka, wakame, edamame, jarná cibuľka, papriková mayo, uhorky, kimči - 360g (1,3,6,11)"
           },
           {
-            "name": "Umami Chicken",
-            "price": "10.90",
-            "description": "Bowl s kúskami glazovaného kuraťa, sushi ryža, redkvičky, edamame, jarná cibuľka, wakame, papriková mayo, uhorky, kimči\n                                        1,3,7,6,11",
-            "image": ""
+            "name": "Avo Salmon",
+            "price": "€10,90",
+            "description": "Bowl s gravlaxom z lososa, sushi ryža, mrkva, uhorka, avokádo, edamame, červená kapusta, nakladaný zázvor, redkvičky, wasabi mayo, chrumkavá cibuľa - 360g (1,3,6,11). TOFU +0,90 KREVETY +2,50"
           },
           {
-            "name": "Bun „Bo“ Nam Bo / Tofu / Kura",
-            "price": "10.909.909.90",
-            "description": "Vietnamský šalát s trhaným hovädzím mäsom\nuhorka, šalát, mrkva, červená cibuľa, chilli, koriander\názijský dresing\n                                        1,3,7,6,11",
-            "image": "https://www.pikmenu.com/images/1718878310_66740066a0632_bun-bo-nam-bo-tofu-kura.jpeg"
+            "name": "Šalát \"Green Mojo\"",
+            "price": "€9,90",
+            "description": "Mix šalátov, avokádo, edamame, uhorka, redkovka, tekvicové semienka, bazalka, mäta, koriander, citrúsový vinaigrette, pomer naan chlieb - 280g (1,3,7). KURA +2,50 ÚDENÝ LOSOS +3,60"
+          }
+        ]
+      },
+      {
+        "name": "Pan Asia",
+        "items": [
+          {
+            "name": "Chrumkavý Bôčik & Wok Rezance",
+            "price": "€10,90",
+            "description": "Bôčik pečený v sojnej kruste, wok rezance, limes, koriander, sezam - 160g (1,3,6,10,11)"
           },
           {
-            "name": "Bun „Bo“ Nam Bo / Tofu / Kura",
-            "price": "10.909.909.90",
-            "description": "Vietnamský šalát s trhaným hovädzím mäsom\nuhorka, šalát, mrkva, červená cibuľa, chilli, koriander\názijský dresing\n                                        1,3,7,6,11",
-            "image": ""
-          },
-          {
-            "name": "Butter Chicken \u0026 Naan / Tofu",
-            "price": "10.9010.90",
-            "description": "Korenistá ryža, jogurt, bylinky, chilli, koriander,\nnaan chlieb, sezam\n                                        1,3,7,11",
-            "image": "https://www.pikmenu.com/images/1718878312_667400687312f_butter-chicken-naan-tofu.jpeg"
-          },
-          {
-            "name": "Butter Chicken \u0026 Naan / Tofu",
-            "price": "10.9010.90",
-            "description": "Korenistá ryža, jogurt, bylinky, chilli, koriander,\nnaan chlieb, sezam\n                                        1,3,7,11",
-            "image": ""
+            "name": "Bun Bo Nam Bo",
+            "price": "€10,90",
+            "description": "Vietnamský šalát s teplým hovädzím mäsom, cesnakový dressing, čerstvá zelenina, mäta, cibuľka, uhorka, mrkva, arašidy, koriander, keljský dressing - 360g (1,3,4,7,6,11). KURA +4,50 TOFU +3,90"
           },
           {
             "name": "Kuracie Kung Pao",
-            "price": "9.90",
-            "description": "Pór, arašidy, jasmínová ryža, mrkva, paprika,\nsezam, koriander\n                                        1,5,11",
-            "image": "https://pikmenu.com/images/1720781684_66910b743382e_kuracie-kung-pao.jpeg"
+            "price": "€9,90",
+            "description": "Kura, zeleninový mix, jasmínová ryža, mrkva, paprika, pór, ananás, sezam, koriander - 360g (1,6,11)"
           },
           {
-            "name": "Kuracie Kung Pao",
-            "price": "9.90",
-            "description": "Pór, arašidy, jasmínová ryža, mrkva, paprika,\nsezam, koriander\n                                        1,5,11",
-            "image": ""
+            "name": "Smažené Rezance & Zelenina",
+            "price": "€9,90",
+            "description": "Ryžové rezance, mix zelenina, huby, umetka, koriander, byľinky, chilli - 390g (1,6,11). KURA +5,60 TOFU +2,60 HOVÄDZIE +12,60"
           },
           {
-            "name": "Smažené Rezance \u0026 Zelenina / Kuracie / Tofu / Hovädzie",
-            "price": "9.909.509.5012.50",
-            "description": "Ryžové rezance, zelenina, huby, limetka,\nkoriander, bylinky, chilli\n                                        1,6,11",
-            "image": "https://pikmenu.com/images/1720781685_66910b75abb2a_smazene-rezance-zelenina-kuracie-tofu-krevety.jpeg"
+            "name": "Butter Chicken & Naan",
+            "price": "€10,90",
+            "description": "Korenitá ryža, jogurt, byľinky, chilli, koriander, naan chlieb, sezam - 360g (7,11)"
           },
           {
-            "name": "Smažené Rezance \u0026 Zelenina / Kuracie / Tofu / Hovädzie",
-            "price": "9.909.509.5012.50",
-            "description": "Ryžové rezance, zelenina, huby, limetka,\nkoriander, bylinky, chilli\n                                        1,6,11",
-            "image": ""
+            "name": "Zelené Kari",
+            "price": "€9,90",
+            "description": "S jasmínovou ryžou, brokolica, hrášok, huby pak choi, chilli, koriander, sezam - 180g (1,3,7,11). KURA +4,90 TOFU +3,90 KREVETY +11,90"
+          }
+        ]
+      },
+      {
+        "name": "Klasiky",
+        "items": [
+          {
+            "name": "Údené Kura & Cheddar",
+            "price": "€9,90",
+            "description": "Chrumkavé cuketa, karóta, pak choi, pohánka, baby mrkva, cheddar, údená pena - 160g (1,3,7)"
           },
           {
-            "name": "Sweet Chilli Udon / Kuracie / Tofu / Krevety",
-            "price": "8.909.909.9011.90",
-            "description": "Sweet chilli omáčka, ananás, červená paprika, sezam,\nkoriander, chili\n                                        1,4,6,11",
-            "image": "https://www.pikmenu.com/images/1718878313_66740069e4b09_sweet-chilli-udon-kuracie-tofu-krevety.jpeg"
+            "name": "Prívarok na Kyslo & Fašírka",
+            "price": "€8,90",
+            "description": "Prívarok podľa dennej ponuky, koprováfašírky, kyslá kapusta, chlieb, tygrančekový olej - 330g (1,7,10). S VAJÍČKOM +3,90"
+          }
+        ]
+      },
+      {
+        "name": "Sladké",
+        "items": [
+          {
+            "name": "French Toast s Čokoládou Banánom a Ovocím",
+            "price": "€7,90",
+            "description": "Francúzsky toast, čokoládový mousse, banán & sezónne ovocie, mandľový crumble, maple sirup, olivový olej, soľ - 360g (1,7,8)"
           },
           {
-            "name": "Sweet Chilli Udon / Kuracie / Tofu / Krevety",
-            "price": "8.909.909.9011.90",
-            "description": "Sweet chilli omáčka, ananás, červená paprika, sezam,\nkoriander, chili\n                                        1,4,6,11",
-            "image": ""
+            "name": "Palacinky Jahody & Tvaroh",
+            "price": "€7,90",
+            "description": "Domáce palacinky, s jahodovým rozvarem, tvarohová pena, mrazený tvaroh, mandľový crumble - 340g (1,3,7)"
+          }
+        ]
+      },
+      {
+        "name": "Street Food",
+        "items": [
+          {
+            "name": "Avotoast Feta & Sušené Paradajky",
+            "price": "€7,90",
+            "description": "Avokádo, spread zo sušených paradajok, rukola, feta, sezam - 270g (1,3,7)"
           },
           {
-            "name": "Chrumkavý bôčik \u0026 Wok rezance",
-            "price": "10.90",
-            "description": "bôčik pečený v soľnej kruste, wok rezance, limeta, koriander, sezam\n                                        1,3,5,10,11",
-            "image": "https://pikmenu.com/images/1742840182_67e1a1762ca38_chrumkavy-bocik-wok-rezance.webp"
-          },
-          {
-            "name": "Chrumkavý bôčik \u0026 Wok rezance",
-            "price": "10.90",
-            "description": "bôčik pečený v soľnej kruste, wok rezance, limeta, koriander, sezam\n                                        1,3,5,10,11",
-            "image": ""
-          },
-          {
-            "name": "Teriyaki Sticky Pork",
-            "price": "10.90",
-            "description": "kúsky pečeného bôčika v teriyaki omáčke, sushi ryža, redkvička, edamame, wakame, jarná cibuľka, papriková mayo, uhorky\n                                        1,3,6,11",
-            "image": "https://pikmenu.com/images/1742840183_67e1a1770156c_teriyaki-sticky-pork.webp"
-          },
-          {
-            "name": "Teriyaki Sticky Pork",
-            "price": "10.90",
-            "description": "kúsky pečeného bôčika v teriyaki omáčke, sushi ryža, redkvička, edamame, wakame, jarná cibuľka, papriková mayo, uhorky\n                                        1,3,6,11",
-            "image": ""
-          },
-          {
-            "name": "Zelené Kari zeleninové / Kura/ Tofu/ Krevety",
-            "price": "9.909.909.9011.90",
-            "description": "zelené kari s jasmínovou ryžou, brokolica, hrášok, huby, pak choi, chilli, koriander, sezam\n                                        1,3,7,11",
-            "image": "https://pikmenu.com/images/1742840742_67e1a3a6e56b5_zelene-kari-zeleninove-kura-tofu-krevety.webp"
-          },
-          {
-            "name": "Zelené Kari zeleninové / Kura/ Tofu/ Krevety",
-            "price": "9.909.909.9011.90",
-            "description": "zelené kari s jasmínovou ryžou, brokolica, hrášok, huby, pak choi, chilli, koriander, sezam\n                                        1,3,7,11",
-            "image": ""
-          },
-          {
-            "name": "Šalát ,, Green Mojo,, / Kura / Krevety",
-            "price": "9.9012.4013.30",
-            "description": "mix šalátov, avokádo, edamame, uhorka, redkviška, tekvicové semiačka, bazalka, mäta, koriander, citrusový vinaigrete, pomaranč, naan chlieb\n                                        1,3,6,7",
-            "image": "https://pikmenu.com/images/1756720988_68b56f5c2b79f_salat-green-mojo-kura-krevety.webp"
-          },
-          {
-            "name": "Šalát ,, Green Mojo,, / Kura / Krevety",
-            "price": "9.9012.4013.30",
-            "description": "mix šalátov, avokádo, edamame, uhorka, redkviška, tekvicové semiačka, bazalka, mäta, koriander, citrusový vinaigrete, pomaranč, naan chlieb\n                                        1,3,6,7",
-            "image": ""
-          },
-          {
-            "name": "Langoš s Parmezánom",
-            "price": "5.90",
-            "description": "Fermentovaný kečup, cesnaková aioli,\npažítka, parmezán\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1720782228_66910d94d611d_langos-s-parmezanom.jpeg"
-          },
-          {
-            "name": "Langoš s Parmezánom",
-            "price": "5.90",
-            "description": "Fermentovaný kečup, cesnaková aioli,\npažítka, parmezán\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Avotoasty Feta \u0026 Sušené Paradajky",
-            "price": "7.90",
-            "description": "Avokádo, spread zo sušených paradajok, kváskový chlieb,\nrukola, slaný syr, sezam, bylinky\n                                        1,3,7,11",
-            "image": "https://www.pikmenu.com/images/1718878749_6674021d0b02d_avotoasty-feta-susene-paradajky.jpeg"
-          },
-          {
-            "name": "Avotoasty Feta \u0026 Sušené Paradajky",
-            "price": "7.90",
-            "description": "Avokádo, spread zo sušených paradajok, kváskový chlieb,\nrukola, slaný syr, sezam, bylinky\n                                        1,3,7,11",
-            "image": ""
+            "name": "Langoš s Kečupom & Parmezánom",
+            "price": "€5,90",
+            "description": "Fermentovaný kečup, cesnak, soľ, pažítka, parmezán - 180g (1,3,7)"
           },
           {
             "name": "Pulled Pork Langoš",
-            "price": "7.90",
-            "description": "trhané bravčové mäso, papriková mayo, pažítka, jalapenos, koriander, chilli\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1742840743_67e1a3a7ac7ac_pulled-pork-langos.webp"
+            "price": "€7,90",
+            "description": "Thai hovädzí mäso, papriková mayo, pažítka, jalapenos, koriander, chilli - 220g (1,3,7)"
           },
           {
-            "name": "Pulled Pork Langoš",
-            "price": "7.90",
-            "description": "trhané bravčové mäso, papriková mayo, pažítka, jalapenos, koriander, chilli\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Údené kura \u0026 Cheddar",
-            "price": "9.90",
-            "description": "Chrumkavá cuketa, karfiól, pak choi, pohánka\nbaby zemiaky, cheddarová pena\n                                        1,3,7",
-            "image": "https://www.pikmenu.com/images/1718878750_6674021e74cd5_udene-kura-cheddar.jpeg"
-          },
-          {
-            "name": "Údené kura \u0026 Cheddar",
-            "price": "9.90",
-            "description": "Chrumkavá cuketa, karfiól, pak choi, pohánka\nbaby zemiaky, cheddarová pena\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Prívarok na Kyslo \u0026 Fašírka / s vajíčkom",
-            "price": "8.908.90",
-            "description": "Prívarok podľa dennej ponuky, kôpor, domáca fašírka,\nkváskový chlieb, ligurčekový olej\n                                        1,7,10",
-            "image": "https://pikmenu.com/images/1720782230_66910d9618ba8_privarok-na-kyslo-fasirka-s-vajickom.jpeg"
-          },
-          {
-            "name": "Prívarok na Kyslo \u0026 Fašírka / s vajíčkom",
-            "price": "8.908.90",
-            "description": "Prívarok podľa dennej ponuky, kôpor, domáca fašírka,\nkváskový chlieb, ligurčekový olej\n                                        1,7,10",
-            "image": ""
-          },
-          {
-            "name": "Šalát s mätou \u0026 Kura",
-            "price": "9.90",
-            "description": "Rukola, mäta, cherry paradajka, granátové jablko, jarná cibuľka, petržlenová vňat, citrusový dressing, údené kura, naan\n                                        1,7,10",
-            "image": "https://pikmenu.com/images/1720781687_66910b773385e_salat-s-matou-kura.jpeg"
-          },
-          {
-            "name": "Šalát s mätou \u0026 Kura",
-            "price": "9.90",
-            "description": "Rukola, mäta, cherry paradajka, granátové jablko, jarná cibuľka, petržlenová vňat, citrusový dressing, údené kura, naan\n                                        1,7,10",
-            "image": ""
-          },
-          {
-            "name": "Lososový Fish Pie",
-            "price": "9.50",
-            "description": "Kúsky lososa, krémový bešamel, zemiaková kaša, zemiakové chipsy, hrášok, pažítkový olej, pohánka\n                                        1,4,7,10",
-            "image": "https://pikmenu.com/images/1728831311_670bdf4f1a01f_lososovy-fish-pie.jpeg"
-          },
-          {
-            "name": "Lososový Fish Pie",
-            "price": "9.50",
-            "description": "Kúsky lososa, krémový bešamel, zemiaková kaša, zemiakové chipsy, hrášok, pažítkový olej, pohánka\n                                        1,4,7,10",
-            "image": ""
-          },
-          {
-            "name": "Holandský rezeň so syrom",
-            "price": "8.90",
-            "description": "Mletý holandský rezeň so syrom, zemiaková kaša, uhorky so šalotkovým dresingom, cheddarová pena\n                                        1,3,7,10",
-            "image": "https://pikmenu.com/images/1728831724_670be0ec40cb7_holandsky-rezen-so-syrom.jpeg"
-          },
-          {
-            "name": "Holandský rezeň so syrom",
-            "price": "8.90",
-            "description": "Mletý holandský rezeň so syrom, zemiaková kaša, uhorky so šalotkovým dresingom, cheddarová pena\n                                        1,3,7,10",
-            "image": ""
-          },
-          {
-            "name": "Kura na paprike",
-            "price": "8.90",
-            "description": "Maslové halušky s tvarohom a pažítkou, slanina, pažítkový olej, bylinky\n                                        1,3,7,10",
-            "image": "https://pikmenu.com/images/1728831725_670be0edcaa56_kura-na-paprike.jpeg"
-          },
-          {
-            "name": "Kura na paprike",
-            "price": "8.90",
-            "description": "Maslové halušky s tvarohom a pažítkou, slanina, pažítkový olej, bylinky\n                                        1,3,7,10",
-            "image": ""
-          },
-          {
-            "name": "Mäsové guličky Kottbullar",
-            "price": "8.90",
-            "description": "Mäsové guličky, zemiaková kaša, omáčka z koreňovej zeleniny, brusnice, hrášok, smažená cibuľa\n                                        1,7,10",
-            "image": "https://pikmenu.com/images/1728831727_670be0ef5ecee_masove-gulicky-kottbullar.jpeg"
-          },
-          {
-            "name": "Mäsové guličky Kottbullar",
-            "price": "8.90",
-            "description": "Mäsové guličky, zemiaková kaša, omáčka z koreňovej zeleniny, brusnice, hrášok, smažená cibuľa\n                                        1,7,10",
-            "image": ""
-          },
-          {
-            "name": "CHurros so zmrzlinou \u0026 nutela",
-            "price": "6.90",
-            "description": "Mexické churros s vanilkovou zmrzlinou, oriešková zmrzlina\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1720782230_66910d96ed624_churros-so-zmrzlinou-nutela.jpeg"
-          },
-          {
-            "name": "CHurros so zmrzlinou \u0026 nutela",
-            "price": "6.90",
-            "description": "Mexické churros s vanilkovou zmrzlinou, oriešková zmrzlina\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Lievance Karamel \u0026 banán",
-            "price": "7.50",
-            "description": "Lievance 3ks, karamelový krém „dulche de leche“, nutela\njavorový sirup, banán, ovocie\n                                        1,3,7",
-            "image": "https://www.pikmenu.com/images/1718879878_667406865126b_lievance-dulche-de-leche.jpeg"
-          },
-          {
-            "name": "Lievance Karamel \u0026 banán",
-            "price": "7.50",
-            "description": "Lievance 3ks, karamelový krém „dulche de leche“, nutela\njavorový sirup, banán, ovocie\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "French toast s kávovou hruškou",
-            "price": "7.90",
-            "description": "Francúzsky toast, kávová hruška, oriešky,\ncream cheese, kávový maple sirup\n                                        1,3,7,8",
-            "image": "https://www.pikmenu.com/images/1718879880_66740688a324d_french-toast-s-kavovou-hruskou.jpeg"
-          },
-          {
-            "name": "French toast s kávovou hruškou",
-            "price": "7.90",
-            "description": "Francúzsky toast, kávová hruška, oriešky,\ncream cheese, kávový maple sirup\n                                        1,3,7,8",
-            "image": ""
-          },
-          {
-            "name": "Perníkové lievance",
-            "price": "7.90",
-            "description": "Lievance 3ks, mix ovocia, smotanová pena, javorový sirup, crumble\n                                        1,3,7,8",
-            "image": "https://pikmenu.com/images/1737798978_6794b542699e0_pernikove-lievance.jpeg"
-          },
-          {
-            "name": "Perníkové lievance",
-            "price": "7.90",
-            "description": "Lievance 3ks, mix ovocia, smotanová pena, javorový sirup, crumble\n                                        1,3,7,8",
-            "image": ""
-          },
-          {
-            "name": "Pistáciový French Toast",
-            "price": "8,50",
-            "description": "Francúzsky toas, pistáciový krém, pistácie, mix ovocia, crumble , kávový maple sirup\n                                        1,7,8",
-            "image": "https://pikmenu.com/images/1737798980_6794b5440f025_pistaciovy-french-toast.jpeg"
-          },
-          {
-            "name": "Pistáciový French Toast",
-            "price": "8,50",
-            "description": "Francúzsky toas, pistáciový krém, pistácie, mix ovocia, crumble , kávový maple sirup\n                                        1,7,8",
-            "image": ""
-          },
-          {
-            "name": "French Toast \u0026 Chocco Mousse, Banán a Ovocie",
-            "price": "7.90",
-            "description": "Francúzsky toast, čokoládový mousse, banán a sezónne ovocie, mandľový crumble, maple sirup, olivový olej, soľ\n                                        1,7,8",
-            "image": "https://pikmenu.com/images/1756721027_68b56f8372ba4_french-toast-chocco-mousse-banan-a-ovocie.webp"
-          },
-          {
-            "name": "French Toast \u0026 Chocco Mousse, Banán a Ovocie",
-            "price": "7.90",
-            "description": "Francúzsky toast, čokoládový mousse, banán a sezónne ovocie, mandľový crumble, maple sirup, olivový olej, soľ\n                                        1,7,8",
-            "image": ""
-          },
-          {
-            "name": "Palacinky Jahody \u0026 Tvaroh",
-            "price": "7.90",
-            "description": "domáce palacinky, jahodový rozvar, tvarohová pena, mrazený tvaroh, mandľový crumble\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1756721055_68b56f9facf21_palacinky-jahody-tvaroh.webp"
-          },
-          {
-            "name": "Palacinky Jahody \u0026 Tvaroh",
-            "price": "7.90",
-            "description": "domáce palacinky, jahodový rozvar, tvarohová pena, mrazený tvaroh, mandľový crumble\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "SMASH Burger",
-            "price": "9.90",
-            "description": "Dvojité hovädzie mäso, cheddar, šalát, slanina, žemľa z Kromky, big mac omáčka\n                                        1,3,7",
-            "image": "https://www.pikmenu.com/images/1718880212_667407d4970fb_smokey-bacon-burger.jpeg"
-          },
-          {
-            "name": "SMASH Burger",
-            "price": "9.90",
-            "description": "Dvojité hovädzie mäso, cheddar, šalát, slanina, žemľa z Kromky, big mac omáčka\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "BBQ Pulled Pork Burger",
-            "price": "9.90",
-            "description": "Trhané bravčové mäso, bbq omáčka, žemľa z Kromky, kyslá uhorka, červená cibuľa, červená kapusta\n                                        1,3,7,10,11",
-            "image": "https://pikmenu.com/images/1720781688_66910b7887233_bbq-pulled-pork-burger.jpeg"
-          },
-          {
-            "name": "BBQ Pulled Pork Burger",
-            "price": "9.90",
-            "description": "Trhané bravčové mäso, bbq omáčka, žemľa z Kromky, kyslá uhorka, červená cibuľa, červená kapusta\n                                        1,3,7,10,11",
-            "image": ""
-          },
-          {
-            "name": "Sweet Chilli Chicken Wrap",
-            "price": "8.90",
-            "description": "Ľadový šalát, sweet chilli mayo, kuracie stripsy, cheddar, šalátová uhorka, paradajka\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1720781689_66910b79c8146_sweet-chilli-chicken-wrap.jpeg"
-          },
-          {
-            "name": "Sweet Chilli Chicken Wrap",
-            "price": "8.90",
-            "description": "Ľadový šalát, sweet chilli mayo, kuracie stripsy, cheddar, šalátová uhorka, paradajka\n                                        1,3,7",
-            "image": ""
+            "name": "Smash Burger",
+            "price": "€9,90",
+            "description": "Dvojité hovädzie mäso, cheddar, šalát, staruľna, zemská omáčky, big mac omáčka - 300g (1,3,7). HRANOLKY & DIP +2,30"
           },
           {
             "name": "BBQ Loaded Fries",
-            "price": "8.90",
-            "description": "hranolky, trhané bravčové mäso, bbq omáčka, jalapeňos, coleslaw šalát, mayo, jarná cibuľka\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1720781691_66910b7b3d3cd_bbq-poutine-fries.jpeg"
-          },
-          {
-            "name": "BBQ Loaded Fries",
-            "price": "8.90",
-            "description": "hranolky, trhané bravčové mäso, bbq omáčka, jalapeňos, coleslaw šalát, mayo, jarná cibuľka\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Leberkäse Sandwich",
-            "price": "7.90",
-            "description": "Kváskový toast /2ks/ , leberkäse, cheddar, kyslá uhorka, cesnaková aioli, jalapeňos, karamelizovaná cibuľka, dip\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1737798982_6794b5465cdb9_leberkase-sandwich.jpeg"
-          },
-          {
-            "name": "Leberkäse Sandwich",
-            "price": "7.90",
-            "description": "Kváskový toast /2ks/ , leberkäse, cheddar, kyslá uhorka, cesnaková aioli, jalapeňos, karamelizovaná cibuľka, dip\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Big Mac Tacos",
-            "price": "8.90",
-            "description": "2x tacos, mleté hovädzie mäso jalapeňo, cheddar, pickles, big mac mayo, ľadový šalát, bylinky\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1737798984_6794b5486d109_big-mac-tacos.jpeg"
-          },
-          {
-            "name": "Big Mac Tacos",
-            "price": "8.90",
-            "description": "2x tacos, mleté hovädzie mäso jalapeňo, cheddar, pickles, big mac mayo, ľadový šalát, bylinky\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "Crispy Chicken Burrito",
-            "price": "8.90",
-            "description": "Tortilla, kuracie stripsy, bylinková ryža, pico de gallo, paprika, smotana, cheddar, fazuľe, toping\n                                        1,3,7",
-            "image": "https://pikmenu.com/images/1737798986_6794b54a7a936_crispy-chicken-burrito.jpeg"
-          },
-          {
-            "name": "Crispy Chicken Burrito",
-            "price": "8.90",
-            "description": "Tortilla, kuracie stripsy, bylinková ryža, pico de gallo, paprika, smotana, cheddar, fazuľe, toping\n                                        1,3,7",
-            "image": ""
-          },
-          {
-            "name": "1.nápoj 0.3L",
-            "price": "",
-            "description": "— malinovka\n— ľadový čaj",
-            "image": ""
-          },
-          {
-            "name": "1.nápoj 0.3L",
-            "price": "",
-            "description": "— malinovka\n— ľadový čaj",
-            "image": ""
-          },
-          {
-            "name": "Mätový",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1728832696_670be4b8c9da6_matovy.jpeg"
-          },
-          {
-            "name": "Mätový",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Zázvorový",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1728832697_670be4b9d1193_zazvorovy.jpeg"
-          },
-          {
-            "name": "Zázvorový",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Zázvor \u0026 Mäta",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1728832698_670be4ba98f57_zazvor-mata.jpeg"
-          },
-          {
-            "name": "Zázvor \u0026 Mäta",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Ibištek Sudánsky — ovocná chuť",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1728832699_670be4bbb96e7_ibistek-sudansky-ovocna-chut.jpeg"
-          },
-          {
-            "name": "Ibištek Sudánsky — ovocná chuť",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Jazmín — zelený čaj",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1731693879_67378d37dc1bc_jazmin-zeleny-caj.jpeg"
-          },
-          {
-            "name": "Jazmín — zelený čaj",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Sencha Japan — zelený čaj",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1731694052_67378de44524e_sencha-japan-zeleny-caj.jpeg"
-          },
-          {
-            "name": "Sencha Japan — zelený čaj",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Earl grey — čierny čaj",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1728832702_670be4be1a865_earl-grey-cierny-caj.jpeg"
-          },
-          {
-            "name": "Earl grey — čierny čaj",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Bai Mu Dan — biely čaj",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1731694751_6737909f80cc0_bai-mu-dan-biely-caj.jpeg"
-          },
-          {
-            "name": "Bai Mu Dan — biely čaj",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Rooibos Červený — bez kofeínu",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1731694753_673790a15d484_rooibos-cerveny-bez-kofeinu.jpeg"
-          },
-          {
-            "name": "Rooibos Červený — bez kofeínu",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Harmanček Pravý — bez kofeínu",
-            "price": "3.50",
-            "description": "",
-            "image": "https://pikmenu.com/images/1728832704_670be4c069797_harmancek-pravy-bez-kofeinu.jpeg"
-          },
-          {
-            "name": "Harmanček Pravý — bez kofeínu",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Pomaranč",
-            "price": "1.90",
-            "description": "",
-            "image": "https://pikmenu.com/images/1728832705_670be4c1d0036_pomaranc.jpeg"
-          },
-          {
-            "name": "Pomaranč",
-            "price": "1.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Grep",
-            "price": "1.90",
-            "description": "",
-            "image": "https://pikmenu.com/images/1728832707_670be4c32007b_grep.jpeg"
-          },
-          {
-            "name": "Grep",
-            "price": "1.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Royal Crown Cola",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Royal Crown Cola",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Targa Florio Tonica",
-            "price": "2.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Targa Florio Tonica",
-            "price": "2.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Targa Florio Tonica Rosa",
-            "price": "2.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Targa Florio Tonica Rosa",
-            "price": "2.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Maté—Maté",
-            "price": "3.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Maté—Maté",
-            "price": "3.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Rajec",
-            "price": "2.20",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Rajec",
-            "price": "2.20",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "San Pellegrino",
-            "price": "2.20",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "San Pellegrino",
-            "price": "2.20",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "San Pellegrino — ochutené",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "San Pellegrino — ochutené",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "San Pellegrino",
-            "price": "4.20",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "San Pellegrino",
-            "price": "4.20",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Džús — pomaranč — jablko",
-            "price": "2.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Džús — pomaranč — jablko",
-            "price": "2.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Voda \u0026 Citrón",
-            "price": "1.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Voda \u0026 Citrón",
-            "price": "1.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Voda, Citrón \u0026 Mäta",
-            "price": "1.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Voda, Citrón \u0026 Mäta",
-            "price": "1.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Voda \u0026 Citrón",
-            "price": "3.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Voda \u0026 Citrón",
-            "price": "3.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Voda, Citrón \u0026 Mäta",
-            "price": "4.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Voda, Citrón \u0026 Mäta",
-            "price": "4.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Espresso",
-            "price": "2.10",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Espresso",
-            "price": "2.10",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Lungo",
-            "price": "2.10",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Lungo",
-            "price": "2.10",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Doppio",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Doppio",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Odrodové Espresso",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Odrodové Espresso",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Macchiatto",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Macchiatto",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Cortado",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Cortado",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Flat White",
-            "price": "3.40",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Flat White",
-            "price": "3.40",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Cappuccino",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Cappuccino",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Cappuccino XL",
-            "price": "3.40",
-            "description": "",
-            "image": ""
-          },
+            "price": "€8,90",
+            "description": "Hranolky, tmavé pražové mäso, bbq omáčka, jalapenos, coleslaw šalát, papriková mayo, jarná cibuľka - 350g (1,3,7)"
+          }
+        ]
+      },
+      {
+        "name": "Menu Combos",
+        "items": [
           {
-            "name": "Cappuccino XL",
-            "price": "3.40",
-            "description": "",
-            "image": ""
+            "name": "Raňajkové Menu",
+            "price": "€2,89",
+            "description": "jedno + teplý nápoj + džús. Espresso, Cappuccino, Batch Brew, Kakao, Ovocný alebo Čierny Čaj. Pomarančový džús, Jablcový džús"
           },
           {
-            "name": "Odrodové Cappuccino",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Odrodové Cappuccino",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Latté Macchiatto",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Latté Macchiatto",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Caffé Latté",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Caffé Latté",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Batch Brew",
-            "price": "2.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Batch Brew",
-            "price": "2.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Hario V60",
-            "price": "3.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Hario V60",
-            "price": "3.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "French Press",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "French Press",
-            "price": "2.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Irish Coffee",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Irish Coffee",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Baileys Coffee",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Baileys Coffee",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Pumpkin Latté",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Pumpkin Latté",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Chai Latté",
-            "price": "3.80",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Chai Latté",
-            "price": "3.80",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Matcha Latté",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Matcha Latté",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Horúca čokoláda — mliečna 33%",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Horúca čokoláda — mliečna 33%",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Horúca čokoláda — horká 70,4%",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Horúca čokoláda — horká 70,4%",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Kakao",
-            "price": "2.40",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Kakao",
-            "price": "2.40",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Babyccino",
-            "price": "2.40",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Babyccino",
-            "price": "2.40",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Slivovica 52%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Slivovica 52%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Višňovica 48%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Višňovica 48%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Jablkovica 48%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Jablkovica 48%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Hruškovica 45%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Hruškovica 45%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Nektarinka 48%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Varadys Nektarinka 48%",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Spišiacka Borovička 40%",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Spišiacka Borovička 40%",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Absolut Vodka 40%",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Absolut Vodka 40%",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Jameson 40%",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Jameson 40%",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Jack Daniels 40%",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Jack Daniels 40%",
-            "price": "3.50",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Beefeather Gin 40%",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Beefeather Gin 40%",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Cpt. Morgan 35%",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Cpt. Morgan 35%",
-            "price": "2.70",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Diplomático 40%",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Diplomático 40%",
-            "price": "4.30",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Baileys 17%",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Baileys 17%",
-            "price": "2.90",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Becherovka 38%",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Becherovka 38%",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Jägermeister 35%",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Jägermeister 35%",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Tatranský Čaj 52%",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Tatranský Čaj 52%",
-            "price": "3.00",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Extra dávka kávy",
-            "price": "1.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Extra dávka kávy",
-            "price": "1.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Bezlaktózové mlieko",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Bezlaktózové mlieko",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Ovsené mlieko",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Ovsené mlieko",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Hrachové mlieko",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Hrachové mlieko",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Šľahačka",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Šľahačka",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Príchuť do kávy",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Príchuť do kávy",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Med",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Med",
-            "price": "0.60",
-            "description": "",
-            "image": ""
-          },
-          {
-            "name": "Masottina Prosecco Frizante, d.o.c.",
-            "price": "3.90",
-            "description": "",
-            "image": ""
-          },
+            "name": "Bistro Menu",
+            "price": "€3,30",
+            "description": "1. nápoj 0.3L (malinovka/ľadový čaj) + 2. hranolky + dip (aioli/mayo/kečup)"
+          }
+        ]
+      },
+      {
+        "name": "Extras",
+        "items": [
           {
-            "name": "Masottina Prosecco Frizante, d.o.c.",
-            "price": "3.90",
-            "description": "",
-            "image": ""
+            "name": "Extra Vajce",
+            "price": "€1,00"
           },
           {
-            "name": "Nichta - Sauvignon Blanc",
-            "price": "3.9017.90",
-            "description": "suché, biele víno",
-            "image": ""
+            "name": "Rohlík z Krömky",
+            "price": "€0,50"
           },
           {
-            "name": "Nichta - Sauvignon Blanc",
-            "price": "3.9017.90",
-            "description": "suché, biele víno",
-            "image": ""
+            "name": "Chlieb",
+            "price": "€1,00"
           },
           {
-            "name": "Nichta - Devín",
-            "price": "3.9017.90",
-            "description": "biele , suché",
-            "image": ""
+            "name": "1/2 Avokáda",
+            "price": "€2,00"
           },
           {
-            "name": "Nichta - Devín",
-            "price": "3.9017.90",
-            "description": "biele , suché",
-            "image": ""
+            "name": "Maslo",
+            "price": "€1,00"
           },
           {
-            "name": "Nichta - Frankovka modrá",
-            "price": "3.9017.90",
-            "description": "červené, suché víno",
-            "image": ""
+            "name": "Šunka",
+            "price": "€2,00"
           },
           {
-            "name": "Nichta - Frankovka modrá",
-            "price": "3.9017.90",
-            "description": "červené, suché víno",
-            "image": ""
+            "name": "Slanina",
+            "price": "€2,50"
           },
           {
-            "name": "Kaschauer - Pinot Noir Rosé",
-            "price": "3.9017.90",
-            "description": "ružové, polosuché víno",
-            "image": ""
+            "name": "Mayo",
+            "price": "€1,00"
           },
           {
-            "name": "Kaschauer - Pinot Noir Rosé",
-            "price": "3.9017.90",
-            "description": "ružové, polosuché víno",
-            "image": ""
+            "name": "Údený Losos",
+            "price": "€3,60"
           },
           {
-            "name": "Carl Jung - Nealko Sekt",
-            "price": "3.9017.90",
-            "description": "nealko sekt",
-            "image": ""
+            "name": "Kečup",
+            "price": "€1,00"
           },
           {
-            "name": "Carl Jung - Nealko Sekt",
-            "price": "3.9017.90",
-            "description": "nealko sekt",
-            "image": ""
+            "name": "Šunka",
+            "price": "€2,00"
           }
         ]
       }

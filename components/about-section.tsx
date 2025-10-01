@@ -7,13 +7,6 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import {
-  Card,
-  CardAction,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
-import {
   Carousel,
   type CarouselApi,
   CarouselContent,
@@ -61,10 +54,11 @@ export function AboutSection({ className }: { className?: string }) {
     <section
       aria-label="About section"
       aria-labelledby="about-title"
-      className={className}
+      className={cn(className)}
       id="about"
     >
       <Carousel
+        className="relative w-full overflow-hidden rounded-4xl shadow-2xl drop-shadow-2xl"
         opts={{
           loop: true,
           duration: 30,
@@ -73,36 +67,26 @@ export function AboutSection({ className }: { className?: string }) {
         plugins={[Fade()]}
         setApi={setApi}
       >
-        <Card className="border-brand bg-brand">
-          <CardHeader>
-            <CardTitle className="text-white">About</CardTitle>
-            <CardAction>
-              <CarouselControllers api={api} />
-            </CardAction>
-          </CardHeader>
-          <CardContent>
-            <CarouselContent className="w-full">
-              {aboutItems.map((item, _index) => (
-                <CarouselItem className="basis-full" key={item.year}>
-                  <AboutItem item={item} />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </CardContent>
-        </Card>
+        <CarouselControllers
+          api={api}
+          className="absolute top-4 right-4 z-20"
+        />
+
+        <CarouselContent className="-ml-0 size-full">
+          {aboutItems.map((item, _index) => (
+            <CarouselItem className="basis-full pl-0" key={item.year}>
+              <AboutItem item={item} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
       </Carousel>
     </section>
   );
 }
 
 const AboutItem = ({ item }: { item: AboutItem }) => (
-  <div className="relative aspect-video w-full overflow-hidden rounded-4xl">
-    <Image
-      alt={item.title}
-      className="absolute inset-0 object-cover object-center"
-      fill
-      src={item.image}
-    />
+  <div className="relative size-full">
+    <Image alt={item.title} height={800} src={item.image} width={1200} />
     <ProgressiveBlur
       blurIntensity={3}
       className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full"
@@ -126,16 +110,13 @@ const CarouselControllers = ({
   api?: CarouselApi;
 }) => (
   <div
-    className={cn(
-      "flex items-center justify-between gap-1.5 rounded-4xl bg-brand-foreground p-0.5 shadow-2xl drop-shadow-2xl md:p-1.5",
-      className
-    )}
+    className={cn("flex w-fit items-center justify-between gap-1.5", className)}
   >
     <Button
       className="size-7 md:size-9"
       onClick={() => api?.scrollPrev()}
       size="icon"
-      variant="brand"
+      variant="secondary"
     >
       <ChevronLeftIcon />
     </Button>
@@ -148,7 +129,7 @@ const CarouselControllers = ({
       className="size-7 md:size-9"
       onClick={() => api?.scrollNext()}
       size="icon"
-      variant="brand"
+      variant="secondary"
     >
       <ChevronRightIcon />
     </Button>

@@ -13,8 +13,8 @@ import { contactData } from "./config";
 export default function Home() {
   return (
     <Container className="flex flex-col gap-5 py-12">
-      <div className="grid grid-cols-3 grid-rows-[masonry] items-stretch gap-5">
-        <div className="col-span-2 flex flex-col gap-5">
+      <div className="grid grid-cols-1 grid-rows-[masonry] items-stretch gap-5 md:grid-cols-3">
+        <div className="flex flex-col gap-5 md:col-span-2">
           <TitleCard className="size-full" title="NICO" />
           <div className="flex flex-row flex-wrap items-center justify-between gap-5">
             {contactData.map((contact) => (
@@ -34,9 +34,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <WorkingHoursCard className="h-full" />
-        <AboutSection className="col-span-2" />
-        <MenuSection className="col-span-3" />
+        <WorkingHoursCard className="size-full md:col-span-2" />
+        <AboutSection className="md:col-span-2" />
+        <MenuSection className="md:col-span-3" />
       </div>
     </Container>
   );

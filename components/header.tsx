@@ -43,6 +43,7 @@ export function Header() {
         >
           <Icons.logo pathLength={2} size={24} strokeWidth={1} />
         </Link>
+        <Icons.title className="text-brand-foreground" />
         <nav className="hidden space-x-2 md:block">
           {navLinks.map((link) => (
             <Link

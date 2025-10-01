@@ -28,45 +28,15 @@ export type MenuJson = {
   };
 };
 
-// Regex patterns must be top-level for performance
-const SUMMER_PATTERNS: RegExp[] = [
-  /letn/i,
-  /iced|ice|cold/i,
-  /affogato/i,
-  /tonic/i,
-  /filter\s*na\s*ľade|lade/i,
-  /dirty\s*espresso/i,
-  /grep\s*espresso/i,
-  /kiwi|baza|jahod|čučoried|strawberry|salted\s*caramel/i,
-  /frapp|matcha\s*tonic|mango\s*espresso/i,
-];
-
-const BREAKFAST_PATTERNS: RegExp[] = [
-  /raňaj/i,
-  /omelet/i,
-  /croissant/i,
-  /smoothie/i,
-  /blackstone/i,
-  /toast/i,
-  /palacink|french\s*toast/i,
-  /\beggs?\b|egg/i,
-  /praženic/i,
-  /ham\s*&?\s*eggs/i,
-  /avotoast/i,
-  /granola|ovsena|ovsená|kaša|kasa/i,
-  /lievanc/i,
-  /shokupan/i,
-];
-
-const DRINK_PATTERNS: RegExp[] = [
-  /espresso|cappuccino|cortado|latt[eé]|latte|macchiat|flat\s*white|batch\s*brew|v60|french\s*press|chai|matcha|čokol|kakao|babyccino/i,
-  /čaj|tea|earl|sencha|rooibos|harmanček|jazmín|jasmine/i,
-  /džús|juice|voda|rajec|pellegrino|cola|tonica|mat[eé]|pomaranč|grep/i,
-  /aperol|hugo|mimosa|gin|negroni|nochino|ruby|prosecco|tonic/i,
-  /bernard|pivo/i,
-  /varadys|absolut|jameson|jack\s*daniels|beefeat|morgan|diplom|baileys|becher|jäger|tatransk/i,
-  /nichta|kaschauer|carl\s*jung/i,
-];
+// Helper function to create URL-friendly IDs from category names
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+    .replace(/[^a-z0-9]+/g, "-") // Replace non-alphanumeric with hyphens
+    .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+}
 
 function normalizePrice(price?: string): string | undefined {
   if (!price) {
@@ -83,80 +53,26 @@ function normalizePrice(price?: string): string | undefined {
   return formatted.join(" / ");
 }
 
-function dedupeKeepBest(items: RawMenuItem[]): RawMenuItem[] {
-  const seen = new Map<string, RawMenuItem>();
-  for (const item of items) {
-    const key = item.name.trim();
-    const current = seen.get(key);
-    if (!current) {
-      seen.set(key, item);
-      continue;
-    }
-    const preferImage = (a?: string, b?: string) => (a?.length ? a : (b ?? ""));
-    const preferText = (a?: string, b?: string) => (a?.length ? a : (b ?? ""));
-    seen.set(key, {
-      name: key,
-      price: preferText(item.price, current.price),
-      description: preferText(item.description, current.description),
-      image: preferImage(item.image, current.image),
-    });
-  }
-  return Array.from(seen.values());
-}
-
-const isMatch = (name: string, patterns: RegExp[]) =>
-  patterns.some((re) => re.test(name));
-
 export function parseMenuCategories(json: MenuJson): Category[] {
-  const all: RawMenuItem[] =
-    json.restaurant?.categories?.flatMap((c) => c.items ?? []) ?? [];
+  const rawCategories = json.restaurant?.categories ?? [];
 
-  const items = dedupeKeepBest(all);
+  return rawCategories
+    .map((category) => {
+      const items: ParsedCategoryItem[] = (category.items ?? []).map(
+        (item) => ({
+          name: item.name,
+          price: normalizePrice(item.price),
+          description: item.description?.trim() || undefined,
+        })
+      );
 
-  const summer: ParsedCategoryItem[] = [];
-  const breakfast: ParsedCategoryItem[] = [];
-  const bistro: ParsedCategoryItem[] = [];
-  const drinks: ParsedCategoryItem[] = [];
-
-  for (const item of items) {
-    const name = item.name ?? "";
-    const normalized: ParsedCategoryItem = {
-      name,
-      price: normalizePrice(item.price),
-      description: item.description?.trim() || undefined,
-    };
-
-    if (isMatch(name, SUMMER_PATTERNS)) {
-      summer.push(normalized);
-      continue;
-    }
-    if (isMatch(name, BREAKFAST_PATTERNS)) {
-      breakfast.push(normalized);
-      continue;
-    }
-    if (isMatch(name, DRINK_PATTERNS)) {
-      drinks.push(normalized);
-      continue;
-    }
-    bistro.push(normalized);
-  }
-
-  const toCategory = (
-    id: string,
-    title: string,
-    list: ParsedCategoryItem[]
-  ): Category => ({
-    id,
-    title,
-    items: list.sort((a, b) => a.name.localeCompare(b.name, "sk")),
-  });
-
-  return [
-    toCategory("summer", "Letné menu (sezónne)", summer),
-    toCategory("breakfast", "Raňajkové menu", breakfast),
-    toCategory("bistro", "Bistro menu", bistro),
-    toCategory("drinks", "Nápojový lístok", drinks),
-  ].filter((c) => c.items.length > 0);
+      return {
+        id: slugify(category.name),
+        title: category.name,
+        items,
+      };
+    })
+    .filter((category) => category.items.length > 0);
 }
 
 export const categories: Category[] = parseMenuCategories(menuJson as MenuJson);

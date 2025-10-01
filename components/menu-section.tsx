@@ -1,39 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
-
+import { categories as menuCategories } from "@/lib/menu";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 
-type Category = {
+type CategoryWithImage = {
   id: string;
   title: string;
   image: string;
 };
 
-const categories = [
-  {
-    id: "summer",
-    title: "Letné menu (sezónne)",
-    image: "/images/summer.jpg",
-  },
+const categoryImages: Record<string, string> = {
+  "ranajky-07-00-11-00": "/images/breakfast.jpg",
+  polievky: "/images/food-soup.jpg",
+  "bowls-salad": "/images/food-salad.jpg",
+  "pan-asia": "/images/thai-bistro.jpg",
+  klasiky: "/images/bistro.jpg",
+  sladke: "/images/breakfast.jpg",
+  "street-food": "/images/bistro.jpg",
+  "menu-combos": "/images/bistro.jpg",
+  extras: "/images/coffeemachine.jpg",
+};
 
-  {
-    id: "breakfast",
-    title: "Raňajkové menu",
-    image: "/images/breakfast.jpg",
-  },
-
-  {
-    id: "bistro",
-    title: "Bistro menu",
-    image: "/images/bistro.jpg",
-  },
-
-  {
-    id: "drinks",
-    title: "Nápojový lístok",
-    image: "/images/drinks.jpg",
-  },
-];
+const categories: CategoryWithImage[] = menuCategories.map((cat) => ({
+  id: cat.id,
+  title: cat.title,
+  image: categoryImages[cat.id] || "/images/bistro.jpg",
+}));
 
 export function MenuSection({ className }: { className?: string }) {
   return (
@@ -56,7 +48,7 @@ export function MenuSection({ className }: { className?: string }) {
   );
 }
 
-const CategoryCard = ({ category }: { category: Category }) => (
+const CategoryCard = ({ category }: { category: CategoryWithImage }) => (
   <Card className="group/category relative min-h-60 cursor-pointer overflow-hidden border-brand-foreground border-none bg-brand-foreground">
     <CardHeader className="z-10">
       <CardTitle className="text-balance text-white leading-none tracking-tighter">
