@@ -2,8 +2,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import heroImage from "@/public/images/hero.jpg";
 import { Icons } from "./icons";
-import { Button } from "./ui/button";
-import { FadeContainer, FadeDiv, FadeSpan } from "./ui/fade";
+import { FadeDiv, FadeSpan } from "./ui/fade";
 import { ProgressiveBlur } from "./ui/progressive-blur";
 import { WorkingHoursCard } from "./working-hours-card";
 
@@ -27,9 +26,18 @@ export function Hero() {
           <FadeDiv className="w-full">
             <Icons.line className="h-auto w-full text-brand" />
           </FadeDiv>
-          <FadeDiv>
-            <HeroButtons />
-          </FadeDiv>
+
+          <div className="flex items-center gap-5">
+            <FadeSpan className="font-black text-4xl text-brand leading-tight tracking-tight">
+              PRUDKO
+            </FadeSpan>
+            <FadeSpan className="font-black text-4xl text-brand leading-tight tracking-tight">
+              NAVYKOVO
+            </FadeSpan>
+            <FadeSpan className="font-black text-4xl text-brand leading-tight tracking-tight">
+              BYSTRE
+            </FadeSpan>
+          </div>
         </div>
         <FadeDiv>
           <WorkingHoursCard className="h-full" />
@@ -38,28 +46,6 @@ export function Hero() {
     </section>
   );
 }
-
-const HeroButtons = () => (
-  <div className="flex w-full gap-5">
-    <FadeContainer className="flex gap-5">
-      <FadeSpan className="font-black text-2xl text-brand leading-tight tracking-tight">
-        PRUDKO
-      </FadeSpan>
-      <FadeSpan className="font-black text-2xl text-brand leading-tight tracking-tight">
-        NAVYKOVO
-      </FadeSpan>
-      <FadeSpan className="font-black text-2xl text-brand leading-tight tracking-tight">
-        BYSTRE
-      </FadeSpan>
-    </FadeContainer>
-    <Button className="w-full flex-1" variant="brand">
-      Test
-    </Button>
-    <Button className="w-full flex-1" variant="brand">
-      Test
-    </Button>
-  </div>
-);
 
 const _OldHero = () => {
   return (

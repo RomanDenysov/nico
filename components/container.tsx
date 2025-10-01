@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 export const containerVariants = cva("mx-auto px-4", {
   variants: {
     variant: {
-      default: "",
+      default: "max-w-7xl",
     },
   },
 });

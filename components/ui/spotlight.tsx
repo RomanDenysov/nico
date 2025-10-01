@@ -1,4 +1,5 @@
 "use client";
+
 import {
   motion,
   type SpringOptions,
@@ -6,6 +7,7 @@ import {
   useTransform,
 } from "motion/react";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
 export type SpotlightProps = {
@@ -20,6 +22,7 @@ export function Spotlight({
   springOptions = { bounce: 0 },
 }: SpotlightProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   const [isHovered, setIsHovered] = useState(false);
   const [parentElement, setParentElement] = useState<HTMLElement | null>(null);
 
@@ -73,6 +76,10 @@ export function Spotlight({
       abortController.abort();
     };
   }, [parentElement, handleMouseMove]);
+
+  if (isMobile) {
+    return null;
+  }
 
   return (
     <motion.div

@@ -72,8 +72,8 @@ export function Header() {
           <Link href="/">
             <Icons.title
               className={cn(
-                "text-brand-foreground",
-                scrolled || open ? "text-white" : ""
+                "text-brand-foreground transition-colors duration-300",
+                scrolled || open ? "text-primary" : ""
               )}
             />
           </Link>

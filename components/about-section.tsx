@@ -14,6 +14,7 @@ import {
 } from "./ui/carousel";
 import { CarouselYearDots } from "./ui/dot-year-button";
 import { ProgressiveBlur } from "./ui/progressive-blur";
+import { Tilt } from "./ui/tilt";
 
 type AboutItem = {
   year: number;
@@ -57,36 +58,50 @@ export function AboutSection({ className }: { className?: string }) {
       className={cn(className)}
       id="about"
     >
-      <Carousel
-        className="relative w-full overflow-hidden rounded-4xl shadow-2xl drop-shadow-2xl"
-        opts={{
-          loop: true,
-          duration: 30,
-          containScroll: false,
+      <Tilt
+        className="group relative rounded-4xl"
+        isRevese
+        rotationFactor={1}
+        springOptions={{
+          stiffness: 26.7,
+          damping: 4.1,
+          mass: 0.2,
         }}
-        plugins={[Fade()]}
-        setApi={setApi}
+        style={{
+          transformOrigin: "center center",
+        }}
       >
-        <CarouselControllers
-          api={api}
-          className="absolute top-4 right-4 z-20"
-        />
+        <Carousel
+          className="relative w-full overflow-hidden rounded-4xl shadow-2xl drop-shadow-2xl"
+          opts={{
+            loop: true,
+            duration: 30,
+            containScroll: false,
+          }}
+          plugins={[Fade()]}
+          setApi={setApi}
+        >
+          <CarouselControllers
+            api={api}
+            className="absolute top-4 right-4 z-20"
+          />
 
-        <CarouselContent className="-ml-0 size-full">
-          {aboutItems.map((item, _index) => (
-            <CarouselItem className="basis-full pl-0" key={item.year}>
-              <AboutItem item={item} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+          <CarouselContent className="-ml-0 size-full">
+            {aboutItems.map((item, _index) => (
+              <CarouselItem className="basis-full pl-0" key={item.year}>
+                <AboutItem item={item} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </Tilt>
     </section>
   );
 }
 
 const AboutItem = ({ item }: { item: AboutItem }) => (
   <div className="relative size-full">
-    <Image alt={item.title} height={800} src={item.image} width={1200} />
+    <Image alt={item.title} height={800} src={item.image} width={1400} />
     <ProgressiveBlur
       blurIntensity={3}
       className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full"
