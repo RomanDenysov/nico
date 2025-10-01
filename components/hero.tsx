@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import heroImage from "@/public/images/hero.jpg";
 import { Icons } from "./icons";
 import { Button } from "./ui/button";
-import { FadeContainer, FadeDiv } from "./ui/fade";
+import { FadeContainer, FadeDiv, FadeSpan } from "./ui/fade";
 import { ProgressiveBlur } from "./ui/progressive-blur";
 import { WorkingHoursCard } from "./working-hours-card";
 
@@ -22,8 +22,8 @@ export function Hero() {
       aria-labelledby="hero-title"
       id="hero"
     >
-      <FadeContainer className="flex flex-row flex-wrap items-stretch gap-5">
-        <div className="flex flex-1 flex-col gap-5">
+      <div className="flex flex-row flex-wrap items-stretch gap-10">
+        <div className="flex flex-1 flex-col gap-10">
           <FadeDiv className="w-full">
             <Icons.line className="h-auto w-full text-brand" />
           </FadeDiv>
@@ -34,16 +34,24 @@ export function Hero() {
         <FadeDiv>
           <WorkingHoursCard className="h-full" />
         </FadeDiv>
-      </FadeContainer>
+      </div>
     </section>
   );
 }
 
 const HeroButtons = () => (
   <div className="flex w-full gap-5">
-    <Button className="w-full flex-1" variant="brand">
-      Test
-    </Button>
+    <FadeContainer className="flex gap-5">
+      <FadeSpan className="font-black text-2xl text-brand leading-tight tracking-tight">
+        PRUDKO
+      </FadeSpan>
+      <FadeSpan className="font-black text-2xl text-brand leading-tight tracking-tight">
+        NAVYKOVO
+      </FadeSpan>
+      <FadeSpan className="font-black text-2xl text-brand leading-tight tracking-tight">
+        BYSTRE
+      </FadeSpan>
+    </FadeContainer>
     <Button className="w-full flex-1" variant="brand">
       Test
     </Button>

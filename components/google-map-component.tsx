@@ -10,7 +10,11 @@ const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "";
 export function GoogleMapComponent() {
   return (
     <LoadScript googleMapsApiKey={apiKey}>
-      <GoogleMap center={center} mapContainerStyle={containerStyle} zoom={17}>
+      <GoogleMap
+        center={center}
+        mapContainerStyle={{ ...containerStyle }}
+        zoom={17}
+      >
         <Marker position={center} />
       </GoogleMap>
     </LoadScript>

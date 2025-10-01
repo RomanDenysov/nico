@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { Facebook, Instagram } from "lucide-react";
 import type { CSSProperties, ReactNode } from "react";
+import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { SiteFooter } from "@/components/site-footer";
 import { cn } from "@/lib/utils";
 import { fonts } from "./fonts";
 
@@ -43,7 +42,7 @@ export default function RootLayout({
   return (
     <html className={cn(fonts)} lang="sk">
       <body
-        className="relative min-h-screen"
+        className="relative min-h-screen bg-background"
         style={
           {
             "--header-height": "calc(var(--spacing) * 12)",
@@ -52,15 +51,7 @@ export default function RootLayout({
       >
         <Header />
         <main className="@container/main">{children}</main>
-        <SiteFooter
-          address="Prešov"
-          email="hello@nico.example"
-          phone="+420 123 456 789"
-          socials={[
-            { icon: Instagram, href: "#" },
-            { icon: Facebook, href: "#" },
-          ]}
-        />
+        <Footer />
         {modal}
       </body>
     </html>

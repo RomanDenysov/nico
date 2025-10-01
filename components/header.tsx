@@ -40,17 +40,16 @@ export function Header() {
       )}
       <div
         className={cn(
-          "rounded-4xl border border-transparent bg-background transition duration-300",
+          "rounded-4xl border border-transparent bg-white/30 backdrop-blur-sm transition duration-300",
           scrolled || open
-            ? "bg-gradient-to-r from-brand-foreground/40 to-brand-foreground/20 shadow-2xl shadow-black/5 drop-shadow-2xl backdrop-blur-sm"
+            ? "bg-gradient-to-r from-brand-foreground/40 to-brand-foreground/20 shadow-2xl shadow-black/25 drop-shadow-2xl backdrop-blur-sm"
             : ""
         )}
       >
         <div className="flex items-center justify-between gap-2 rounded-4xl p-2 md:grid md:grid-cols-[1fr_auto_1fr]">
           <nav className="hidden flex-row gap-2 md:flex">
             <AnimatedBackground
-              className="rounded-xl bg-accent dark:bg-brand-foreground/80"
-              defaultValue={navLinks[0].href}
+              className="rounded-4xl bg-brand/20 dark:bg-brand-foreground/80"
               enableHover
               transition={{
                 type: "keyframes",

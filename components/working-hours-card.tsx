@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Separator } from "./ui/separator";
+import { Spotlight } from "./ui/spotlight";
 
 const workingHoursData = {
   title: "OTVÁRAČKY",
@@ -25,10 +26,50 @@ const workingHoursData = {
 export const WorkingHoursCard = ({ className }: { className?: string }) => (
   <Card
     className={cn(
-      "group bg-brand-foreground text-white shadow-none drop-shadow-none transition-all duration-200 hover:shadow-2xl hover:drop-shadow-2xl hover:backdrop-blur-sm",
+      "group relative bg-transparent text-black shadow-black/20 shadow-xs drop-shadow-none transition-all duration-200 hover:shadow-2xl hover:backdrop-blur-sm",
       className
     )}
   >
+    <Spotlight
+      className="bg-brand-foreground"
+      size={80}
+      springOptions={{
+        stiffness: 26.7,
+        damping: 4.1,
+        mass: 0.2,
+      }}
+    />
+    <div className="absolute inset-0">
+      <svg className="h-full w-full">
+        <title>Grid pattern</title>
+        <defs>
+          <pattern
+            height="8"
+            id="grid-pattern"
+            patternUnits="userSpaceOnUse"
+            width="8"
+          >
+            <path
+              className="stroke-white dark:stroke-black"
+              d="M0 4H4M4 4V0M4 4H8M4 4V8"
+              stroke="currentColor"
+              strokeOpacity="0.3"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+            <rect
+              className="fill-white dark:fill-black"
+              fill="currentColor"
+              fillOpacity="0.25"
+              height="2"
+              width="2"
+              x="3"
+              y="3"
+            />
+          </pattern>
+        </defs>
+        <rect fill="url(#grid-pattern)" height="100%" width="100%" />
+      </svg>
+    </div>
     <CardHeader>
       <CardTitle className="text-lg md:text-lg lg:text-xl xl:text-2xl">
         {workingHoursData.title}
