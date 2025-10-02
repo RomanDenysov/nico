@@ -12,10 +12,10 @@ import { WorkingHoursCard } from "@/components/working-hours-card";
 export default function Home() {
   return (
     <Container className="py-12">
-      <FadeContainer className="flex flex-col gap-10">
+      <FadeContainer className="flex flex-col gap-5 md:gap-10">
         <Hero />
-        <div className="flex flex-row gap-10">
-          <FadeDiv className="min-w-sm flex-1 overflow-hidden rounded-4xl shadow-2xl drop-shadow-2xl">
+        <div className="flex flex-col gap-10 md:flex-row">
+          <FadeDiv className="hidden flex-1 md:block md:min-w-sm">
             <Suspense>
               <GoogleMapComponent />
             </Suspense>
@@ -24,6 +24,7 @@ export default function Home() {
             <AboutSection />
           </FadeDiv>
         </div>
+        <MenuSection />
       </FadeContainer>
       {/* <div className="grid grid-cols-1 grid-rows-[masonry] items-stretch gap-5 md:grid-cols-3">
         <div className="flex flex-col gap-5 md:col-span-2">
@@ -49,7 +50,7 @@ export default function Home() {
         </div>
         <WorkingHoursCard className="size-full md:col-span-2" />
         <AboutSection className="md:col-span-2" />
-        <MenuSection className="md:col-span-3" />
+
       </div> */}
     </Container>
   );

@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { containerVariants } from "./container";
 import { Icons } from "./icons";
 import { AnimatedBackground } from "./ui/animated-background";
-import { Button, buttonVariants } from "./ui/button";
+import { buttonVariants } from "./ui/button";
 
 type NavLink = {
   href: string;
@@ -36,13 +36,13 @@ export function Header() {
       )}
     >
       {open && (
-        <div className="pointer-events-none fixed top-0 right-0 left-0 z-0 size-full bg-black/25 backdrop-blur-[1px] transition-opacity duration-300 will-change-transform" />
+        <div className="pointer-events-none fixed top-0 right-0 left-0 z-0 size-full bg-white/10 backdrop-blur-[1px] transition-opacity duration-300 will-change-transform" />
       )}
       <div
         className={cn(
           "rounded-4xl border border-transparent bg-white/30 backdrop-blur-sm transition duration-300",
           scrolled || open
-            ? "bg-gradient-to-r from-brand-foreground/40 to-brand-foreground/20 shadow-2xl shadow-black/25 drop-shadow-2xl backdrop-blur-sm"
+            ? "bg-gradient-to-r from-brand-foreground/45 to-brand-foreground/20 shadow-2xl shadow-black/25 drop-shadow-2xl backdrop-blur-sm"
             : ""
         )}
       >
@@ -78,13 +78,20 @@ export function Header() {
             />
           </Link>
           <Link
-            className={cn(buttonVariants({ variant: "brand" }), "ml-auto")}
+            className={cn(
+              buttonVariants({ variant: "brand" }),
+              "ml-auto hidden md:flex"
+            )}
             href="tel:+421723456789"
           >
             <PhoneIcon className="size-4" />
             Rezervovat
           </Link>
-          <NavMenuButton open={open} setOpen={setOpen} />
+          <NavMenuButton
+            open={open}
+            setOpen={setOpen}
+            showBackground={scrolled}
+          />
         </div>
         <nav
           className={cn(
@@ -92,7 +99,7 @@ export function Header() {
             open ? "" : "hidden"
           )}
         >
-          <ul className="space-y-4 font-medium text-lg">
+          <ul className="space-y-4 px-2 font-medium text-2xl">
             <li>
               <Link href="#about">O nás</Link>
             </li>
@@ -103,9 +110,16 @@ export function Header() {
               <Link href="#contact">Kontakt</Link>
             </li>
           </ul>
-          <Button className="text-lg" variant="secondary">
+          <Link
+            className={cn(
+              buttonVariants({ variant: "brand" }),
+              "w-full text-lg text-white"
+            )}
+            href="tel:+421723456789"
+          >
+            <PhoneIcon className="size-4" />
             Rezervovat
-          </Button>
+          </Link>
         </nav>
       </div>
     </header>
@@ -113,9 +127,11 @@ export function Header() {
 }
 
 const NavMenuButton = ({
+  showBackground,
   open,
   setOpen,
 }: {
+  showBackground: boolean;
   open: boolean;
   setOpen: (open: boolean) => void;
 }) => (
@@ -123,7 +139,10 @@ const NavMenuButton = ({
     aria-controls="mobile-nav"
     aria-expanded={open}
     aria-label="Open mobile navigation"
-    className="relative flex size-9 cursor-pointer items-center overflow-hidden rounded-full bg-muted p-1.5 focus:outline-none focus:ring-1 focus:ring-brand-foreground/40 md:hidden"
+    className={cn(
+      "relative flex size-9 cursor-pointer items-center overflow-hidden rounded-full bg-transparent p-1.5 focus:outline-none focus:ring-2 focus:ring-brand-foreground/40 md:hidden",
+      showBackground && "bg-muted/45"
+    )}
     onClick={() => {
       setOpen(!open);
     }}

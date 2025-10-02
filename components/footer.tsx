@@ -6,6 +6,7 @@ import {
   MapPinIcon,
   PhoneIcon,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { containerVariants } from "./container";
@@ -116,7 +117,7 @@ export function Footer() {
               <FadeDiv className="flex-1">
                 <Partners />
               </FadeDiv>
-              <div className="grid flex-1 grid-cols-3 gap-10">
+              <div className="grid flex-1 grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-8 md:gap-10">
                 {Object.entries(sections).map(([key, section]) => (
                   <FadeDiv className="flex flex-col gap-2" key={key}>
                     <h3 className="font-semibold text-lg">{section.title}</h3>
@@ -153,7 +154,13 @@ export function Footer() {
 function Partners({ className }: { className?: string }) {
   return (
     <div className={cn("flex items-center justify-center gap-5", className)}>
-      <Icons.square className="size-20 text-brand" />
+      <Image
+        alt="Partners"
+        className="w-60"
+        height={400}
+        src="/logos/kofola-logo.png"
+        width={600}
+      />
     </div>
   );
 }

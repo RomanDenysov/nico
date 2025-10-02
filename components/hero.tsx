@@ -21,20 +21,20 @@ export function Hero() {
       aria-labelledby="hero-title"
       id="hero"
     >
-      <div className="flex flex-row flex-wrap items-stretch gap-10">
-        <div className="flex flex-1 flex-col gap-10">
+      <div className="flex w-full flex-col gap-5 md:flex-row md:items-stretch md:gap-10">
+        <div className="flex w-full flex-1 flex-col gap-5 md:gap-10">
           <FadeDiv className="w-full">
             <Icons.line className="h-auto w-full text-brand" />
           </FadeDiv>
 
-          <div className="flex items-center gap-5">
-            <FadeSpan className="font-black text-4xl text-brand leading-tight tracking-tight">
+          <div className="flex w-full items-center justify-center gap-2.5 md:justify-start md:gap-5">
+            <FadeSpan className="font-black text-brand text-xl leading-tight tracking-tight md:text-4xl">
               PRUDKO
             </FadeSpan>
-            <FadeSpan className="font-black text-4xl text-brand leading-tight tracking-tight">
+            <FadeSpan className="font-black text-brand text-xl leading-tight tracking-tight md:text-4xl">
               NAVYKOVO
             </FadeSpan>
-            <FadeSpan className="font-black text-4xl text-brand leading-tight tracking-tight">
+            <FadeSpan className="font-black text-brand text-xl leading-tight tracking-tight md:text-4xl">
               BYSTRE
             </FadeSpan>
           </div>

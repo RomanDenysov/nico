@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { categories as menuCategories } from "@/lib/menu";
+import { cn } from "@/lib/utils";
 import { Card, CardHeader, CardTitle } from "./ui/card";
+import { FadeContainer, FadeDiv } from "./ui/fade";
+import { Tilt } from "./ui/tilt";
 
 type CategoryWithImage = {
   id: string;
@@ -30,39 +33,54 @@ const categories: CategoryWithImage[] = menuCategories.map((cat) => ({
 export function MenuSection({ className }: { className?: string }) {
   return (
     <section aria-label="Menu" className={className} id="menu">
-      {/* <Card className="border-brand-foreground bg-brand-foreground">
-        <CardHeader>
-          <CardTitle className="text-white">Menu</CardTitle>
-        </CardHeader>
-        <CardContent> */}
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+      <FadeContainer className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 md:gap-10">
         {categories.map((category) => (
           <Link href={`/menu#${category.id}`} key={category.id}>
-            <CategoryCard category={category} />
+            <FadeDiv>
+              <CategoryCard category={category} />
+            </FadeDiv>
           </Link>
         ))}
-      </div>
-      {/* </CardContent>
-        </Card> */}
+      </FadeContainer>
     </section>
   );
 }
 
-const CategoryCard = ({ category }: { category: CategoryWithImage }) => (
-  <Card className="group/category relative min-h-60 cursor-pointer overflow-hidden border-brand-foreground border-none bg-brand-foreground">
-    <CardHeader className="z-10">
-      <CardTitle className="text-balance text-white leading-none tracking-tighter">
-        {category.title}
-      </CardTitle>
-    </CardHeader>
-    <Image
-      alt={category.title}
-      className="size-full cursor-pointer object-cover object-center transition-transform duration-200 group-hover/category:scale-[1.02]"
-      fill
-      src={category.image}
-    />
-    <div className="absolute inset-0 cursor-pointer bg-black/10 opacity-0 backdrop-blur-[1px] transition-opacity duration-200 group-hover/category:opacity-100" />
-  </Card>
+const CategoryCard = ({
+  category,
+  className,
+}: {
+  category: CategoryWithImage;
+  className?: string;
+}) => (
+  <Tilt
+    className={cn("group relative rounded-4xl", className)}
+    isRevese
+    rotationFactor={4}
+    springOptions={{
+      stiffness: 26.7,
+      damping: 4.1,
+      mass: 0.2,
+    }}
+    style={{
+      transformOrigin: "center center",
+    }}
+  >
+    <Card className="group/category relative min-h-60 cursor-pointer overflow-hidden border-brand-foreground border-none bg-brand-foreground">
+      <CardHeader className="z-10">
+        <CardTitle className="text-balance text-white leading-none tracking-tighter">
+          {category.title}
+        </CardTitle>
+      </CardHeader>
+      <Image
+        alt={category.title}
+        className="size-full cursor-pointer object-cover object-center transition-transform duration-200 group-hover/category:scale-[1.02]"
+        fill
+        src={category.image}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-white/5 opacity-0 ring-1 ring-white/10 ring-inset backdrop-blur-[1px] transition-all duration-200 group-hover/category:bg-white/10 group-hover/category:opacity-100 group-hover/category:backdrop-blur-xs" />
+    </Card>
+  </Tilt>
 );
 
 // const MenuItem = ({ item }: { item: Category["items"][number] }) => (

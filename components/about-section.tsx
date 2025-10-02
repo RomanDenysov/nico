@@ -100,13 +100,19 @@ export function AboutSection({ className }: { className?: string }) {
 }
 
 const AboutItem = ({ item }: { item: AboutItem }) => (
-  <div className="relative size-full">
-    <Image alt={item.title} height={800} src={item.image} width={1400} />
+  <div className="relative size-full min-h-80 md:min-h-full">
+    <Image
+      alt={item.title}
+      className="size-full object-cover object-center"
+      height={800}
+      src={item.image}
+      width={1400}
+    />
     <ProgressiveBlur
       blurIntensity={3}
       className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full"
     />
-    <div className="absolute inset-0 flex flex-col items-start justify-between gap-4 p-6">
+    <div className="absolute inset-0 flex flex-col items-start justify-between gap-4 p-4 md:p-6">
       <h3 className="font-black text-5xl text-white leading-none md:text-6xl lg:text-7xl xl:text-8xl">
         {item.title}
       </h3>
