@@ -1,8 +1,26 @@
 {
   "restaurant": {
+    "menuCombos": {
+      "items": [
+        {
+          "name": "Raňajkové Menu",
+          "slug": "ranajkovy-menu",
+          "price": "€2,89",
+          "description": "jedno + teplý nápoj + džús. Espresso, Cappuccino, Batch Brew, Kakao, Ovocný alebo Čierny Čaj. Pomarančový džús, Jablcový džús"
+        },
+        {
+          "name": "Bistro Menu",
+          "slug": "bistro-menu",
+          "price": "€3,30",
+          "description": "1. nápoj 0.3L (malinovka/ľadový čaj) + 2. hranolky + dip (aioli/mayo/kečup)"
+        }
+      ]
+    },
     "categories": [
       {
-        "name": "Raňajky (07:00 - 11:00)",
+        "name": "Raňajky",
+        "slug": "ranajky",
+        "description": "07:00 - 11:00",
         "items": [
           {
             "name": "Blackstone Toast",
@@ -88,6 +106,8 @@
       },
       {
         "name": "Polievky",
+        "slug": "polievky",
+        "description": "11:00 - 20:00",
         "items": [
           {
             "name": "Kokosová Tom Kha",
@@ -103,6 +123,8 @@
       },
       {
         "name": "Bowls & Salad",
+        "slug": "bowls-salad",
+        "description": "11:00 - 20:00",
         "items": [
           {
             "name": "Teriyaki Sticky Pork",
@@ -128,6 +150,8 @@
       },
       {
         "name": "Pan Asia",
+        "slug": "pan-asia",
+        "description": "11:00 - 20:00",
         "items": [
           {
             "name": "Chrumkavý Bôčik & Wok Rezance",
@@ -163,6 +187,8 @@
       },
       {
         "name": "Klasiky",
+        "slug": "klasiky",
+        "description": "11:00 - 20:00",
         "items": [
           {
             "name": "Údené Kura & Cheddar",
@@ -178,6 +204,8 @@
       },
       {
         "name": "Sladké",
+        "slug": "sladke",
+        "description": "11:00 - 20:00",
         "items": [
           {
             "name": "French Toast s Čokoládou Banánom a Ovocím",
@@ -193,6 +221,8 @@
       },
       {
         "name": "Street Food",
+        "slug": "street-food",
+        "description": "11:00 - 20:00",
         "items": [
           {
             "name": "Avotoast Feta & Sušené Paradajky",
@@ -222,22 +252,9 @@
         ]
       },
       {
-        "name": "Menu Combos",
-        "items": [
-          {
-            "name": "Raňajkové Menu",
-            "price": "€2,89",
-            "description": "jedno + teplý nápoj + džús. Espresso, Cappuccino, Batch Brew, Kakao, Ovocný alebo Čierny Čaj. Pomarančový džús, Jablcový džús"
-          },
-          {
-            "name": "Bistro Menu",
-            "price": "€3,30",
-            "description": "1. nápoj 0.3L (malinovka/ľadový čaj) + 2. hranolky + dip (aioli/mayo/kečup)"
-          }
-        ]
-      },
-      {
-        "name": "Extras",
+        "name": "Niečo naviac",
+        "slug": "extras",
+        "description": "Niečo naviac, ak potrebujete",
         "items": [
           {
             "name": "Extra Vajce",
