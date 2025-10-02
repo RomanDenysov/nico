@@ -21,7 +21,7 @@ export function Hero() {
       aria-labelledby="hero-title"
       id="hero"
     >
-      <div className="flex w-full flex-col gap-5 md:flex-row md:items-stretch md:gap-10">
+      <div className="flex w-full flex-col flex-wrap gap-5 md:flex-row md:items-stretch md:gap-10">
         <div className="flex w-full flex-1 flex-col gap-5 md:gap-10">
           <FadeDiv className="w-full">
             <Icons.line className="h-auto w-full text-brand" />

@@ -42,17 +42,17 @@ const sections: Record<string, Section> = {
     title: "Kontakt",
     items: [
       {
-        label: "Email",
+        label: "Napište nám",
         icon: MailIcon,
         href: "mailto:hello@nico.example",
       },
       {
-        label: "Telefón",
+        label: "Zavolajte nám",
         icon: PhoneIcon,
         href: "tel:+421905830548",
       },
       {
-        label: "Adresa",
+        label: "Najdite nás",
         icon: MapPinIcon,
         href: "https://maps.app.goo.gl/1234567890",
       },
@@ -62,15 +62,15 @@ const sections: Record<string, Section> = {
     title: "Odkazy",
     items: [
       { label: "O nás", href: "#about" },
-      { label: "Menu", href: "#menu" },
+      { label: "Menu", href: "menu" },
       { label: "Kontakt", href: "#contact" },
     ],
   },
   socials: {
     title: "Sledujte nás",
     items: [
-      { label: "Instagram", href: "#instagram", icon: Instagram },
-      { label: "Facebook", href: "#facebook", icon: Facebook },
+      { label: "Na Instagram", href: "#instagram", icon: Instagram },
+      { label: "Na Facebook", href: "#facebook", icon: Facebook },
     ],
   },
 };
@@ -113,8 +113,8 @@ export function Footer() {
                 <Icons.title className="h-auto w-60 text-brand" />
               </Link>
             </center>
-            <div className="flex flex-col-reverse items-center justify-between gap-5 md:flex-row">
-              <FadeDiv className="flex-1">
+            <div className="flex flex-col-reverse items-center justify-between gap-5 md:flex-row md:gap-10">
+              <FadeDiv className="">
                 <Partners />
               </FadeDiv>
               <div className="grid flex-1 grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-8 md:gap-10">
@@ -153,7 +153,7 @@ export function Footer() {
 
 function Partners({ className }: { className?: string }) {
   return (
-    <div className={cn("flex items-center justify-center gap-5", className)}>
+    <div className={cn("flex items-center justify-center", className)}>
       <Image
         alt="Partners"
         className="w-60"

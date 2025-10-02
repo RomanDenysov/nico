@@ -1,6 +1,7 @@
-'use client';
-import { cn } from '@/lib/utils';
-import { HTMLMotionProps, motion } from 'motion/react';
+"use client";
+
+import { type HTMLMotionProps, motion } from "motion/react";
+import { cn } from "@/lib/utils";
 
 export const GRADIENT_ANGLES = {
   top: 0,
@@ -9,15 +10,17 @@ export const GRADIENT_ANGLES = {
   left: 270,
 };
 
+const _FULL_OPACITY_INDEXES = 3;
+
 export type ProgressiveBlurProps = {
   direction?: keyof typeof GRADIENT_ANGLES;
   blurLayers?: number;
   className?: string;
   blurIntensity?: number;
-} & HTMLMotionProps<'div'>;
+} & HTMLMotionProps<"div">;
 
 export function ProgressiveBlur({
-  direction = 'bottom',
+  direction = "bottom",
   blurLayers = 8,
   className,
   blurIntensity = 0.25,
@@ -27,27 +30,30 @@ export function ProgressiveBlur({
   const segmentSize = 1 / (blurLayers + 1);
 
   return (
-    <div className={cn('relative', className)}>
+    <div className={cn("relative", className)}>
       {Array.from({ length: layers }).map((_, index) => {
         const angle = GRADIENT_ANGLES[direction];
         const gradientStops = [
           index * segmentSize,
           (index + 1) * segmentSize,
           (index + 2) * segmentSize,
+          // biome-ignore lint: <needs-refactoring>
           (index + 3) * segmentSize,
         ].map(
           (pos, posIndex) =>
+            // biome-ignore lint: <needs-refactoring>
             `rgba(255, 255, 255, ${posIndex === 1 || posIndex === 2 ? 1 : 0}) ${pos * 100}%`
         );
 
         const gradient = `linear-gradient(${angle}deg, ${gradientStops.join(
-          ', '
+          ", "
         )})`;
 
         return (
           <motion.div
+            className="pointer-events-none absolute inset-0 rounded-[inherit]"
+            // biome-ignore lint/suspicious/noArrayIndexKey: <needed>
             key={index}
-            className='pointer-events-none absolute inset-0 rounded-[inherit]'
             style={{
               maskImage: gradient,
               WebkitMaskImage: gradient,

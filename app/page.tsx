@@ -12,12 +12,12 @@ export default function Home() {
       <FadeContainer className="flex flex-col gap-5 md:gap-10">
         <Hero />
         <div className="flex flex-col gap-10 md:flex-row">
-          <FadeDiv className="hidden flex-1 md:block md:min-w-sm">
+          <FadeDiv className="hidden shrink-0 md:block md:min-w-sm">
             <Suspense>
               <GoogleMapComponent />
             </Suspense>
           </FadeDiv>
-          <FadeDiv>
+          <FadeDiv className="flex-1">
             <AboutSection />
           </FadeDiv>
         </div>

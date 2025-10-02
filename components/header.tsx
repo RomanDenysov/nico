@@ -40,7 +40,7 @@ export function Header() {
       )}
       <div
         className={cn(
-          "rounded-4xl border border-transparent bg-white/30 backdrop-blur-sm transition duration-300",
+          "rounded-4xl border border-transparent bg-transparent backdrop-blur-sm transition duration-300",
           scrolled || open
             ? "bg-gradient-to-r from-brand-foreground/45 to-brand-foreground/20 shadow-2xl shadow-black/25 drop-shadow-2xl backdrop-blur-sm"
             : ""
@@ -85,7 +85,7 @@ export function Header() {
             href="tel:+421723456789"
           >
             <PhoneIcon className="size-4" />
-            Rezervovat
+            Zavolajte nám
           </Link>
           <NavMenuButton
             open={open}
@@ -118,7 +118,7 @@ export function Header() {
             href="tel:+421723456789"
           >
             <PhoneIcon className="size-4" />
-            Rezervovat
+            Zavolajte nám
           </Link>
         </nav>
       </div>

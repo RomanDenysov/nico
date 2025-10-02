@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import React, { useRef } from 'react';
 import {
+  type MotionStyle,
   motion,
+  type SpringOptions,
   useMotionTemplate,
   useMotionValue,
   useSpring,
   useTransform,
-  MotionStyle,
-  SpringOptions,
-} from 'motion/react';
+} from "motion/react";
+import type React from "react";
+import { useRef } from "react";
 
 export type TiltProps = {
   children: React.ReactNode;
@@ -19,6 +20,8 @@ export type TiltProps = {
   isRevese?: boolean;
   springOptions?: SpringOptions;
 };
+
+const HALF_PI = 0.5;
 
 export function Tilt({
   children,
@@ -38,6 +41,7 @@ export function Tilt({
 
   const rotateX = useTransform(
     ySpring,
+    // biome-ignore lint: <needs-refactoring>
     [-0.5, 0.5],
     isRevese
       ? [rotationFactor, -rotationFactor]
@@ -45,6 +49,7 @@ export function Tilt({
   );
   const rotateY = useTransform(
     xSpring,
+    // biome-ignore lint: <needs-refactoring>
     [-0.5, 0.5],
     isRevese
       ? [-rotationFactor, rotationFactor]
@@ -54,7 +59,9 @@ export function Tilt({
   const transform = useMotionTemplate`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
+    if (!ref.current) {
+      return;
+    }
 
     const rect = ref.current.getBoundingClientRect();
     const width = rect.width;
@@ -62,8 +69,8 @@ export function Tilt({
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    const xPos = mouseX / width - 0.5;
-    const yPos = mouseY / height - 0.5;
+    const xPos = mouseX / width - HALF_PI;
+    const yPos = mouseY / height - HALF_PI;
 
     x.set(xPos);
     y.set(yPos);
@@ -76,15 +83,15 @@ export function Tilt({
 
   return (
     <motion.div
-      ref={ref}
       className={className}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      ref={ref}
       style={{
-        transformStyle: 'preserve-3d',
+        transformStyle: "preserve-3d",
         ...style,
         transform,
       }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
     >
       {children}
     </motion.div>
