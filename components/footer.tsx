@@ -54,7 +54,7 @@ const sections: Record<string, Section> = {
       {
         label: "Najdite nás",
         icon: MapPinIcon,
-        href: "https://maps.app.goo.gl/1234567890",
+        href: "https://maps.app.goo.gl/VHsNeTAPYMs2ohPD9",
       },
     ],
   },
@@ -69,8 +69,8 @@ const sections: Record<string, Section> = {
   socials: {
     title: "Sledujte nás",
     items: [
-      { label: "Na Instagram", href: "#instagram", icon: Instagram },
-      { label: "Na Facebook", href: "#facebook", icon: Facebook },
+      { label: "Instagram", href: "#instagram", icon: Instagram },
+      { label: "Facebook", href: "#facebook", icon: Facebook },
     ],
   },
 };
@@ -116,7 +116,7 @@ export function Footer() {
                 <Icons.title className="h-auto w-60 text-brand" />
               </Link>
             </center>
-            <div className="flex flex-col-reverse items-center justify-between gap-5 md:flex-row md:gap-10">
+            <div className="flex flex-col-reverse items-center justify-between gap-8 md:flex-row md:gap-20">
               <FadeDiv className="">
                 <Partners />
               </FadeDiv>

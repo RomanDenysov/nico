@@ -28,7 +28,7 @@ const aboutItems: AboutItem[] = [
     year: 2013,
     title: "2013",
     description:
-      "Bistro, kaviareň, dlhý brunch aj večerné vínko na terase. Naše “prudko návykové bistro” vzniklo v roku 2013. Začínali sme v jednej miestnosti s asi desiatimi stolmi a postupne rástli, ako rástol aj počet našich štamgastov.",
+      "Naše “prudko návykové bistro” vzniklo v roku 2013. Začínali sme v jednej miestnosti s asi desiatimi stolmi a postupne rástli, ako rástol aj počet našich štamgastov.",
     image: "/images/about/1.jpg",
   },
   {
