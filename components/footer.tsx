@@ -77,7 +77,10 @@ const sections: Record<string, Section> = {
 
 export function Footer() {
   return (
-    <footer className={cn(containerVariants({ variant: "default" }), "w-full")}>
+    <footer
+      className={cn(containerVariants({ variant: "default" }), "w-full")}
+      id="footer"
+    >
       <Tilt
         className="group relative rounded-4xl"
         isRevese

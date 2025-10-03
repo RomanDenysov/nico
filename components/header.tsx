@@ -1,7 +1,6 @@
 "use client";
 
 import { PhoneIcon, XIcon } from "lucide-react";
-import { motion } from "motion/react";
 import Link from "next/link";
 import { useState } from "react";
 import useScroll from "@/hooks/use-scroll";
@@ -19,9 +18,9 @@ type NavLink = {
 const SCROLL_THRESHOLD = 15;
 
 const navLinks: NavLink[] = [
-  { href: "#about", label: "O nás" },
-  { href: "#menu", label: "Menu" },
-  { href: "#contact", label: "Kontakt" },
+  // { href: "/#about", label: "O nás" },
+  { href: "/menu", label: "Menu" },
+  { href: "#footer", label: "Kontakt" },
 ];
 
 export function Header() {
@@ -161,51 +160,4 @@ const NavMenuButton = ({
       )}
     />
   </button>
-);
-
-const variants = {
-  open: {
-    opacity: 1,
-    scaleY: 1,
-    transition: { duration: 0.2 },
-  },
-  closed: {
-    opacity: 0,
-    scaleY: 0,
-    transition: { duration: 0.2 },
-  },
-};
-
-const _NavMenuContent = ({
-  links,
-  open,
-  onNavigate,
-}: {
-  links: NavLink[];
-  open: boolean;
-  onNavigate?: () => void;
-}) => (
-  <motion.nav
-    animate={open ? "open" : "closed"}
-    aria-label="Mobile navigation"
-    className="flex w-full origin-top flex-col gap-1 overflow-hidden rounded-4xl bg-brand-foreground p-2 md:hidden"
-    id="mobile-nav"
-    initial="closed"
-    style={{ transformOrigin: "top" }}
-    variants={variants}
-  >
-    {links.map((link) => (
-      <Link
-        className={cn(
-          buttonVariants({ variant: "ghost" }),
-          "h-11 justify-start px-3 text-base"
-        )}
-        href={link.href}
-        key={link.href}
-        onClick={onNavigate}
-      >
-        {link.label}
-      </Link>
-    ))}
-  </motion.nav>
 );

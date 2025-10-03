@@ -1,7 +1,7 @@
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { unstable_ViewTransition as ViewTransition } from "react";
-import { categories as menuCategories } from "@/lib/menu";
+import { getMenuCategories, type MenuCategory } from "@/app/actions/menu";
 import { cn } from "@/lib/utils";
 import bistroImage from "@/public/images/bistro.jpg";
 import breakfastImage from "@/public/images/breakfast.jpg";
@@ -32,14 +32,17 @@ const categoryImages: Record<string, StaticImageData> = {
   extras: coffeemachineImage,
 };
 
-const categories: CategoryWithImage[] = menuCategories.map((cat) => ({
-  id: cat.id,
-  title: cat.title,
-  slug: cat.title.toLowerCase().replace(/ /g, "-"),
-  image: categoryImages[cat.id] || bistroImage,
-}));
+export async function MenuSection({ className }: { className?: string }) {
+  const menuCategories = await getMenuCategories();
+  const categories: CategoryWithImage[] = menuCategories.map(
+    (cat: MenuCategory) => ({
+      id: cat.id,
+      title: cat.title,
+      slug: cat.slug,
+      image: categoryImages[cat.id] || bistroImage,
+    })
+  );
 
-export function MenuSection({ className }: { className?: string }) {
   return (
     <section aria-label="Menu" className={className} id="menu">
       <FadeContainer className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 md:gap-10">

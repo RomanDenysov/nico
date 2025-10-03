@@ -1,67 +1,57 @@
-import type { Category } from "@/lib/menu";
+import type { MenuCategory } from "@/app/actions/menu";
 import { Badge } from "./ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Separator } from "./ui/separator";
+import { Card, CardContent } from "./ui/card";
 
 type MenuListProps = {
-  categories: Category[];
+  categories: MenuCategory[];
   className?: string;
 };
 
 export function MenuList({ categories, className }: MenuListProps) {
+  const allItems = categories.flatMap((category: MenuCategory) =>
+    category.items.map((item) => ({ ...item, categoryId: category.id }))
+  );
+
   return (
     <div className={className}>
-      <div className="space-y-8">
-        {categories.map((category) => (
-          <MenuCategory category={category} key={category.id} />
+      <div className="grid gap-4 md:gap-6">
+        {allItems.map((item, index: number) => (
+          <MenuItem item={item} key={`${item.name}-${index}`} />
         ))}
       </div>
     </div>
   );
 }
 
-function MenuCategory({ category }: { category: Category }) {
+function MenuItem({
+  item,
+}: {
+  item: MenuCategory["items"][number] & { categoryId: string };
+}) {
   return (
-    <Card className="border-brand-foreground" id={category.id}>
-      <CardHeader>
-        <CardTitle className="text-2xl text-brand-foreground">
-          {category.title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <ul className="space-y-6">
-          {category.items.map((item, index) => (
-            <li key={`${item.name}-${index}`}>
-              <MenuItem item={item} />
-              {index < category.items.length - 1 && (
-                <Separator className="mt-6" />
-              )}
-            </li>
-          ))}
-        </ul>
+    <Card className="group cursor-pointer border-brand-foreground/20 transition-all hover:border-brand-foreground/40 hover:shadow-md">
+      <CardContent className="p-6">
+        <div className="flex flex-col gap-3">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="font-semibold text-brand-foreground text-lg leading-tight">
+              {item.name}
+            </h3>
+            {item.price ? (
+              <Badge
+                className="shrink-0 font-semibold text-base"
+                variant="outline"
+              >
+                {item.price}
+              </Badge>
+            ) : null}
+          </div>
+          {item.description ? (
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {item.description}
+            </p>
+          ) : null}
+        </div>
       </CardContent>
     </Card>
-  );
-}
-
-function MenuItem({ item }: { item: Category["items"][number] }) {
-  return (
-    <div className="flex flex-col gap-2">
-      <div className="flex items-start justify-between gap-4">
-        <h4 className="font-semibold text-brand-foreground text-lg">
-          {item.name}
-        </h4>
-        {item.price ? (
-          <Badge className="shrink-0 font-medium text-base" variant="outline">
-            {item.price}
-          </Badge>
-        ) : null}
-      </div>
-      {item.description ? (
-        <p className="text-muted-foreground text-sm leading-relaxed">
-          {item.description}
-        </p>
-      ) : null}
-    </div>
   );
 }

@@ -34,10 +34,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  modal,
 }: Readonly<{
   children: ReactNode;
-  modal: ReactNode;
 }>) {
   return (
     <html className={cn(fonts)} lang="sk">
@@ -52,7 +50,6 @@ export default function RootLayout({
         <Header />
         <main className="@container/main">{children}</main>
         <Footer />
-        {modal}
       </body>
     </html>
   );
