@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html className={cn(fonts)} lang="sk">
       <body
-        className="relative min-h-screen bg-brand-foreground/20"
+        className="relative min-h-screen bg-background"
         style={
           {
             "--header-height": "calc(var(--spacing) * 12)",
