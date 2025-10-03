@@ -32,10 +32,10 @@ export function Hero() {
               PRUDKO
             </FadeSpan>
             <FadeSpan className="font-black text-brand text-xl leading-tight tracking-tight md:text-4xl">
-              NAVYKOVO
+              NÁVYKOVÉ
             </FadeSpan>
             <FadeSpan className="font-black text-brand text-xl leading-tight tracking-tight md:text-4xl">
-              BYSTRE
+              BISTRO!
             </FadeSpan>
           </div>
         </div>
