@@ -25,10 +25,6 @@ const extras = [
     price: "€1,00",
   },
   {
-    name: "Šunka",
-    price: "€2,00",
-  },
-  {
     name: "Slanina",
     price: "€2,50",
   },

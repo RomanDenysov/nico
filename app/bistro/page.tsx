@@ -173,15 +173,15 @@ export default function BistroPage() {
           }}
         >
           <FadeDiv className="flex items-center justify-between rounded-4xl border-2 border-transparent bg-gradient-to-b from-brand-foreground/30 to-brand-foreground/10 p-6 shadow-2xl drop-shadow-2xl">
-            <h1 className="font-bold text-5xl text-brand tracking-tight">
+            <h1 className="font-bold text-3xl text-brand tracking-tight md:text-5xl">
               Bistro
             </h1>
-            <div className="rounded-4xl border-2 border-transparent bg-brand/10 px-3 py-2">
-              <p className="font-medium text-xl">11:00 - 20:00</p>
+            <div className="rounded-4xl border-2 border-transparent bg-brand/10 px-2 py-2 md:px-3 md:py-2">
+              <p className="font-medium text-base md:text-xl">11:00 - 20:00</p>
             </div>
           </FadeDiv>
         </Tilt>
-        <div className="columns-2">
+        <div className="columns-1 md:columns-2">
           <FadeDiv className="mb-5 size-fit md:mb-10">
             <MenuItem items={bistroMenu.soups} title="Polievky" />
           </FadeDiv>

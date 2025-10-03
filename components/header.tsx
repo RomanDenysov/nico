@@ -94,20 +94,16 @@ export function Header() {
         </div>
         <nav
           className={cn(
-            "mt-6 flex flex-col gap-6 px-2 pb-2 ease-in-out will-change-transform sm:hidden",
+            "mt-6 flex flex-col gap-6 px-2 pb-2 ease-in-out will-change-transform md:hidden",
             open ? "" : "hidden"
           )}
         >
           <ul className="space-y-4 px-2 font-medium text-2xl">
-            <li>
-              <Link href="#about">O nás</Link>
-            </li>
-            <li>
-              <Link href="#menu">Menu</Link>
-            </li>
-            <li>
-              <Link href="#contact">Kontakt</Link>
-            </li>
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href}>{link.label}</Link>
+              </li>
+            ))}
           </ul>
           <Link
             className={cn(
