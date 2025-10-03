@@ -19,7 +19,7 @@ const SCROLL_THRESHOLD = 15;
 
 const navLinks: NavLink[] = [
   // { href: "/#about", label: "O nás" },
-  { href: "/menu", label: "Menu" },
+  { href: "/#menu", label: "Menu" },
   { href: "#footer", label: "Kontakt" },
 ];
 

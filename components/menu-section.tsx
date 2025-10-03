@@ -1,14 +1,10 @@
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { unstable_ViewTransition as ViewTransition } from "react";
-import { getMenuCategories, type MenuCategory } from "@/app/actions/menu";
 import { cn } from "@/lib/utils";
 import bistroImage from "@/public/images/bistro.jpg";
 import breakfastImage from "@/public/images/breakfast.jpg";
-import coffeemachineImage from "@/public/images/coffeemachine.jpg";
-import foodSaladImage from "@/public/images/food-salad.jpg";
-import foodSoupImage from "@/public/images/food-soup.jpg";
-import thaiBistroImage from "@/public/images/thai-bistro.jpg";
+
 import { Card, CardHeader, CardTitle } from "./ui/card";
 import { FadeContainer, FadeDiv } from "./ui/fade";
 import { Tilt } from "./ui/tilt";
@@ -20,34 +16,27 @@ type CategoryWithImage = {
   slug: string;
 };
 
-const categoryImages: Record<string, StaticImageData> = {
-  "ranajky-07-00-11-00": breakfastImage,
-  polievky: foodSoupImage,
-  "bowls-salad": foodSaladImage,
-  "pan-asia": thaiBistroImage,
-  klasiky: bistroImage,
-  sladke: breakfastImage,
-  "street-food": bistroImage,
-  "menu-combos": bistroImage,
-  extras: coffeemachineImage,
-};
+const categories = [
+  {
+    id: "ranajky",
+    title: "Raňajky",
+    slug: "ranajky",
+    image: breakfastImage,
+  },
+  {
+    id: "bistro",
+    title: "Bistro",
+    slug: "bistro",
+    image: bistroImage,
+  },
+];
 
-export async function MenuSection({ className }: { className?: string }) {
-  const menuCategories = await getMenuCategories();
-  const categories: CategoryWithImage[] = menuCategories.map(
-    (cat: MenuCategory) => ({
-      id: cat.id,
-      title: cat.title,
-      slug: cat.slug,
-      image: categoryImages[cat.id] || bistroImage,
-    })
-  );
-
+export function MenuSection({ className }: { className?: string }) {
   return (
     <section aria-label="Menu" className={className} id="menu">
-      <FadeContainer className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5 md:gap-10">
+      <FadeContainer className="grid grid-cols-2 gap-5 md:gap-10">
         {categories.map((category) => (
-          <Link href={`/menu/${category.slug}`} key={category.id}>
+          <Link href={`/${category.slug}`} key={category.id}>
             <FadeDiv>
               <CategoryCard category={category} />
             </FadeDiv>
@@ -78,7 +67,7 @@ const CategoryCard = ({
       transformOrigin: "center center",
     }}
   >
-    <Card className="group/category relative min-h-60 cursor-pointer overflow-hidden border-brand-foreground border-none bg-brand-foreground">
+    <Card className="group/category relative min-h-74 cursor-pointer overflow-hidden border-brand-foreground border-none bg-brand-foreground">
       <CardHeader className="z-10">
         <ViewTransition name={category.slug}>
           <CardTitle className="text-balance text-white leading-none tracking-tighter">

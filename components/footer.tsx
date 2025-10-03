@@ -61,9 +61,9 @@ const sections: Record<string, Section> = {
   links: {
     title: "Odkazy",
     items: [
-      { label: "O nás", href: "#about" },
-      { label: "Menu", href: "menu" },
-      { label: "Kontakt", href: "#contact" },
+      // { label: "O nás", href: "#about" },
+      { label: "Menu", href: "/#menu" },
+      { label: "Kontakt", href: "#footer" },
     ],
   },
   socials: {
