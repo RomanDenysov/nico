@@ -3,13 +3,13 @@ import { FadeContainer, FadeDiv } from "@/components/ui/fade";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { cn } from "@/lib/utils";
+import { ComboMenuCard } from "./combo-menu-card";
 import { Extras } from "./extras";
 
 const breakfastMenu = {
   menu: [
     {
       name: "Raňajkové Menu",
-      slug: "ranajkovy-menu",
       price: "+€2,89",
       description:
         "jedno + teplý nápoj + džús. Espresso, Cappuccino, Batch Brew, Kakao, Ovocný alebo Čierny Čaj. Pomarančový džús, Jablcový džús",
@@ -156,7 +156,7 @@ export default function RanajkyPage() {
             <MenuItem items={breakfastMenu.seconds} />
           </FadeDiv>
           <FadeDiv className="mb-5 size-fit md:mb-10">
-            <MenuItem className="size-fit" items={breakfastMenu.menu} />
+            <ComboMenuCard className="size-fit" item={breakfastMenu.menu[0]} />
           </FadeDiv>
         </div>
         <FadeDiv>

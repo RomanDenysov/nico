@@ -3,6 +3,7 @@ import { FadeContainer, FadeDiv } from "@/components/ui/fade";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { cn } from "@/lib/utils";
+import { ComboMenuCard } from "../ranajky/combo-menu-card";
 import { Extras } from "../ranajky/extras";
 
 const bistroMenu = {
@@ -201,7 +202,7 @@ export default function BistroPage() {
             <MenuItem items={bistroMenu.streetFood} title="Street Food" />
           </FadeDiv>
           <FadeDiv className="mb-5 size-fit md:mb-10">
-            <MenuItem className="size-fit" items={bistroMenu.menu} />
+            <ComboMenuCard className="size-fit" item={bistroMenu.menu[0]} />
           </FadeDiv>
         </div>
         <FadeDiv className="">
