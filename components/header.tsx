@@ -35,11 +35,16 @@ export function Header() {
       )}
     >
       {open && (
-        <div className="pointer-events-none fixed top-0 right-0 left-0 z-0 size-full bg-white/10 backdrop-blur-[1px] transition-opacity duration-300 will-change-transform" />
+        <button
+          aria-label="Close mobile navigation"
+          className="fixed top-0 right-0 left-0 z-10 size-full cursor-pointer touch-none select-none bg-white/10 backdrop-blur-[1px] transition-opacity duration-300 will-change-transform"
+          onClick={() => setOpen(false)}
+          type="button"
+        />
       )}
       <div
         className={cn(
-          "rounded-4xl border border-transparent bg-transparent backdrop-blur-sm transition duration-300",
+          "relative z-20 rounded-4xl border border-transparent bg-transparent backdrop-blur-sm transition duration-300",
           scrolled || open
             ? "bg-gradient-to-r from-brand-foreground/45 to-brand-foreground/20 shadow-2xl shadow-black/25 drop-shadow-2xl backdrop-blur-sm"
             : ""
