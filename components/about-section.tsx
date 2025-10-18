@@ -4,6 +4,7 @@ import Fade from "embla-carousel-fade";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { aboutItems } from "@/app/config";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 import {
@@ -14,7 +15,6 @@ import {
 } from "./ui/carousel";
 import { CarouselYearDots } from "./ui/dot-year-button";
 import { ProgressiveBlur } from "./ui/progressive-blur";
-import { Tilt } from "./ui/tilt";
 
 type AboutItem = {
   year: number;
@@ -23,31 +23,6 @@ type AboutItem = {
   image: string;
 };
 
-const aboutItems: AboutItem[] = [
-  {
-    year: 2013,
-    title: "2013",
-    description:
-      "Naše “prudko návykové bistro” vzniklo v roku 2013. Začínali sme v jednej miestnosti s asi desiatimi stolmi a postupne rástli, ako rástol aj počet našich štamgastov.",
-    image: "/images/about/1.jpg",
-  },
-  {
-    year: 2023,
-    title: "2023",
-    description:
-      "V roku 2023 sme naše priestory pretvorili do dnešnej podoby. Nico, to sú drevené stoličky, veľké presklenné okná a ružovo-fialové neóny.",
-    image: "/images/about/2.jpg",
-  },
-
-  {
-    year: 2025,
-    title: "2025",
-    description:
-      "V roku 2025 nás Gault & Millau zaradili do svojho celosvetovo uznávaného sprievodcu najlepšími gastro spotmi: “NICO CAFFÉ je rušným miestom pre milovníkov života, ktorým pojmy ako smash, cold brew či exotická kuchyňa nie sú cudzie.”",
-    image: "/images/about/3.jpg",
-  },
-];
-
 export function AboutSection({ className }: { className?: string }) {
   const [api, setApi] = useState<CarouselApi>();
 
@@ -55,46 +30,32 @@ export function AboutSection({ className }: { className?: string }) {
     <section
       aria-label="About section"
       aria-labelledby="about-title"
-      className={cn(className)}
+      className={cn("size-fit", className)}
       id="about"
     >
-      <Tilt
-        className="group relative rounded-4xl"
-        isRevese
-        rotationFactor={1}
-        springOptions={{
-          stiffness: 26.7,
-          damping: 4.1,
-          mass: 0.2,
+      <Carousel
+        className="relative w-full overflow-hidden rounded-4xl shadow-2xl drop-shadow-2xl"
+        opts={{
+          loop: true,
+          duration: 30,
+          containScroll: false,
         }}
-        style={{
-          transformOrigin: "center center",
-        }}
+        plugins={[Fade()]}
+        setApi={setApi}
       >
-        <Carousel
-          className="relative w-full overflow-hidden rounded-4xl shadow-2xl drop-shadow-2xl"
-          opts={{
-            loop: true,
-            duration: 30,
-            containScroll: false,
-          }}
-          plugins={[Fade()]}
-          setApi={setApi}
-        >
-          <CarouselControllers
-            api={api}
-            className="absolute top-4 right-4 z-20"
-          />
+        <CarouselControllers
+          api={api}
+          className="absolute top-4 right-4 z-20"
+        />
 
-          <CarouselContent className="-ml-0 size-full">
-            {aboutItems.map((item, _index) => (
-              <CarouselItem className="basis-full pl-0" key={item.year}>
-                <AboutItem item={item} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-      </Tilt>
+        <CarouselContent className="-ml-0 size-full">
+          {aboutItems.map((item) => (
+            <CarouselItem className="basis-full pl-0" key={item.year}>
+              <AboutItem item={item} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </section>
   );
 }

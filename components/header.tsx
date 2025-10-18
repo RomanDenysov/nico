@@ -7,7 +7,6 @@ import useScroll from "@/hooks/use-scroll";
 import { cn } from "@/lib/utils";
 import { containerVariants } from "./container";
 import { Icons } from "./icons";
-import { AnimatedBackground } from "./ui/animated-background";
 import { buttonVariants } from "./ui/button";
 
 type NavLink = {
@@ -15,12 +14,14 @@ type NavLink = {
   label: string;
 };
 
+const PHONE_NUMBER = "+421905830548";
+
 const SCROLL_THRESHOLD = 15;
 
 const navLinks: NavLink[] = [
-  // { href: "/#about", label: "O nás" },
+  { href: "/#about", label: "O nás" },
   { href: "/#menu", label: "Menu" },
-  { href: "#footer", label: "Kontakt" },
+  // { href: "#footer", label: "Kontakt" },
 ];
 
 export function Header() {
@@ -31,7 +32,7 @@ export function Header() {
     <header
       className={cn(
         containerVariants({ variant: "default" }),
-        "sticky top-4 z-40 h-12 w-full"
+        "sticky top-4 right-0 left-0 z-40 h-12 w-full"
       )}
     >
       {open && (
@@ -44,51 +45,41 @@ export function Header() {
       )}
       <div
         className={cn(
-          "relative z-20 rounded-4xl border border-transparent bg-transparent backdrop-blur-sm transition duration-300",
+          "relative z-20 min-h-(--header-height) rounded-4xl border border-transparent bg-transparent transition duration-300",
           scrolled || open
             ? "bg-gradient-to-r from-brand-foreground/45 to-brand-foreground/20 shadow-2xl shadow-black/25 drop-shadow-2xl backdrop-blur-sm"
             : ""
         )}
       >
-        <div className="flex items-center justify-between gap-2 rounded-4xl p-2 md:grid md:grid-cols-[1fr_auto_1fr]">
-          <nav className="hidden flex-row gap-2 md:flex">
-            <AnimatedBackground
-              className="rounded-4xl bg-brand/20 dark:bg-brand-foreground/80"
-              enableHover
-              transition={{
-                type: "keyframes",
-                bounce: 0.5,
-                duration: 0.25,
-              }}
-            >
-              {navLinks.map((link) => (
-                <Link
-                  className={cn("px-3 py-1 font-medium sm:text-lg md:text-xl")}
-                  data-id={link.href}
-                  href={link.href}
-                  key={link.href}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </AnimatedBackground>
-          </nav>
+        <div className="flex h-full items-center justify-between gap-3 rounded-4xl p-2.5">
           <Link href="/">
             <Icons.title
-              className={cn(
-                "text-brand-foreground transition-colors duration-300",
-                scrolled || open ? "text-primary" : ""
-              )}
+              className={cn("h-6 text-primary transition-colors duration-300")}
             />
           </Link>
+          <nav className="hidden flex-row items-center gap-2 md:flex">
+            {navLinks.map((link) => (
+              <Link
+                className={cn(
+                  buttonVariants({ variant: "ghost", size: "sm" }),
+                  "hover:bg-brand/10"
+                )}
+                href={link.href}
+                key={link.href}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
           <Link
             className={cn(
-              buttonVariants({ variant: "brand" }),
-              "ml-auto hidden md:flex"
+              buttonVariants({ variant: "ghost", size: "sm" }),
+              "ml-auto hidden hover:bg-brand/10 md:flex"
             )}
-            href="tel:+421723456789"
+            href={`tel:${PHONE_NUMBER}`}
           >
-            <PhoneIcon className="size-4" />
+            <PhoneIcon />
             Zavolajte nám
           </Link>
           <NavMenuButton
@@ -115,7 +106,7 @@ export function Header() {
               buttonVariants({ variant: "brand" }),
               "w-full text-lg text-white"
             )}
-            href="tel:+421723456789"
+            href={`tel:${PHONE_NUMBER}`}
           >
             <PhoneIcon className="size-4" />
             Zavolajte nám

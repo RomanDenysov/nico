@@ -4,6 +4,7 @@ import "./globals.css";
 import type { CSSProperties, ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import { cn } from "@/lib/utils";
 import { fonts } from "./fonts";
 
@@ -40,16 +41,19 @@ export default function RootLayout({
   return (
     <html className={cn(fonts)} lang="sk">
       <body
-        className="relative min-h-screen scroll-auto bg-background"
+        className="scroll-snap-y-mandatory relative min-h-screen snap-center bg-background"
         style={
           {
             "--header-height": "calc(var(--spacing) * 12)",
+            "--content-margin-top": "calc(var(--spacing) * 4)",
           } as CSSProperties
         }
       >
-        <Header />
-        <main className="@container/main">{children}</main>
-        <Footer />
+        <AuroraBackground>
+          <Header />
+          <main className="@container/main relative">{children}</main>
+          <Footer />
+        </AuroraBackground>
       </body>
     </html>
   );
