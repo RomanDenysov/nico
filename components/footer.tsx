@@ -35,7 +35,7 @@ export function Footer() {
           }}
         />
         <FadeContainer>
-          <div className="grid w-full flex-1 grid-cols-2 items-center gap-5 sm:gap-10 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] md:gap-12">
+          <div className="grid w-full flex-1 grid-cols-2 items-center gap-10 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] md:gap-12">
             <FadeDiv className="col-span-2 flex w-full flex-col items-center gap-5 md:col-span-1 md:items-stretch">
               <Link href="/">
                 <Icons.title className="h-auto w-26 sm:w-30" />
@@ -48,7 +48,7 @@ export function Footer() {
                 ))}
               </div>
             </FadeDiv>
-            <div className="flex flex-row items-start gap-2 md:flex-col">
+            <div className="col-span-2 flex flex-row items-start gap-2 md:col-span-1 md:flex-col">
               {addresses.map((address) => (
                 <FadeDiv
                   className="flex items-start gap-1.5"
@@ -71,7 +71,7 @@ export function Footer() {
                 </Link>
               ))}
             </FadeDiv>
-            <div className="flex flex-col items-stretch justify-between gap-5 self-stretch">
+            <div className="col-span-2 flex flex-col items-stretch justify-between gap-5 self-stretch md:col-span-1">
               <FadeDiv className="size-fit">
                 <FooterNewsletterForm />
               </FadeDiv>

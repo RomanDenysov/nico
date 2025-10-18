@@ -22,12 +22,14 @@ export function Hero() {
           width={1800}
         />
       </div>
-      <div className="mt-auto flex w-full shrink-0 items-start justify-between gap-8">
-        {addresses.map((address) => (
-          <FadeDiv className="shrink-0" key={address.city + address.street}>
-            <AddressFields address={address} />
-          </FadeDiv>
-        ))}
+      <div className="mt-auto flex w-full shrink-0 flex-col-reverse items-start justify-between gap-8 md:flex-row md:items-start">
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          {addresses.map((address) => (
+            <FadeDiv className="shrink-0" key={address.city + address.street}>
+              <AddressFields address={address} />
+            </FadeDiv>
+          ))}
+        </div>
         <FadeDiv className="flex flex-1 items-start justify-end">
           <WorkingHoursCard />
         </FadeDiv>
