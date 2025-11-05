@@ -330,6 +330,7 @@ export const addresses = [
       href: "mailto:nicopresov@kavejo.sk",
     },
     image: presovExterierImage,
+    map: "https://maps.app.goo.gl/Xeub9XaS2gmkf3W39",
   },
   {
     street: "Kuzmányho 1",
@@ -344,6 +345,7 @@ export const addresses = [
       href: "mailto:nicokosice@kavejo.sk",
     },
     image: kosiceExterierImage,
+    map: "https://maps.app.goo.gl/pujLGMJrUzqW17XK6",
   },
 ];
 
@@ -437,8 +439,16 @@ export const footerSections = {
   socials: {
     title: "Sledujte nás",
     items: [
-      { label: "Instagram", href: "#instagram", icon: Instagram },
-      { label: "Facebook", href: "#facebook", icon: Facebook },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/nico_presov?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        icon: Instagram,
+      },
+      {
+        label: "Facebook",
+        href: "https://www.facebook.com/nicopresov",
+        icon: Facebook,
+      },
     ],
   },
 };

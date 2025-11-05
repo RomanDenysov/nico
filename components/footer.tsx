@@ -42,7 +42,12 @@ export function Footer() {
               </Link>
               <div className="flex items-center gap-3">
                 {footerSections.socials.items.map((item) => (
-                  <Link href={item.href} key={item.href}>
+                  <Link
+                    href={item.href}
+                    key={item.href}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
                     <item.icon className="size-5" />
                   </Link>
                 ))}

@@ -1,5 +1,7 @@
+import { MapPinIcon } from "lucide-react";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import { Badge } from "./ui/badge";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 
 type Address = {
@@ -15,6 +17,7 @@ type Address = {
     href: string;
   };
   image: StaticImageData;
+  map: string;
 };
 
 export function AddressFields({ address }: { address: Address }) {
@@ -44,9 +47,9 @@ export function AddressFields({ address }: { address: Address }) {
       </div>
       <HoverCardContent
         align="start"
-        className="w-80 overflow-hidden rounded-4xl p-0"
+        className="relative aspect-video w-80 overflow-hidden rounded-4xl p-0"
       >
-        <div>
+        <div className="absolute inset-0">
           <Image
             alt={`Nico caffé ${address.city} exterior`}
             className="size-full object-cover object-center"
@@ -54,6 +57,14 @@ export function AddressFields({ address }: { address: Address }) {
             src={address.image}
             width={640}
           />
+        </div>
+        <div className="absolute right-4 bottom-4 z-10">
+          <Link href={address.map} rel="noopener noreferrer" target="_blank">
+            <Badge className="px-1" variant="secondary">
+              <MapPinIcon className="size-3" />
+              Navigovať
+            </Badge>
+          </Link>
         </div>
       </HoverCardContent>
     </HoverCard>
