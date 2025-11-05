@@ -1,4 +1,4 @@
-import { MapPinIcon, SendIcon } from "lucide-react";
+import { MapPinIcon, SendHorizontalIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { addresses, footerSections } from "@/app/config";
@@ -142,7 +142,7 @@ function FooterNewsletterForm() {
           type="email"
         />
         <Button className="h-7 rounded-l-none" size="icon" type="submit">
-          <SendIcon className="size-4" />
+          <SendHorizontalIcon className="size-4" />
         </Button>
       </div>
     </form>
