@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next"
 
-import "./globals.css";
 import type { CSSProperties, ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { cn } from "@/lib/utils";
+
 import { fonts } from "./fonts";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "NICO CAFFÉ | Prešov",
@@ -54,6 +57,7 @@ export default function RootLayout({
           <main className="@container/main relative">{children}</main>
           <Footer />
         </AuroraBackground>
+        <Analytics />
       </body>
     </html>
   );
