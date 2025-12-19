@@ -1,4 +1,3 @@
-import { unstable_ViewTransition as ViewTransition } from "react";
 import { breakfastMenu } from "@/app/config";
 import { ComboMenuCard } from "@/components/combo-menu-card";
 import { Container } from "@/components/container";
@@ -25,12 +24,13 @@ export default function RanajkyPage() {
             transformOrigin: "center center",
           }}
         >
-          <div className="flex items-center justify-between rounded-4xl border-2 border-transparent bg-gradient-to-b from-brand-foreground/30 to-brand-foreground/10 p-6 shadow-2xl drop-shadow-2xl">
-            <ViewTransition name="ranajky">
-              <h1 className="font-bold text-3xl text-brand tracking-tight md:text-5xl">
-                Ranajky
-              </h1>
-            </ViewTransition>
+          <div className="flex items-center justify-between rounded-4xl border-2 border-transparent bg-linear-to-b from-brand-foreground/30 to-brand-foreground/10 p-6 shadow-2xl drop-shadow-2xl">
+            <h1
+              className="font-bold text-3xl text-brand tracking-tight md:text-5xl"
+              style={{ viewTransitionName: "ranajky" }}
+            >
+              Ranajky
+            </h1>
             <div className="rounded-4xl border-2 border-transparent bg-brand/10 px-2 py-2 md:px-3 md:py-2">
               <p className="font-medium text-base md:text-xl">07:00 - 11:00</p>
             </div>

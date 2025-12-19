@@ -1,5 +1,4 @@
 import Image, { type StaticImageData } from "next/image";
-import { unstable_ViewTransition as ViewTransition } from "react";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 
 type CategoryWithImage = {
@@ -12,11 +11,12 @@ type CategoryWithImage = {
 export const CategoryCard = ({ category }: { category: CategoryWithImage }) => (
   <Card className="group/category relative min-h-74 cursor-pointer overflow-hidden rounded-4xl border-brand-foreground border-none bg-brand-foreground">
     <CardHeader className="z-10">
-      <ViewTransition name={category.slug}>
-        <CardTitle className="text-balance text-white leading-none tracking-tighter">
-          {category.title}
-        </CardTitle>
-      </ViewTransition>
+      <CardTitle
+        className="text-balance text-white leading-none tracking-tighter"
+        style={{ viewTransitionName: category.slug }}
+      >
+        {category.title}
+      </CardTitle>
     </CardHeader>
     <Image
       alt={category.title}
