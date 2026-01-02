@@ -1,8 +1,7 @@
 import { integer, pgTableCreator, serial, text } from "drizzle-orm/pg-core";
+import env from "@/env";
 
-const pgTable = pgTableCreator(
-  (name) => `${process.env.PROJECT_DOMAIN!}_${name}`
-);
+const pgTable = pgTableCreator((name) => `${env.PROJECT_DOMAIN}_${name}`);
 
 export const menuTypes = pgTable("menu_types", {
   id: serial("id").primaryKey(),
