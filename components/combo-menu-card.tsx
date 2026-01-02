@@ -2,11 +2,11 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { cn } from "@/lib/utils";
 
-type MenuCombo = {
+interface MenuCombo {
   name: string;
   price: string;
   description: string;
-};
+}
 
 export function ComboMenuCard({
   item,

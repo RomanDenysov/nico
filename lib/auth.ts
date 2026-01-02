@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import env from "@/env";
 
 const SESSION_COOKIE_NAME = "admin_session";
 const SESSION_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
@@ -35,8 +36,9 @@ export async function destroySession(): Promise<void> {
   cookieStore.delete(SESSION_COOKIE_NAME);
 }
 
+// biome-ignore lint/suspicious/useAwait: <explanation>
 export async function verifyPassword(password: string): Promise<boolean> {
-  const adminPassword = process.env.ADMIN_PASSWORD;
+  const adminPassword = env.ADMIN_PASSWORD;
   if (!adminPassword) {
     throw new Error("ADMIN_PASSWORD not configured");
   }

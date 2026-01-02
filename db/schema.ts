@@ -1,4 +1,10 @@
-import { integer, pgTableCreator, serial, text } from "drizzle-orm/pg-core";
+import {
+  boolean,
+  integer,
+  pgTableCreator,
+  serial,
+  text,
+} from "drizzle-orm/pg-core";
 import env from "@/env";
 
 const pgTable = pgTableCreator((name) => `${env.PROJECT_DOMAIN}_${name}`);
@@ -26,6 +32,7 @@ export const menuItems = pgTable("menu_items", {
   price: text("price").notNull(),
   categoryId: integer("category_id").references(() => menuCategories.id),
   order: integer("order").notNull(),
+  isComboMenu: boolean("is_combo_menu").notNull().default(false),
 });
 
 export const extras = pgTable("extras", {

@@ -1,6 +1,6 @@
 {
-  "id": "c9e98f0d-9a63-47ce-ab26-34139a0bea2e",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "2f5843c0-93d5-4afc-8caf-550c77d75bcd",
+  "prevId": "c9e98f0d-9a63-47ce-ab26-34139a0bea2e",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -88,8 +88,12 @@
           "name": "presov_menu_categories_type_id_presov_menu_types_id_fk",
           "tableFrom": "presov_menu_categories",
           "tableTo": "presov_menu_types",
-          "columnsFrom": ["type_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "type_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -99,7 +103,9 @@
         "presov_menu_categories_slug_unique": {
           "name": "presov_menu_categories_slug_unique",
           "nullsNotDistinct": false,
-          "columns": ["slug"]
+          "columns": [
+            "slug"
+          ]
         }
       },
       "policies": {},
@@ -145,6 +151,13 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": true
+        },
+        "is_combo_menu": {
+          "name": "is_combo_menu",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
         }
       },
       "indexes": {},
@@ -153,8 +166,12 @@
           "name": "presov_menu_items_category_id_presov_menu_categories_id_fk",
           "tableFrom": "presov_menu_items",
           "tableTo": "presov_menu_categories",
-          "columnsFrom": ["category_id"],
-          "columnsTo": ["id"],
+          "columnsFrom": [
+            "category_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -201,7 +218,9 @@
         "presov_menu_types_slug_unique": {
           "name": "presov_menu_types_slug_unique",
           "nullsNotDistinct": false,
-          "columns": ["slug"]
+          "columns": [
+            "slug"
+          ]
         }
       },
       "policies": {},
