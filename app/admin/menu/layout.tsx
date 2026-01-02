@@ -8,10 +8,10 @@ const adminSidebarItems: { href: Route, label: string }[] = [
 ];
 
 export default function AdminMenuLayout(props: LayoutProps<'/admin/menu'>) {
-  return <div className="flex gap-4 grow flex-1">
+  return <div className="flex grow flex-1">
     <AdminSidebar items={adminSidebarItems} />
-    <section className="flex-1 px-4">
+    <div className="flex-1 grow">
       {props.children}
-    </section>
+    </div>
   </div>;
 }
