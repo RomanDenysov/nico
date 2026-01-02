@@ -24,7 +24,7 @@ export default function BistroPage() {
             transformOrigin: "center center",
           }}
         >
-          <FadeDiv className="flex items-center justify-between rounded-4xl border-2 border-transparent bg-gradient-to-b from-brand-foreground/30 to-brand-foreground/10 p-6 shadow-2xl drop-shadow-2xl">
+          <FadeDiv className="flex items-center justify-between rounded-4xl border-2 border-transparent bg-linear-to-b from-brand-foreground/30 to-brand-foreground/10 p-6 shadow-2xl drop-shadow-2xl">
             <h1 className="font-bold text-3xl text-brand tracking-tight md:text-5xl">
               Bistro
             </h1>
