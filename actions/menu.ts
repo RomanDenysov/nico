@@ -1,26 +1,39 @@
 "use server";
 
 import { cacheTag, updateTag } from "next/cache";
-import { getMenuCategory, setMenuCategory, getExtras, setExtras, getCategories, setCategories, getCategory } from "@/lib/redis";
-import type { MenuItem, ExtraItem, Category } from "@/lib/types";
+import {
+  getCategories,
+  getCategory,
+  getExtras,
+  getMenuCategory,
+  setCategories,
+  setExtras,
+  setMenuCategory,
+} from "@/lib/redis";
+import type { Category, ExtraItem, MenuItem } from "@/lib/types";
 
 // Helper to parse category string (format: "type:category" or legacy "category")
 function parseCategory(category: string): { type: string; cat: string } {
-  if (category.includes(':')) {
-    const [type, ...catParts] = category.split(':');
-    return { type, cat: catParts.join(':') };
+  if (category.includes(":")) {
+    const [type, ...catParts] = category.split(":");
+    return { type, cat: catParts.join(":") };
   }
   // Legacy format - assume bistro for backward compatibility
-  return { type: 'bistro', cat: category };
+  return { type: "bistro", cat: category };
 }
 
-export async function getMenuItems(type: string, category: string): Promise<MenuItem[]> {
+export async function getMenuItems(
+  type: string,
+  category: string
+): Promise<MenuItem[]> {
   "use cache";
   cacheTag(`menu:${type}:${category}`);
   return getMenuCategory(type, category);
 }
 
-export async function getMenuCategoryCached(category: string): Promise<MenuItem[]> {
+export async function getMenuCategoryCached(
+  category: string
+): Promise<MenuItem[]> {
   "use cache";
   const { type, cat } = parseCategory(category);
   cacheTag(`menu:${type}:${cat}`);
@@ -36,7 +49,7 @@ export async function getExtrasCached(): Promise<ExtraItem[]> {
 export async function addMenuItem(
   type: string,
   category: string,
-  item: Omit<MenuItem, "id">,
+  item: Omit<MenuItem, "id">
 ): Promise<void> {
   const items = await getMenuCategory(type, category);
   const newItem: MenuItem = {
@@ -52,7 +65,7 @@ export async function updateMenuItem(
   type: string,
   category: string,
   id: string,
-  item: Partial<MenuItem>,
+  item: Partial<MenuItem>
 ): Promise<void> {
   const items = await getMenuCategory(type, category);
   const index = items.findIndex((i) => i.id === id);
@@ -67,7 +80,7 @@ export async function updateMenuItem(
 export async function deleteMenuItem(
   type: string,
   category: string,
-  id: string,
+  id: string
 ): Promise<void> {
   const items = await getMenuCategory(type, category);
   const filtered = items.filter((i) => i.id !== id);
@@ -78,7 +91,7 @@ export async function deleteMenuItem(
 export async function reorderMenuItems(
   type: string,
   category: string,
-  orderedIds: string[],
+  orderedIds: string[]
 ): Promise<void> {
   const items = await getMenuCategory(type, category);
   const ordered = orderedIds
@@ -91,7 +104,7 @@ export async function reorderMenuItems(
 // Legacy functions for backward compatibility with category string format
 export async function addMenuItemLegacy(
   category: string,
-  item: Omit<MenuItem, "id">,
+  item: Omit<MenuItem, "id">
 ): Promise<void> {
   const { type, cat } = parseCategory(category);
   await addMenuItem(type, cat, item);
@@ -100,7 +113,7 @@ export async function addMenuItemLegacy(
 export async function updateMenuItemLegacy(
   category: string,
   id: string,
-  item: Partial<MenuItem>,
+  item: Partial<MenuItem>
 ): Promise<void> {
   const { type, cat } = parseCategory(category);
   await updateMenuItem(type, cat, id, item);
@@ -108,7 +121,7 @@ export async function updateMenuItemLegacy(
 
 export async function deleteMenuItemLegacy(
   category: string,
-  id: string,
+  id: string
 ): Promise<void> {
   const { type, cat } = parseCategory(category);
   await deleteMenuItem(type, cat, id);
@@ -116,7 +129,7 @@ export async function deleteMenuItemLegacy(
 
 export async function reorderMenuItemsLegacy(
   category: string,
-  orderedIds: string[],
+  orderedIds: string[]
 ): Promise<void> {
   const { type, cat } = parseCategory(category);
   await reorderMenuItems(type, cat, orderedIds);
@@ -135,7 +148,7 @@ export async function addExtraItem(item: Omit<ExtraItem, "id">): Promise<void> {
 
 export async function updateExtraItem(
   id: string,
-  item: Partial<ExtraItem>,
+  item: Partial<ExtraItem>
 ): Promise<void> {
   const items = await getExtras();
   const index = items.findIndex((i) => i.id === id);
@@ -166,7 +179,9 @@ export async function getCategoryCached(id: string): Promise<Category | null> {
   return getCategory(id);
 }
 
-export async function addCategory(category: Omit<Category, "id">): Promise<void> {
+export async function addCategory(
+  category: Omit<Category, "id">
+): Promise<void> {
   const categories = await getCategories();
   const newCategory: Category = {
     ...category,
@@ -177,7 +192,10 @@ export async function addCategory(category: Omit<Category, "id">): Promise<void>
   updateTag("config:categories");
 }
 
-export async function updateCategory(id: string, category: Partial<Category>): Promise<void> {
+export async function updateCategory(
+  id: string,
+  category: Partial<Category>
+): Promise<void> {
   const categories = await getCategories();
   const index = categories.findIndex((cat) => cat.id === id);
   if (index === -1) {

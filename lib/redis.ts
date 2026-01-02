@@ -1,5 +1,11 @@
 import { Redis } from "@upstash/redis";
-import type { MenuItem, ExtraItem, RestaurantInfo, Category, AboutItem } from "./types";
+import type {
+  AboutItem,
+  Category,
+  ExtraItem,
+  MenuItem,
+  RestaurantInfo,
+} from "./types";
 
 const redis = new Redis({
   url: process.env.KV_REST_API_URL!,
@@ -9,7 +15,7 @@ const redis = new Redis({
 // Menu functions - support menu:type:category format
 export async function getMenuCategory(
   type: string,
-  category: string,
+  category: string
 ): Promise<MenuItem[]> {
   const data = await redis.get<MenuItem[]>(`menu:${type}:${category}`);
   return data ?? [];
@@ -18,7 +24,7 @@ export async function getMenuCategory(
 export async function setMenuCategory(
   type: string,
   category: string,
-  items: MenuItem[],
+  items: MenuItem[]
 ): Promise<void> {
   await redis.set(`menu:${type}:${category}`, items);
 }

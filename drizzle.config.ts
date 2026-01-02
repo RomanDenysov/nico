@@ -1,15 +1,21 @@
-import 'dotenv/config';
+import "dotenv/config";
 
-import { defineConfig } from 'drizzle-kit';
+import { defineConfig } from "drizzle-kit";
 
-const filters = [`${process.env.PROJECT_DOMAIN!}`];
+const filters = [
+  `${
+    // biome-ignore lint/style/noNonNullAssertion: TODO: Implement ENV check with ZOD
+    process.env.PROJECT_DOMAIN!
+  }`,
+];
 
 export default defineConfig({
-  out: './db/migrations',
-  schema: './db/schema.ts',
-  dialect: 'postgresql',
+  out: "./db/migrations",
+  schema: "./db/schema.ts",
+  dialect: "postgresql",
   dbCredentials: {
+    // biome-ignore lint/style/noNonNullAssertion: TODO: Implement ENV check with ZOD
     url: process.env.DATABASE_URL!,
   },
-tablesFilter: filters,
+  tablesFilter: filters,
 });

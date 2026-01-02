@@ -43,5 +43,12 @@ export interface AboutItem {
 }
 
 // Menu category mappings
-export type BistroCategory = 'menu' | 'soups' | 'bowls' | 'panAsia' | 'classics' | 'sweets' | 'streetFood';
-export type BreakfastCategory = 'menu' | 'main' | 'sides' | 'seconds';
+export type BistroCategory =
+  | "menu"
+  | "soups"
+  | "bowls"
+  | "panAsia"
+  | "classics"
+  | "sweets"
+  | "streetFood";
+export type BreakfastCategory = "menu" | "main" | "sides" | "seconds";

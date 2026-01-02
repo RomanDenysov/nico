@@ -1,5 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next"
 
 import type { CSSProperties, ReactNode } from "react";
 import { Footer } from "@/components/footer";

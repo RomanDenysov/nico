@@ -12,7 +12,7 @@ export async function getRestaurantInfoCached(): Promise<RestaurantInfo | null> 
 }
 
 export async function updateRestaurantInfo(
-  data: RestaurantInfo,
+  data: RestaurantInfo
 ): Promise<void> {
   await setRestaurantInfo(data);
   updateTag("config:info");

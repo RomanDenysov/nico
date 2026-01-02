@@ -12,7 +12,7 @@ export async function getAbout(): Promise<AboutItem[]> {
 
 export async function updateAboutItem(
   id: string,
-  data: Partial<AboutItem>,
+  data: Partial<AboutItem>
 ): Promise<void> {
   const items = await getAboutItems();
   const index = items.findIndex((i) => i.id === id);
@@ -24,9 +24,7 @@ export async function updateAboutItem(
   updateTag("config:about");
 }
 
-export async function addAboutItem(
-  item: Omit<AboutItem, "id">,
-): Promise<void> {
+export async function addAboutItem(item: Omit<AboutItem, "id">): Promise<void> {
   const items = await getAboutItems();
   const newItem: AboutItem = {
     ...item,

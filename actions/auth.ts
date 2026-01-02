@@ -1,7 +1,7 @@
 "use server";
 
-import { createSession, destroySession, verifyPassword } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { createSession, destroySession, verifyPassword } from "@/lib/auth";
 
 export async function login(password: string) {
   const isValid = await verifyPassword(password);
