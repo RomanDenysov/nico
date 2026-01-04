@@ -2,9 +2,9 @@ import Image, { type StaticImageData } from "next/image";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 
 interface CategoryWithImage {
-  id: string;
+  id: string | number;
   title: string;
-  image: StaticImageData;
+  image: string | StaticImageData;
   slug: string;
 }
 

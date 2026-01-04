@@ -48,7 +48,7 @@ export function Header() {
         className={cn(
           "relative z-20 min-h-(--header-height) rounded-4xl border border-transparent bg-transparent transition duration-300",
           scrolled || open
-            ? "bg-gradient-to-r from-brand-foreground/45 to-brand-foreground/20 shadow-2xl shadow-black/25 drop-shadow-2xl backdrop-blur-sm"
+            ? "bg-linear-to-r from-brand-foreground/45 to-brand-foreground/20 shadow-2xl shadow-black/25 drop-shadow-2xl backdrop-blur-sm"
             : ""
         )}
       >

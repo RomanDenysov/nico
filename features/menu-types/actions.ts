@@ -1,7 +1,7 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
+import { refresh, updateTag } from "next/cache";
 import { z } from "zod";
 import db from "@/db";
 import { menuTypes, type NewMenuType } from "@/db/schema";
@@ -42,8 +42,10 @@ export async function createMenuTypeAction(formData: FormData) {
     image: formData.get("image") || undefined,
   });
 
-  await createMenuType({ ...data, order: maxOrder + 1 });
-  revalidatePath("/admin");
+  const result = await createMenuType({ ...data, order: maxOrder + 1 });
+  updateTag("menu-types");
+  updateTag(`menu-type-id-${result.id}`);
+  refresh();
 }
 
 export async function updateMenuTypeAction(formData: FormData) {
@@ -55,16 +57,25 @@ export async function updateMenuTypeAction(formData: FormData) {
   });
 
   await updateMenuType(id, data);
-  revalidatePath("/admin");
+  updateTag("menu-types");
+  updateTag(`menu-type-id-${id}`);
+  refresh();
 }
 
 export async function deleteMenuTypeAction(formData: FormData) {
   const id = z.coerce.number().int().positive().parse(formData.get("id"));
   await deleteMenuType(id);
-  revalidatePath("/admin");
+  updateTag("menu-types");
+  updateTag(`menu-type-id-${id}`);
+  refresh();
 }
 
 export async function reorderMenuTypesAction(typeIds: number[]) {
   await reorderMenuTypes(typeIds);
-  revalidatePath("/admin");
+  updateTag("menu-types");
+  // Invalidate all affected menu types
+  for (const id of typeIds) {
+    updateTag(`menu-type-id-${id}`);
+  }
+  refresh();
 }

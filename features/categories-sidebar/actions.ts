@@ -1,11 +1,15 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
+import { refresh, updateTag } from "next/cache";
 import { z } from "zod";
 import db from "@/db";
 import { menuCategories, type NewMenuCategory } from "@/db/schema";
-import { getMenuCategories, reorderMenuCategories } from "./queries";
+import {
+  getMenuCategories,
+  getMenuCategoryById,
+  reorderMenuCategories,
+} from "./queries";
 
 const menuCategorySchema = z.object({
   name: z.string().min(1, "Názov je povinný"),
@@ -53,7 +57,8 @@ export async function createMenuCategoryAction(formData: FormData) {
   });
 
   await createMenuCategory({ ...data, order: maxOrder + 1 });
-  revalidatePath("/admin");
+  updateTag(`menu-type-id-${typeId}`);
+  refresh();
 }
 
 export async function updateMenuCategoryAction(formData: FormData) {
@@ -65,17 +70,31 @@ export async function updateMenuCategoryAction(formData: FormData) {
     typeId: formData.get("typeId"),
   });
 
+  const typeId = z.coerce.number().int().positive().parse(data.typeId);
   await updateMenuCategory(id, data);
-  revalidatePath("/admin");
+  updateTag(`menu-type-id-${typeId}`);
+  refresh();
 }
 
 export async function deleteMenuCategoryAction(formData: FormData) {
   const id = z.coerce.number().int().positive().parse(formData.get("id"));
+  // Get category to find typeId before deletion
+  const category = await getMenuCategoryById(id);
+  const typeId = category?.typeId;
   await deleteMenuCategory(id);
-  revalidatePath("/admin");
+  if (typeId) {
+    updateTag(`menu-type-id-${typeId}`);
+  }
+  refresh();
 }
 
 export async function reorderMenuCategoriesAction(categoryIds: number[]) {
+  // Get typeId from first category before reordering
+  const firstCategory = await getMenuCategoryById(categoryIds[0]);
+  const typeId = firstCategory?.typeId;
   await reorderMenuCategories(categoryIds);
-  revalidatePath("/admin");
+  if (typeId) {
+    updateTag(`menu-type-id-${typeId}`);
+  }
+  refresh();
 }

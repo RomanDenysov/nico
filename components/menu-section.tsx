@@ -1,17 +1,26 @@
 import type { Route } from "next";
 import Link from "next/link";
-import { categories } from "@/app/config";
+import { getPublicMenuTypes } from "@/features/public-menu/queries";
 import { CategoryCard } from "./category-card";
 import { FadeContainer, FadeDiv } from "./ui/fade";
 
-export function MenuSection({ className }: { className?: string }) {
+export async function MenuSection({ className }: { className?: string }) {
+  const menuTypes = await getPublicMenuTypes();
+
   return (
     <section aria-label="Menu" className={className} id="menu">
       <FadeContainer className="grid grid-cols-2 gap-5 md:gap-10">
-        {categories.map((category) => (
-          <Link href={`/${category.slug}` as Route} key={category.id}>
+        {menuTypes.map((menuType) => (
+          <Link href={`/${menuType.slug}` as Route} key={menuType.id}>
             <FadeDiv>
-              <CategoryCard category={category} />
+              <CategoryCard
+                category={{
+                  id: menuType.id,
+                  title: menuType.name,
+                  image: menuType.image ?? "/images/bistro.jpg",
+                  slug: menuType.slug,
+                }}
+              />
             </FadeDiv>
           </Link>
         ))}

@@ -49,7 +49,7 @@ const SpojkaCard = ({ partner }: { partner: Partner }) => (
     className={cn(
       "relative overflow-hidden rounded-4xl border border-transparent p-4 shadow-2xl shadow-black/25 drop-shadow-2xl md:p-6",
       "transition-all duration-300",
-      "bg-gradient-to-l from-brand/20 to-brand/15 backdrop-blur-sm"
+      "bg-linear-to-l from-brand/20 to-brand/15 backdrop-blur-sm"
     )}
   >
     <Spotlight
@@ -92,7 +92,7 @@ const SpojkaCard = ({ partner }: { partner: Partner }) => (
 const KromkaCard = ({ partner }: { partner: Partner }) => (
   <div
     className={cn(
-      "group relative size-full rounded-4xl border-2 border-transparent bg-gradient-to-b from-brand-foreground/30 to-brand-foreground/10 p-4 shadow-2xl drop-shadow-2xl md:p-6"
+      "group relative size-full rounded-4xl border-2 border-transparent bg-linear-to-b from-brand-foreground/30 to-brand-foreground/10 p-4 shadow-2xl drop-shadow-2xl md:p-6"
     )}
   >
     <Spotlight

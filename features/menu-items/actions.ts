@@ -1,9 +1,10 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
+import { refresh, updateTag } from "next/cache";
 import { z } from "zod";
 import db from "@/db";
+import { getMenuCategoryById } from "@/db/queries";
 import { menuItems, type NewMenuItem } from "@/db/schema";
 import { getMaxMenuItemOrder } from "./queries";
 
@@ -52,7 +53,11 @@ export async function createMenuItemAction(formData: FormData) {
   });
 
   await createMenuItem({ ...data, order: maxOrder + 1 });
-  revalidatePath("/admin");
+  const category = await getMenuCategoryById(categoryId);
+  if (category?.typeId) {
+    updateTag(`menu-type-id-${category.typeId}`);
+  }
+  refresh();
 }
 
 export async function updateMenuItemAction(formData: FormData) {
@@ -67,18 +72,43 @@ export async function updateMenuItemAction(formData: FormData) {
       formData.get("isComboMenu") === "true",
   });
 
+  const categoryId = z.coerce.number().int().positive().parse(data.categoryId);
   await updateMenuItem(id, data);
-  revalidatePath("/admin");
+  const category = await getMenuCategoryById(categoryId);
+  if (category?.typeId) {
+    updateTag(`menu-type-id-${category.typeId}`);
+  }
+  refresh();
 }
 
 export async function deleteMenuItemAction(formData: FormData) {
   const id = z.coerce.number().int().positive().parse(formData.get("id"));
+  // Get menu item to find categoryId before deletion
+  const menuItem = await db.query.menuItems.findFirst({
+    where: eq(menuItems.id, id),
+  });
   await deleteMenuItem(id);
-  revalidatePath("/admin");
+  if (menuItem?.categoryId) {
+    const category = await getMenuCategoryById(menuItem.categoryId);
+    if (category?.typeId) {
+      updateTag(`menu-type-id-${category.typeId}`);
+    }
+  }
+  refresh();
 }
 
 export async function reorderMenuItemsAction(itemIds: number[]) {
   const { reorderMenuItems } = await import("./queries");
+  // Get categoryId from first item to find typeId
+  const firstItem = await db.query.menuItems.findFirst({
+    where: eq(menuItems.id, itemIds[0]),
+  });
   await reorderMenuItems(itemIds);
-  revalidatePath("/admin");
+  if (firstItem?.categoryId) {
+    const category = await getMenuCategoryById(firstItem.categoryId);
+    if (category?.typeId) {
+      updateTag(`menu-type-id-${category.typeId}`);
+    }
+  }
+  refresh();
 }

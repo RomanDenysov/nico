@@ -1,7 +1,7 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { revalidatePath } from "next/cache";
+import { refresh, updateTag } from "next/cache";
 import { z } from "zod";
 import db from "@/db";
 import { extras, type NewExtra } from "@/db/schema";
@@ -39,7 +39,8 @@ export async function createExtraAction(formData: FormData) {
   });
 
   await createExtra(data);
-  revalidatePath("/admin/extras");
+  updateTag("extras");
+  refresh();
 }
 
 export async function updateExtraAction(formData: FormData) {
@@ -51,16 +52,19 @@ export async function updateExtraAction(formData: FormData) {
   });
 
   await updateExtra(id, data);
-  revalidatePath("/admin/extras");
+  updateTag("extras");
+  refresh();
 }
 
 export async function deleteExtraAction(formData: FormData) {
   const id = z.coerce.number().int().positive().parse(formData.get("id"));
   await deleteExtra(id);
-  revalidatePath("/admin/extras");
+  updateTag("extras");
+  refresh();
 }
 
 export async function reorderExtrasAction(extraIds: number[]) {
   await reorderExtras(extraIds);
-  revalidatePath("/admin/extras");
+  updateTag("extras");
+  refresh();
 }
