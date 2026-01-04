@@ -1,6 +1,7 @@
 "use client";
 
 import { PhoneIcon, XIcon } from "lucide-react";
+import type { Route } from "next";
 import Link from "next/link";
 import { useState } from "react";
 import useScroll from "@/hooks/use-scroll";
@@ -9,10 +10,10 @@ import { containerVariants } from "./container";
 import { Icons } from "./icons";
 import { buttonVariants } from "./ui/button";
 
-type NavLink = {
-  href: string;
+interface NavLink {
+  href: Route;
   label: string;
-};
+}
 
 const PHONE_NUMBER = "+421905830548";
 

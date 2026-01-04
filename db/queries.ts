@@ -1,47 +1,34 @@
-import { asc, eq } from "drizzle-orm";
-import db from "@/db";
-import { extras, menuCategories, menuItems, menuTypes } from "./schema";
+import "server-only";
 
-export function getMenuTypes() {
-  return db.query.menuTypes.findMany({
-    orderBy: [asc(menuTypes.order)],
-  });
-}
+export {
+  getMenuCategories,
+  getMenuCategory,
+  getMenuCategoryById,
+  reorderMenuCategories,
+} from "@/features/categories-sidebar/queries";
+export {
+  getExtraById,
+  getExtras,
+  reorderExtras,
+} from "@/features/extras/queries";
 
-export function getMenuType(slug: string) {
-  return db.query.menuTypes.findFirst({
-    where: eq(menuTypes.slug, slug),
-  });
-}
-
-export function getMenuCategories(typeId: number) {
-  return db.query.menuCategories.findMany({
-    where: eq(menuCategories.typeId, typeId),
-    orderBy: [asc(menuCategories.order)],
-  });
-}
-
-export function getMenuCategory(slug: string) {
-  return db.query.menuCategories.findFirst({
-    where: eq(menuCategories.slug, slug),
-  });
-}
-
-export function getMenuItems(categoryId: number) {
-  return db.query.menuItems.findMany({
-    where: eq(menuItems.categoryId, categoryId),
-    orderBy: [asc(menuItems.order)],
-  });
-}
-
-export function getMenuItem(id: number) {
-  return db.query.menuItems.findFirst({
-    where: eq(menuItems.id, id),
-  });
-}
-
-export function getExtras() {
-  return db.query.extras.findMany({
-    orderBy: [asc(extras.order)],
-  });
-}
+export {
+  getMaxMenuItemOrder,
+  getMenuItem,
+  getMenuItems,
+  reorderMenuItems,
+} from "@/features/menu-items/queries";
+/**
+ * @deprecated This file is kept for backward compatibility.
+ * Import queries from feature folders instead:
+ * - @/feature/menu-types/queries
+ * - @/feature/categories-sidebar/queries
+ * - @/feature/menu-items/queries
+ * - @/feature/extras/queries
+ */
+export {
+  getMenuType,
+  getMenuTypeById,
+  getMenuTypes,
+  reorderMenuTypes,
+} from "@/features/menu-types/queries";

@@ -1,4 +1,3 @@
-import { bistroMenu, breakfastMenu, extras as extrasData } from "@/app/config";
 import db from "./index";
 import {
   extras,
@@ -10,323 +9,162 @@ import {
   type NewMenuItem,
   type NewMenuType,
 } from "./schema";
+import { bistroMenu, breakfastMenu, extras as extrasData } from "./seed-data";
 
-async function main() {
-  console.log("🌱 Starting database seed...");
-
-  // Clear existing data (in reverse order of dependencies)
-  console.log("🧹 Clearing existing data...");
-  await db.delete(menuItems);
-  await db.delete(menuCategories);
-  await db.delete(menuTypes);
-  await db.delete(extras);
-
-  // Insert menu types
-  console.log("📋 Inserting menu types...");
-  const ranajkyType: NewMenuType = {
+/**
+ * Menu configuration that maps menu types to their categories
+ * Each category has a name, slug, and reference to the data source
+ */
+const menuConfig = {
+  ranajky: {
     name: "Raňajky",
     slug: "ranajky",
-    order: 1,
-  };
-  const bistroType: NewMenuType = {
+    image: "/images/breakfast.jpg",
+    categories: [
+      { name: "Menu", slug: "menu", isComboMenu: true },
+      { name: "Hlavné", slug: "main" },
+      { name: "Prílohy", slug: "sides" },
+      { name: "Druhé", slug: "seconds" },
+    ],
+    data: breakfastMenu,
+  },
+  bistro: {
     name: "Bistro",
     slug: "bistro",
-    order: 2,
-  };
+    image: "/images/bistro.jpg",
+    categories: [
+      { name: "Menu", slug: "menu", isComboMenu: true },
+      { name: "Polievky", slug: "soups" },
+      { name: "Bowls", slug: "bowls" },
+      { name: "Pan Asia", slug: "pan-asia", dataKey: "panAsia" },
+      { name: "Klasiky", slug: "classics" },
+      { name: "Sladkosti", slug: "sweets" },
+      { name: "Street Food", slug: "street-food", dataKey: "streetFood" },
+    ],
+    data: bistroMenu,
+  },
+} as const;
 
-  const [insertedRanajkyType, insertedBistroType] = await db
+interface CategoryConfig {
+  name: string;
+  slug: string;
+  isComboMenu?: boolean;
+  dataKey?: string;
+}
+
+interface MenuItemData {
+  name: string;
+  description?: string;
+  price: string;
+}
+
+interface MenuData {
+  [key: string]: MenuItemData[];
+}
+
+/**
+ * Generates category slug that's unique per menu type
+ * Format: {typeSlug}-{categorySlug}
+ */
+function generateCategorySlug(typeSlug: string, categorySlug: string): string {
+  return `${typeSlug}-${categorySlug}`;
+}
+
+/**
+ * Gets menu items from data source based on category slug or dataKey
+ */
+function getMenuItemsFromData(
+  data: MenuData,
+  category: CategoryConfig
+): Array<{ name: string; description?: string; price: string }> {
+  const key = category.dataKey ?? category.slug;
+  return data[key] ?? [];
+}
+
+async function seedMenuType(
+  typeConfig: (typeof menuConfig)[keyof typeof menuConfig],
+  typeOrder: number
+): Promise<void> {
+  // Insert menu type
+  const [insertedType] = await db
     .insert(menuTypes)
-    .values([ranajkyType, bistroType])
+    .values({
+      name: typeConfig.name,
+      slug: typeConfig.slug,
+      image: typeConfig.image,
+      order: typeOrder,
+    } satisfies NewMenuType)
     .returning();
 
-  console.log(
-    `✅ Inserted ${insertedRanajkyType.name} and ${insertedBistroType.name} menu types`
+  console.log(`📋 Created menu type: ${insertedType.name}`);
+
+  // Insert categories and collect their IDs
+  const categoryMap = new Map<string, number>();
+
+  const categoriesToInsert: NewMenuCategory[] = typeConfig.categories.map(
+    (cat, index) => ({
+      name: cat.name,
+      slug: generateCategorySlug(typeConfig.slug, cat.slug),
+      description:
+        cat.slug === "menu"
+          ? typeConfig.data.menu.at(0)?.description
+          : undefined,
+      order: index + 1,
+      typeId: insertedType.id,
+    })
   );
 
-  // Insert menu categories for Raňajky
-  console.log("📂 Inserting Raňajky categories...");
-  const ranajkyCategories: NewMenuCategory[] = [
-    {
-      name: "Menu",
-      slug: "menu",
-      description: breakfastMenu.menu[0]?.description,
-      order: 1,
-      typeId: insertedRanajkyType.id,
-    },
-    {
-      name: "Hlavné",
-      slug: "main",
-      description: undefined,
-      order: 2,
-      typeId: insertedRanajkyType.id,
-    },
-    {
-      name: "Prílohy",
-      slug: "sides",
-      description: undefined,
-      order: 3,
-      typeId: insertedRanajkyType.id,
-    },
-    {
-      name: "Druhé",
-      slug: "seconds",
-      description: undefined,
-      order: 4,
-      typeId: insertedRanajkyType.id,
-    },
-  ];
-
-  const insertedRanajkyCategories = await db
+  const insertedCategories = await db
     .insert(menuCategories)
-    .values(ranajkyCategories)
+    .values(categoriesToInsert)
     .returning();
 
-  console.log(
-    `✅ Inserted ${insertedRanajkyCategories.length} Raňajky categories`
-  );
-
-  // Insert menu categories for Bistro
-  console.log("📂 Inserting Bistro categories...");
-  const bistroCategories: NewMenuCategory[] = [
-    {
-      name: "Menu",
-      slug: "menu",
-      description: bistroMenu.menu[0]?.description,
-      order: 1,
-      typeId: insertedBistroType.id,
-    },
-    {
-      name: "Polievky",
-      slug: "soups",
-      description: undefined,
-      order: 2,
-      typeId: insertedBistroType.id,
-    },
-    {
-      name: "Bowls",
-      slug: "bowls",
-      description: undefined,
-      order: 3,
-      typeId: insertedBistroType.id,
-    },
-    {
-      name: "Pan Asia",
-      slug: "pan-asia",
-      description: undefined,
-      order: 4,
-      typeId: insertedBistroType.id,
-    },
-    {
-      name: "Klasiky",
-      slug: "classics",
-      description: undefined,
-      order: 5,
-      typeId: insertedBistroType.id,
-    },
-    {
-      name: "Sladkosti",
-      slug: "sweets",
-      description: undefined,
-      order: 6,
-      typeId: insertedBistroType.id,
-    },
-    {
-      name: "Street Food",
-      slug: "street-food",
-      description: undefined,
-      order: 7,
-      typeId: insertedBistroType.id,
-    },
-  ];
-
-  const insertedBistroCategories = await db
-    .insert(menuCategories)
-    .values(bistroCategories)
-    .returning();
+  for (const cat of insertedCategories) {
+    // Extract the original category slug from the full slug
+    const originalSlug = cat.slug.replace(`${typeConfig.slug}-`, "");
+    categoryMap.set(originalSlug, cat.id);
+  }
 
   console.log(
-    `✅ Inserted ${insertedBistroCategories.length} Bistro categories`
+    `📂 Created ${insertedCategories.length} categories for ${typeConfig.name}`
   );
 
-  // Create maps of category slugs to IDs for each menu type
-  const ranajkyCategoryMap = new Map<string, number>();
-  for (const cat of insertedRanajkyCategories) {
-    ranajkyCategoryMap.set(cat.slug, cat.id);
-  }
+  // Insert menu items for each category
+  const allMenuItems: NewMenuItem[] = [];
 
-  const bistroCategoryMap = new Map<string, number>();
-  for (const cat of insertedBistroCategories) {
-    bistroCategoryMap.set(cat.slug, cat.id);
-  }
+  for (const category of typeConfig.categories) {
+    const categoryId = categoryMap.get(category.slug);
+    if (!categoryId) {
+      continue;
+    }
 
-  // Insert Raňajky menu items
-  console.log("🍽️ Inserting Raňajky menu items...");
-  const ranajkyMenuItems: NewMenuItem[] = [];
+    const cat = category as CategoryConfig;
+    const items = getMenuItemsFromData(
+      typeConfig.data as unknown as MenuData,
+      cat
+    );
 
-  // Menu category (combo menu)
-  const ranajkyMenuCategoryId = ranajkyCategoryMap.get("menu");
-  if (ranajkyMenuCategoryId && breakfastMenu.menu[0]) {
-    ranajkyMenuItems.push({
-      name: breakfastMenu.menu[0].name,
-      description: breakfastMenu.menu[0].description,
-      price: breakfastMenu.menu[0].price,
-      categoryId: ranajkyMenuCategoryId,
-      order: 1,
-      isComboMenu: true,
-    });
-  }
-
-  // Main category
-  const mainCategoryId = ranajkyCategoryMap.get("main");
-  if (mainCategoryId) {
-    breakfastMenu.main.forEach((item, index) => {
-      ranajkyMenuItems.push({
+    for (const [index, item] of items.entries()) {
+      allMenuItems.push({
         name: item.name,
         description: item.description,
         price: item.price,
-        categoryId: mainCategoryId,
+        categoryId,
         order: index + 1,
+        isComboMenu: cat.isComboMenu ?? false,
       });
-    });
+    }
   }
 
-  // Sides category
-  const sidesCategoryId = ranajkyCategoryMap.get("sides");
-  if (sidesCategoryId) {
-    breakfastMenu.sides.forEach((item, index) => {
-      ranajkyMenuItems.push({
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        categoryId: sidesCategoryId,
-        order: index + 1,
-      });
-    });
+  if (allMenuItems.length > 0) {
+    await db.insert(menuItems).values(allMenuItems);
+    console.log(
+      `🍽️ Created ${allMenuItems.length} menu items for ${typeConfig.name}`
+    );
   }
+}
 
-  // Seconds category
-  const secondsCategoryId = ranajkyCategoryMap.get("seconds");
-  if (secondsCategoryId) {
-    breakfastMenu.seconds.forEach((item, index) => {
-      ranajkyMenuItems.push({
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        categoryId: secondsCategoryId,
-        order: index + 1,
-      });
-    });
-  }
-
-  await db.insert(menuItems).values(ranajkyMenuItems);
-  console.log(`✅ Inserted ${ranajkyMenuItems.length} Raňajky menu items`);
-
-  // Insert Bistro menu items
-  console.log("🍽️ Inserting Bistro menu items...");
-  const bistroMenuItems: NewMenuItem[] = [];
-
-  // Menu category (combo menu)
-  const bistroMenuCategoryId = bistroCategoryMap.get("menu");
-  if (bistroMenuCategoryId && bistroMenu.menu[0]) {
-    bistroMenuItems.push({
-      name: bistroMenu.menu[0].name,
-      description: bistroMenu.menu[0].description,
-      price: bistroMenu.menu[0].price,
-      categoryId: bistroMenuCategoryId,
-      order: 1,
-      isComboMenu: true,
-    });
-  }
-
-  // Soups category
-  const soupsCategoryId = bistroCategoryMap.get("soups");
-  if (soupsCategoryId) {
-    bistroMenu.soups.forEach((item, index) => {
-      bistroMenuItems.push({
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        categoryId: soupsCategoryId,
-        order: index + 1,
-      });
-    });
-  }
-
-  // Bowls category
-  const bowlsCategoryId = bistroCategoryMap.get("bowls");
-  if (bowlsCategoryId) {
-    bistroMenu.bowls.forEach((item, index) => {
-      bistroMenuItems.push({
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        categoryId: bowlsCategoryId,
-        order: index + 1,
-      });
-    });
-  }
-
-  // Pan Asia category
-  const panAsiaCategoryId = bistroCategoryMap.get("pan-asia");
-  if (panAsiaCategoryId) {
-    bistroMenu.panAsia.forEach((item, index) => {
-      bistroMenuItems.push({
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        categoryId: panAsiaCategoryId,
-        order: index + 1,
-      });
-    });
-  }
-
-  // Classics category
-  const classicsCategoryId = bistroCategoryMap.get("classics");
-  if (classicsCategoryId) {
-    bistroMenu.classics.forEach((item, index) => {
-      bistroMenuItems.push({
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        categoryId: classicsCategoryId,
-        order: index + 1,
-      });
-    });
-  }
-
-  // Sweets category
-  const sweetsCategoryId = bistroCategoryMap.get("sweets");
-  if (sweetsCategoryId) {
-    bistroMenu.sweets.forEach((item, index) => {
-      bistroMenuItems.push({
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        categoryId: sweetsCategoryId,
-        order: index + 1,
-      });
-    });
-  }
-
-  // Street Food category
-  const streetFoodCategoryId = bistroCategoryMap.get("street-food");
-  if (streetFoodCategoryId) {
-    bistroMenu.streetFood.forEach((item, index) => {
-      bistroMenuItems.push({
-        name: item.name,
-        description: item.description,
-        price: item.price,
-        categoryId: streetFoodCategoryId,
-        order: index + 1,
-      });
-    });
-  }
-
-  await db.insert(menuItems).values(bistroMenuItems);
-  console.log(`✅ Inserted ${bistroMenuItems.length} Bistro menu items`);
-
-  // Insert extras
-  console.log("➕ Inserting extras...");
+async function seedExtras(): Promise<void> {
   const extrasToInsert: NewExtra[] = extrasData.map((extra, index) => ({
     name: extra.name,
     price: extra.price,
@@ -334,16 +172,42 @@ async function main() {
   }));
 
   await db.insert(extras).values(extrasToInsert);
-  console.log(`✅ Inserted ${extrasToInsert.length} extras`);
+  console.log(`➕ Created ${extrasToInsert.length} extras`);
+}
 
-  console.log("✨ Database seed completed successfully!");
+async function clearDatabase(): Promise<void> {
+  console.log("🧹 Clearing existing data...");
+  // Delete in reverse order of dependencies
+  await db.delete(menuItems);
+  await db.delete(menuCategories);
+  await db.delete(menuTypes);
+  await db.delete(extras);
+}
+
+async function main(): Promise<void> {
+  console.log("🌱 Starting database seed...\n");
+
+  await clearDatabase();
+
+  // Seed menu types with their categories and items
+  let typeOrder = 1;
+  for (const typeConfig of Object.values(menuConfig)) {
+    await seedMenuType(typeConfig, typeOrder);
+    typeOrder += 1;
+    console.log("");
+  }
+
+  // Seed extras
+  await seedExtras();
+
+  console.log("\n✨ Database seed completed successfully!");
 }
 
 main()
   .then(() => {
     process.exit(0);
   })
-  .catch((error) => {
+  .catch((error: unknown) => {
     console.error("❌ Seed failed:", error);
     process.exit(1);
   });

@@ -1,4 +1,5 @@
 import { ArrowUpRightIcon } from "lucide-react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -6,11 +7,11 @@ import kromkaPhoto from "@/public/images/galery.jpg";
 import spojkaPhoto from "@/public/images/spojka-photo.jpg";
 import { Spotlight } from "./ui/spotlight";
 
-type Partner = {
+interface Partner {
   title: string;
   description: string;
-  url: string;
-};
+  url: Route;
+}
 
 const partners: Record<string, Partner> = {
   spojka: {

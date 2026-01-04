@@ -5,6 +5,7 @@ import {
   MapPinIcon,
   PhoneIcon,
 } from "lucide-react";
+import type { Route } from "next";
 import bistroImage from "@/public/images/bistro.jpg";
 import breakfastImage from "@/public/images/breakfast.jpg";
 import kosiceExterierImage from "@/public/images/nico-kosice-ext.jpg";
@@ -323,14 +324,14 @@ export const addresses = [
     postalCode: "080 01",
     phone: {
       label: "+421 905 830 548",
-      href: "tel:+421905830548",
+      href: "tel:+421905830548" as Route,
     },
     email: {
       label: "nicopresov@kavejo.sk",
-      href: "mailto:nicopresov@kavejo.sk",
+      href: "mailto:nicopresov@kavejo.sk" as Route,
     },
     image: presovExterierImage,
-    map: "https://maps.app.goo.gl/Xeub9XaS2gmkf3W39",
+    map: "https://maps.app.goo.gl/Xeub9XaS2gmkf3W39" as Route,
   },
   {
     street: "Kuzmányho 1",
@@ -338,14 +339,14 @@ export const addresses = [
     postalCode: "040 01",
     phone: {
       label: "+421 917 478 034",
-      href: "tel:+421917478034",
+      href: "tel:+421917478034" as Route,
     },
     email: {
       label: "nicokosice@kavejo.sk",
-      href: "mailto:nicokosice@kavejo.sk",
+      href: "mailto:nicokosice@kavejo.sk" as Route,
     },
     image: kosiceExterierImage,
-    map: "https://maps.app.goo.gl/pujLGMJrUzqW17XK6",
+    map: "https://maps.app.goo.gl/pujLGMJrUzqW17XK6" as Route,
   },
 ];
 
@@ -411,7 +412,7 @@ export const footerSections = {
       {
         label: "Napište nám",
         icon: MailIcon,
-        href: "mailto:nicopresov@kavejo.sk",
+        href: "mailto:nicopresov@kavejo.sk" as Route,
       },
       {
         label: "Zavolajte nám",
@@ -421,7 +422,7 @@ export const footerSections = {
       {
         label: "Najdite nás",
         icon: MapPinIcon,
-        href: "https://maps.app.goo.gl/VHsNeTAPYMs2ohPD9",
+        href: "https://maps.app.goo.gl/VHsNeTAPYMs2ohPD9" as Route,
       },
     ],
   },
@@ -429,11 +430,11 @@ export const footerSections = {
     title: "Odkazy",
     items: [
       // { label: "O nás", href: "#about" },
-      { label: "Menu", href: "/#menu" },
-      { label: "Kontakt", href: "#footer" },
-      { label: "O nas", href: "/#about" },
-      { label: "Podmienky používania", href: "/#terms" },
-      { label: "Ochrana osobných údajov", href: "/#privacy" },
+      { label: "Menu", href: "/#menu" as Route },
+      { label: "Kontakt", href: "#footer" as Route },
+      { label: "O nas", href: "/#about" as Route },
+      { label: "Podmienky používania", href: "/#terms" as Route },
+      { label: "Ochrana osobných údajov", href: "/#privacy" as Route },
     ],
   },
   socials: {
@@ -441,12 +442,12 @@ export const footerSections = {
     items: [
       {
         label: "Instagram",
-        href: "https://www.instagram.com/nico_presov?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+        href: "https://www.instagram.com/nico_presov?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" as Route,
         icon: Instagram,
       },
       {
         label: "Facebook",
-        href: "https://www.facebook.com/nicopresov",
+        href: "https://www.facebook.com/nicopresov" as Route,
         icon: Facebook,
       },
     ],

@@ -11,7 +11,7 @@ import {
 } from "react";
 import { cn } from "@/lib/utils";
 
-export type AnimatedBackgroundProps = {
+interface AnimatedBackgroundProps {
   children:
     | ReactElement<{ "data-id": string }>[]
     | ReactElement<{ "data-id": string }>;
@@ -20,7 +20,7 @@ export type AnimatedBackgroundProps = {
   className?: string;
   transition?: Transition;
   enableHover?: boolean;
-};
+}
 
 export function AnimatedBackground({
   children,

@@ -88,12 +88,8 @@
           "name": "presov_menu_categories_type_id_presov_menu_types_id_fk",
           "tableFrom": "presov_menu_categories",
           "tableTo": "presov_menu_types",
-          "columnsFrom": [
-            "type_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["type_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -103,9 +99,7 @@
         "presov_menu_categories_slug_unique": {
           "name": "presov_menu_categories_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "policies": {},
@@ -166,12 +160,8 @@
           "name": "presov_menu_items_category_id_presov_menu_categories_id_fk",
           "tableFrom": "presov_menu_items",
           "tableTo": "presov_menu_categories",
-          "columnsFrom": [
-            "category_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["category_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
@@ -218,9 +208,7 @@
         "presov_menu_types_slug_unique": {
           "name": "presov_menu_types_slug_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "policies": {},

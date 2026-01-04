@@ -13,6 +13,7 @@ export const menuTypes = pgTable("menu_types", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   slug: text("slug").unique().notNull(),
+  image: text("image"), // '/images/bistro.jpg'
   order: integer("order").notNull(),
 });
 

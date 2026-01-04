@@ -16,12 +16,12 @@ import {
 import { CarouselYearDots } from "./ui/dot-year-button";
 import { ProgressiveBlur } from "./ui/progressive-blur";
 
-type AboutItem = {
+interface AboutItem {
   year: number;
   title: string;
   description: string;
   image: string;
-};
+}
 
 export function AboutSection({ className }: { className?: string }) {
   const [api, setApi] = useState<CarouselApi>();
