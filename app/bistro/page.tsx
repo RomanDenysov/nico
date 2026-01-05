@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ComboMenuCard } from "@/components/combo-menu-card";
 import { Container } from "@/components/container";
 import { Extras } from "@/components/extras";
@@ -8,7 +9,31 @@ import {
   getPublicExtras,
   getPublicMenuByTypeSlug,
 } from "@/features/public-menu/queries";
+import { getMenuJsonLd, safeJsonLdStringify, siteConfig } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "Bistro Menu",
+  description:
+    "Obedové menu v NICO CAFFÉ - tradičné jedlá v modernom šate, streetfood aj pan asia. Denne čerstvé, 11:00 - 20:00.",
+  alternates: {
+    canonical: "/bistro",
+  },
+  openGraph: {
+    title: `Bistro Menu | ${siteConfig.name}`,
+    description:
+      "Obedové menu v NICO CAFFÉ - tradičné jedlá v modernom šate, streetfood aj pan asia.",
+    url: `${siteConfig.url}/bistro`,
+    images: [
+      {
+        url: `${siteConfig.url}/images/bistro.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "NICO CAFFÉ Bistro Menu",
+      },
+    ],
+  },
+};
 
 export default async function BistroPage() {
   const menuData = await getPublicMenuByTypeSlug("bistro");
@@ -19,8 +44,19 @@ export default async function BistroPage() {
     (cat) => !cat.items.some((item) => item.isComboMenu)
   );
 
+  const jsonLd = getMenuJsonLd(
+    `${menuData.type.name} - ${siteConfig.name}`,
+    "Obedové menu - tradičné jedlá v modernom šate, streetfood aj pan asia",
+    menuData.categories
+  );
+
   return (
     <Container className="min-h-screen py-12">
+      <script
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: safeJsonLdStringify is used to safely stringify the JSON-LD data
+        dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(jsonLd) }}
+        type="application/ld+json"
+      />
       <FadeContainer className="space-y-5 md:space-y-10">
         <Tilt
           className={cn("group relative size-full")}

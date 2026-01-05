@@ -20,7 +20,7 @@ import {
  */
 export async function getPublicMenuTypes(): Promise<MenuType[]> {
   "use cache";
-  cacheLife("days");
+  cacheLife("max");
   cacheTag("menu-types");
 
   return await db.query.menuTypes.findMany({
@@ -42,7 +42,7 @@ export async function getPublicMenuByTypeSlug(typeSlug: string): Promise<{
   comboItem: MenuItem | null;
 }> {
   "use cache";
-  cacheLife("days");
+  cacheLife("max");
   cacheTag("menu-types");
   cacheTag(`menu-type-${typeSlug}`);
 
@@ -102,7 +102,7 @@ export async function getPublicMenuByTypeSlug(typeSlug: string): Promise<{
  */
 export async function getPublicExtras(): Promise<Extra[]> {
   "use cache";
-  cacheLife("days");
+  cacheLife("max");
   cacheTag("extras");
 
   return await db.query.extras.findMany({

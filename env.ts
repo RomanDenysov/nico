@@ -5,6 +5,7 @@ const EnvSchema = z.object({
   PROJECT_DOMAIN: z.string().min(1).default("presov"),
   DATABASE_URL: z.string().min(1),
   ADMIN_PASSWORD: z.string().min(8),
+  NEXT_PUBLIC_APP_URL: z.string().url().default("https://www.nicopresov.sk"),
 });
 
 type Env = z.infer<typeof EnvSchema>;

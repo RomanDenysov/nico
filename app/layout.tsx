@@ -1,29 +1,24 @@
+/** biome-ignore-all lint/security/noDangerouslySetInnerHtml: Using safeJsonLdStringify to safely stringify the JSON-LD data */
 import { Analytics } from "@vercel/analytics/next";
-import type { Metadata } from "next";
 
 import type { CSSProperties, ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import {
+  defaultMetadata,
+  getOrganizationJsonLd,
+  getWebSiteJsonLd,
+  safeJsonLdStringify,
+} from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 import { fonts } from "./fonts";
 
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "NICO CAFFÉ | Prešov",
-  description:
-    "Dlhý brunch, výberová káva, kváskový chlieb a menu, na ktorom ochutnáte zo všetkého trochu - tradičné jedlá v modernom šate, streetfood aj pan asiu. Byť svetoví aj v Prešove, to je heslo, ktorým sa snažíme neustále posúvať vpred.",
-  alternates: {
-    canonical: "https://nico.sk",
-    languages: {
-      sk: "sk-SK",
-    },
-    media: {
-      "image/png": "https://nico.sk/images/logo.png",
-    },
-  },
+export const metadata = {
+  ...defaultMetadata,
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -43,6 +38,20 @@ export default function RootLayout({
 }>) {
   return (
     <html className={cn(fonts)} lang="sk">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: safeJsonLdStringify(getOrganizationJsonLd()),
+          }}
+          type="application/ld+json"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: safeJsonLdStringify(getWebSiteJsonLd()),
+          }}
+          type="application/ld+json"
+        />
+      </head>
       <body
         className="scroll-snap-y-mandatory relative min-h-screen snap-center bg-background"
         style={

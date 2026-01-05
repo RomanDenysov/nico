@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ComboMenuCard } from "@/components/combo-menu-card";
 import { Container } from "@/components/container";
 import { Extras } from "@/components/extras";
@@ -8,7 +9,31 @@ import {
   getPublicExtras,
   getPublicMenuByTypeSlug,
 } from "@/features/public-menu/queries";
+import { getMenuJsonLd, safeJsonLdStringify, siteConfig } from "@/lib/seo";
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: "Raňajky",
+  description:
+    "Dlhý brunch v NICO CAFFÉ - výberová káva, kváskový chlieb a raňajkové menu. Denne 07:00 - 11:00.",
+  alternates: {
+    canonical: "/ranajky",
+  },
+  openGraph: {
+    title: `Raňajky | ${siteConfig.name}`,
+    description:
+      "Dlhý brunch v NICO CAFFÉ - výberová káva, kváskový chlieb a raňajkové menu.",
+    url: `${siteConfig.url}/ranajky`,
+    images: [
+      {
+        url: `${siteConfig.url}/images/breakfast.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "NICO CAFFÉ Raňajky",
+      },
+    ],
+  },
+};
 
 export default async function RanajkyPage() {
   const menuData = await getPublicMenuByTypeSlug("ranajky");
@@ -19,8 +44,19 @@ export default async function RanajkyPage() {
     (cat) => !cat.items.some((item) => item.isComboMenu)
   );
 
+  const jsonLd = getMenuJsonLd(
+    `${menuData.type.name} - ${siteConfig.name}`,
+    "Raňajkové menu - dlhý brunch, výberová káva a kváskový chlieb",
+    menuData.categories
+  );
+
   return (
     <Container className="min-h-screen py-12">
+      <script
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: Using safeJsonLdStringify to safely stringify the JSON-LD data
+        dangerouslySetInnerHTML={{ __html: safeJsonLdStringify(jsonLd) }}
+        type="application/ld+json"
+      />
       <FadeContainer className="space-y-5 md:space-y-10">
         <Tilt
           className={cn("group relative size-full")}
