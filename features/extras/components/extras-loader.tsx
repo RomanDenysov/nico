@@ -8,7 +8,7 @@ async function ExtrasData() {
   const extras = await getExtras();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 p-6">
       <div className="flex items-center justify-between">
         <h1 className="font-semibold text-2xl">Extras</h1>
         <CreateExtraDialog />
