@@ -1,0 +1,1 @@
+ALTER TABLE "presov_menu_items" ADD COLUMN "is_combo_menu" boolean DEFAULT false NOT NULL;

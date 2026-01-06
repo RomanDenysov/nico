@@ -2,11 +2,11 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { Tilt } from "@/components/ui/tilt";
 import { cn } from "@/lib/utils";
 
-type MenuCombo = {
+interface MenuCombo {
   name: string;
   price: string;
-  description: string;
-};
+  description?: string | null;
+}
 
 export function ComboMenuCard({
   item,
@@ -18,7 +18,7 @@ export function ComboMenuCard({
   return (
     <Tilt
       className={cn(
-        "group relative size-full rounded-4xl border-2 border-transparent bg-gradient-to-l from-brand/20 to-brand/15 p-6 shadow-2xl drop-shadow-2xl backdrop-blur-sm",
+        "group relative size-full rounded-4xl border-2 border-transparent bg-linear-to-l from-brand/20 to-brand/15 p-6 shadow-2xl drop-shadow-2xl backdrop-blur-sm",
         className
       )}
       isRevese
@@ -48,9 +48,11 @@ export function ComboMenuCard({
             {item.price}
           </span>
         </div>
-        <p className="max-w-[80%] text-muted-foreground text-sm leading-none">
-          {item.description}
-        </p>
+        {item.description && (
+          <p className="max-w-[80%] text-muted-foreground text-sm leading-none">
+            {item.description}
+          </p>
+        )}
       </div>
     </Tilt>
   );

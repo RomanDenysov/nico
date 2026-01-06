@@ -1,12 +1,12 @@
 import Image, { type StaticImageData } from "next/image";
 import { Card, CardHeader, CardTitle } from "./ui/card";
 
-type CategoryWithImage = {
-  id: string;
+interface CategoryWithImage {
+  id: string | number;
   title: string;
-  image: StaticImageData;
+  image: string | StaticImageData;
   slug: string;
-};
+}
 
 export const CategoryCard = ({ category }: { category: CategoryWithImage }) => (
   <Card className="group/category relative min-h-74 cursor-pointer overflow-hidden rounded-4xl border-brand-foreground border-none bg-brand-foreground">

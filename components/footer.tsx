@@ -1,4 +1,5 @@
 import { MapPinIcon, SendHorizontalIcon } from "lucide-react";
+import type { Route } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { addresses, footerSections } from "@/app/config";
@@ -22,7 +23,7 @@ export function Footer() {
         className={cn(
           "relative overflow-hidden rounded-4xl border border-transparent px-4 py-8 shadow-2xl shadow-black/25 drop-shadow-2xl sm:px-6 md:px-10 md:py-12",
           "transition-all duration-300",
-          "bg-gradient-to-l from-brand/20 to-brand/15 backdrop-blur-sm"
+          "bg-linear-to-l from-brand/20 to-brand/15 backdrop-blur-sm"
         )}
       >
         <Spotlight
@@ -43,7 +44,7 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 {footerSections.socials.items.map((item) => (
                   <Link
-                    href={item.href}
+                    href={item.href as Route}
                     key={item.href}
                     rel="noopener noreferrer"
                     target="_blank"
@@ -87,7 +88,7 @@ export function Footer() {
       </div>
 
       <div className="mx-auto my-4 w-full text-center text-muted-foreground text-xs">
-        {`© ${new Date().getFullYear()} Všetky práva vyhradené pre Kavejo s.r.o.`}
+        {"© 2026 Všetky práva vyhradené pre Kavejo s.r.o."}
       </div>
     </footer>
   );

@@ -1,0 +1,1 @@
+ALTER TABLE "presov_menu_types" ADD COLUMN "image" text;

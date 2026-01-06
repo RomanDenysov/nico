@@ -1,14 +1,20 @@
-import { extras } from "@/app/config";
 import { Badge } from "@/components/ui/badge";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Tilt } from "@/components/ui/tilt";
+import type { Extra } from "@/db/schema";
 import { cn } from "@/lib/utils";
 
-export function Extras({ className }: { className?: string }) {
+export function Extras({
+  extras,
+  className,
+}: {
+  extras: Extra[];
+  className?: string;
+}) {
   return (
     <Tilt
       className={cn(
-        "group relative size-full rounded-4xl border-2 border-transparent bg-gradient-to-b from-brand-foreground/30 to-brand-foreground/10 p-6 shadow-2xl drop-shadow-2xl",
+        "group relative size-full rounded-4xl border-2 border-transparent bg-linear-to-b from-brand-foreground/30 to-brand-foreground/10 p-6 shadow-2xl drop-shadow-2xl",
         className
       )}
       isRevese
@@ -36,7 +42,7 @@ export function Extras({ className }: { className?: string }) {
       </h3>
       <ul className="flex flex-row flex-wrap items-start gap-1.5">
         {extras.map((extra) => (
-          <li key={extra.name + extra.price}>
+          <li key={extra.id}>
             <Badge className="z-10 gap-1" variant="brand">
               <span className="font-medium text-sm text-white leading-tight">
                 {extra.name}

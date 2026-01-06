@@ -1,24 +1,25 @@
 import { MapPinIcon } from "lucide-react";
+import type { Route } from "next";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { Badge } from "./ui/badge";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 
-type Address = {
+interface Address {
   street: string;
   city: string;
   postalCode: string;
   phone: {
     label: string;
-    href: string;
+    href: Route;
   };
   email: {
     label: string;
-    href: string;
+    href: Route;
   };
   image: StaticImageData;
-  map: string;
-};
+  map: Route;
+}
 
 export function AddressFields({ address }: { address: Address }) {
   return (
@@ -34,13 +35,13 @@ export function AddressFields({ address }: { address: Address }) {
         </HoverCardTrigger>
         <Link
           className="underline-offset-4 hover:underline"
-          href={address.phone.href}
+          href={address.phone.href as Route}
         >
           {address.phone.label}
         </Link>
         <Link
           className="underline-offset-4 hover:underline"
-          href={address.email.href}
+          href={address.email.href as Route}
         >
           {address.email.label}
         </Link>
@@ -59,7 +60,12 @@ export function AddressFields({ address }: { address: Address }) {
           />
         </div>
         <div className="absolute right-4 bottom-4 z-10">
-          <Link href={address.map} rel="noopener noreferrer" target="_blank">
+          <Link
+            href={address.map as Route}
+            rel="noopener noreferrer"
+            target="_blank"
+            type="external"
+          >
             <Badge className="px-1" variant="secondary">
               <MapPinIcon className="size-3" />
               Navigovať
